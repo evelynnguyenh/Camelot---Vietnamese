@@ -1,7 +1,7 @@
 package myclassproject.mystorygraph;
 
 //Kiet, Tri, and Hoang
-public final class QuestStoryEntities {
+public final class MyStoryEntities {
 	public static final Characters edmona = new Characters("Edmona", BodyTypes.A, Clothing.Merchant, HairStyle.Long, Colors.Red, 1);
 	public static final Characters garry = new Characters("Garry", BodyTypes.F, Clothing.Noble, HairStyle.Sticky, Colors.Black, 4);
 	public static final Characters delphine = new Characters("Delphine", BodyTypes.E, Clothing.Priest, HairStyle.Ponytail, Colors.Black, 3);
