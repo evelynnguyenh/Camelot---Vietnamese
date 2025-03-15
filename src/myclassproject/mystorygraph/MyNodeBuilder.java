@@ -16,8 +16,10 @@ public class MyNodeBuilder extends NodeBuilder {
 	 * These methods must have a BuilderMethod annotation.
 	 */
 
-	 // Kiet Huynh
 	@BuilderMethod
+
+	// Kiet Huynh
+
     public void rootActions() {
         var root = get(MyNodeLabels.root.toString());
         root.add(new CreateAll(List.of(
@@ -47,5 +49,6 @@ public class MyNodeBuilder extends NodeBuilder {
         .add(new SetCameraFocus(edmona))
         .add(new ShowMenu());
     }
+
 
 }
