@@ -9,7 +9,8 @@ public final class MyStoryEntities {
 	public static final Characters grimspire = new Characters("Grimspire", BodyTypes.B, Clothing.King, HairStyle.Musketeer_Full, Colors.Black, 5);
 	public static final Characters brother = new Characters("Brother", BodyTypes.D, Clothing.Noble, HairStyle.Long, Colors.Black, 5);
 	public static final Characters father = new Characters("Father", BodyTypes.F, Clothing.Noble, HairStyle.Mage_Full, Colors.Black, 5);
-	public static final Place bedroom = new Place("Castle Bedroom", PlaceTypes.CastleBedroom); // where edmona gets abducted
+	public static final Place bedroom1 = new Place("Edmona's Bedroom", PlaceTypes.CastleBedroom); // where edmona gets abducted
+	public static final Place bedroom2 = new Place("Grimspire's Bedroom", PlaceTypes.CastleBedroom); // where grimspire is
 	public static final Place camp = new Place("Home", PlaceTypes.Camp); // edmona runs away when garry is sleeping
 	public static final Place town = new Place("Town", PlaceTypes.City); // edmona runs to after getting out of the forest
 	public static final Place lightforest = new Place("Light Forest", PlaceTypes.ForestPath); // edmona practices light magic
