@@ -12,7 +12,7 @@ public class MainClass {
 		var story = new Story();
 		//Simply call run.
 		story.Run(new QuestGraph());
-		//i love cmps 1600 01
+		//i love cmps 1600 01 huuuuuuuuu
 	}
 
 }
