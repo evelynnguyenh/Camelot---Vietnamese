@@ -25,4 +25,5 @@ public final class MyStoryEntities {
 	public static final Furniture chair = new Furniture(hallway, FurnitureTypes.Chair);
 	public static final Furniture cityDoor = new Furniture(town, FurnitureTypes.RedHouseDoor);
 	public static final Furniture cityExit = new Furniture(town, FurnitureTypes.NorthEnd);
+	public static final Furniture forestEnd = new Furniture(lightforest, FurnitureTypes.WestEnd);
 }
