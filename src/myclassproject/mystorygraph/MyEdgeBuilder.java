@@ -45,8 +45,8 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 	public void Consequence(){
 		var node = get(MyNodeLabels.Consequence.toString());
-		var choice = new PlayerInteraction(ChoiceLabels.TalkToBandit.toString(), edmona, Icons.exit,
-				"Talk to the questgiver.");
+		var choice = new Exit(edmona, forestEnd, true);
+		var nextNode = get(ChoiceLabels.MagicForest.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 }
