@@ -24,6 +24,8 @@ public class MyEdgeBuilder extends NodeBuilder {
 	 * The method should add the edges of the node one by one. 
 	 * These methods must have a BuilderMethod annotation.
 	 */
+
+	//Kiet Huynh
 	@BuilderMethod
 	public void rootEdges(){
 		var root = get(NodeLabels.root.toString());
@@ -43,10 +45,23 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice2, nextNode2));
 	}
 
-	public void Consequence(){
+	public void ConsequenceEdges(){
 		var node = get(MyNodeLabels.Consequence.toString());
 		var choice = new Exit(edmona, forestEnd, true);
 		var nextNode = get(ChoiceLabels.MagicForest.toString());
 		node.add(new Edge(choice, nextNode));
 	}
+	//Hoang Dieu Linh Nguyen
+	public void MagicForestEdges(){
+		var node = get(MyNodeLabels.MagicForest.toString());
+		var choice1 = new DialogChoice("I accept your offer.");
+		var nextNode1 = get(ChoiceLabels.QuentinStudent.toString());
+		node.add(new Edge(choice1, nextNode1));
+
+		var choice2 = new DialogChoice("I cannot leave my family.");
+		var nextNode2 = get(ChoiceLabels.Consequence.toString());
+		node.add(new Edge(choice2, nextNode2));
+	}
+
+
 }

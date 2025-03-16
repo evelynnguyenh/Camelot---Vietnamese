@@ -66,7 +66,7 @@ public class MyNodeBuilder extends NodeBuilder {
 				List.of("I will save your family and pay off the debt... if you agree to become my wife and come with me."), 
 				List.of("I accept your offer.", "I cannot leave my family.")));
 	}
-	
+	// Tri Huynh
 	@BuilderMethod
 	public void AcceptToGoActions() {
 		var node = get(MyNodeLabels.AcceptToGo.toString());
@@ -108,7 +108,7 @@ public class MyNodeBuilder extends NodeBuilder {
         .add(new NarrationSequence("She wakes up in a strange forest the next morning."))
 		.add(new EnableInput());
 	}
-
+    //Hoang Dieu Linh Nguyen
     @BuilderMethod
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
