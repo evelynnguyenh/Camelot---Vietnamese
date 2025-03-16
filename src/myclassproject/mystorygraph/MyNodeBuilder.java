@@ -85,9 +85,6 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new DialogSequence(father, edmona,
 <<<<<<< HEAD
 				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")));
-=======
-				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")
-				List.of("It's time you go with Garry, talk to him darling.")));
 >>>>>>> d17e00990eedafa7f65d2d7529ca179ba74a2c97
 	}
 	

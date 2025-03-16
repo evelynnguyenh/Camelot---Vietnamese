@@ -70,6 +70,8 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 
 	public void AcceptRunEdge(){ // Tri Huynh
+	// Tri Huynh
+	public void AcceptRunEdge(){ 
 		var node = get(MyNodeLabels.AcceptToGo.toString());
 		var interactionChoice = new PlayerInteraction(MyChoiceLabels.TalkToGarry.toString(), garry, Icons.talk, "Ask Garry to finalize the deal."
     );
