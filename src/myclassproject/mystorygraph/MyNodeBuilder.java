@@ -41,7 +41,7 @@ public class MyNodeBuilder extends NodeBuilder {
 
         // position each character
         .add(new SetPosition(edmona, bedroom1))
-        .add(new SetPosition(garry, hallway))
+        .add(new SetPosition(garry, bedroom1))
         .add(new SetPosition(delphine, lightforest))
         .add(new SetPosition(quentin, lightforest))
         .add(new SetPosition(grimspire, bedroom2))
@@ -68,17 +68,12 @@ public class MyNodeBuilder extends NodeBuilder {
 	}
 	
 	@BuilderMethod
-	public void AcceptToGoActions() {
+	public void AcceptToGoActions() { // Tri Huynh
 		var node = get(MyNodeLabels.AcceptToGo.toString());
-		node.add(new NarrationSequence("Garry paid the debt and saved Edmona's family."))
-			.add(new EnableInput())
-			.add(new DialogSequence(edmona, father, 
-				List.of("Father, I must leave with Garry to fulfill our agreement."), 
-				List.of("Take care, my daughter.")))
-			.add(new SetPosition(edmona, camp))
-			.add(new SetPosition(garry, camp))
-			.add(new NarrationSequence("Edmona travels with Garry, feeling a storm of emotions."))
-			.add(new DreamSequence(List.of("Figures warn her: 'Do not trust this man. Run away!'")));
+		node.add(new SetPosition(edmona, hallway))
+			.add(new SetPosition(Garry, hallway))
+			.add(new DialogSequence(father, edmona,
+				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")))
 	}
 	
 	@BuilderMethod
