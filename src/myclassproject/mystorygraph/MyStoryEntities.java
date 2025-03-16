@@ -1,6 +1,7 @@
 package myclassproject.mystorygraph;
 
-//Kiet, Tri, and Hoang
+//Added by Kiet Huynh
+//Consulted by Tri Huynh, and Hoang Dieu Linh Nguyen
 public final class MyStoryEntities {
 	public static final Characters edmona = new Characters("Edmona", BodyTypes.A, Clothing.Merchant, HairStyle.Long, Colors.Red, 1);
 	public static final Characters garry = new Characters("Garry", BodyTypes.F, Clothing.Noble, HairStyle.Sticky, Colors.Black, 4);
@@ -19,9 +20,9 @@ public final class MyStoryEntities {
 	public static final Place library = new Place("Library", PlaceTypes.Library); // edmona learns dark magic
 	public static final Place hallway = new Place("Hallway", PlaceTypes.Hallway); // garry's initial spot
 	public static final Item sword = new Item("Sword", ItemTypes.Sword);
-	public static final Furniture cottageDoor = new Furniture(cottage, FurnitureTypes.Door);
-	public static final Furniture table = new Furniture(cottage, FurnitureTypes.Table);
-	public static final Furniture chair = new Furniture(cottage, FurnitureTypes.Chair);
+	public static final Furniture cottageDoor = new Furniture(hallway, FurnitureTypes.Door);
+	public static final Furniture table = new Furniture(hallway, FurnitureTypes.Table);
+	public static final Furniture chair = new Furniture(hallway, FurnitureTypes.Chair);
 	public static final Furniture cityDoor = new Furniture(town, FurnitureTypes.RedHouseDoor);
 	public static final Furniture cityExit = new Furniture(town, FurnitureTypes.NorthEnd);
 }
