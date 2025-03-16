@@ -143,3 +143,4 @@ public class MyNodeBuilder extends NodeBuilder {
                     "Are you ready to embrace the darkness?"),
             List.of("I am ready, Master Quentin.")))
     }
+}
