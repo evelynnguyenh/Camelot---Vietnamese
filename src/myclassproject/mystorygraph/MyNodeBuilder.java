@@ -68,12 +68,17 @@ public class MyNodeBuilder extends NodeBuilder {
 	}
 	
 	@BuilderMethod
-	public void AcceptToGoActions() { // Tri Huynh
+	public void AcceptToGoActions() {
 		var node = get(MyNodeLabels.AcceptToGo.toString());
-		node.add(new SetPosition(edmona, hallway))
-			.add(new SetPosition(Garry, hallway))
-			.add(new DialogSequence(father, edmona,
-				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")))
+		node.add(new NarrationSequence("Garry paid the debt and saved Edmona's family."))
+			.add(new EnableInput())
+			.add(new DialogSequence(edmona, father, 
+				List.of("Father, I must leave with Garry to fulfill our agreement."), 
+				List.of("Take care, my daughter.")))
+			.add(new SetPosition(edmona, camp))
+			.add(new SetPosition(garry, camp))
+			.add(new NarrationSequence("Edmona travels with Garry, feeling a storm of emotions."))
+			.add(new DreamSequence(List.of("Figures warn her: 'Do not trust this man. Run away!'")));
 	}
 	
 	@BuilderMethod
@@ -104,6 +109,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new EnableInput());
 	}
 
+    @BuilderMethod
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
         node.add(.add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."))
@@ -118,4 +124,17 @@ public class MyNodeBuilder extends NodeBuilder {
 			List.of("Come with me, and I will teach you the greatest power in the world."),
             List.of("I am ready to learn light magic.", "I am ready to learn dark magic.")));
 
+    }
+
+    @BuilderMethod
+    public void QuentinStudentActions() {
+    var node = get(MyNodeLabels.QuentinStudent.toString());
+    node.add(new NarrationSequence("Edmona has officially become Quentin's apprentice."))
+        .add(new SetPosition(quentin, darkforest))
+        .add(new SetPosition(edmona, darkforest))
+        .add(new NarrationSequence("The air around her feels heavier, charged with dark energy as she takes her first step into the path of forbidden magic."))
+        .add(new DialogSequence(quentin, edmona, 
+            List.of("Now, you belong to the shadows. Your past pain will be your greatest weapon.", 
+                    "Are you ready to embrace the darkness?"),
+            List.of("I am ready, Master Quentin.")))
     }
