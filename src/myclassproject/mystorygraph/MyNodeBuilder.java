@@ -56,7 +56,9 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void BeginningSceneActions() {
 		var node = get(MyNodeLabels.BeginningScene.toString());
-		node.add(new DialogSequence(grimspire, edmona, 
+		node.add(new HideMenu())
+			.add(new EnableInput())
+			.add(new DialogSequence(grimspire, edmona, 
 				List.of("Your brother and father have been accused of embezzlement. They will be executed unless the stolen amount is repaid."), 
 				List.of("This can't be true! We will find a way to repay the debt.")))
 			.add(new NarrationSequence("The amount is too grand for Edmona's family to repay."))
@@ -69,6 +71,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void AcceptToGoActions() {
 		var node = get(MyNodeLabels.AcceptToGo.toString());
 		node.add(new NarrationSequence("Garry paid the debt and saved Edmona's family."))
+			.add(new EnableInput())
 			.add(new DialogSequence(edmona, father, 
 				List.of("Father, I must leave with Garry to fulfill our agreement."), 
 				List.of("Take care, my daughter.")))
@@ -84,7 +87,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new NarrationSequence("Garry betrayed Edmona, selling her as a servant."))
 			.add(new DialogSequence(edmona, garry, 
 				List.of("You lied to me! I will not live this way."), 
-				List.of("Run away!")))
+				List.of("Don't you run away!")))
 			.add(new SetPosition(edmona, lightforest))
 			.add(new NarrationSequence("Edmona ran for days, hiding in the forest."))
 			.add(new DialogSequence(delphine, edmona, 
@@ -103,11 +106,14 @@ public class MyNodeBuilder extends NodeBuilder {
             List.of()))
         .add(new SetPosition(edmona, lightforest))
         .add(new NarrationSequence("She wakes up in a strange forest the next morning."))
+		.add(new EnableInput());
+	}
+
         .add(new DialogSequence(delphine, quentin, edmona, 
             List.of("You have great potential. Let me teach you."), 
 			List.of("Come with me and you shall have the greatest power in the world."),
             List.of("I am ready to learn light magic.", "I am ready to learn dark magic.")));
-	}
+	
 }
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
