@@ -54,6 +54,6 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.AcceptToGo.toString());
 		var interactionChoice = new PlayerInteraction(MyChoiceLabels.TalkToGarry.toString(), garry, Icons.talk, "Ask Garry to finalize the deal."
     );
-    node.add(new Edge(interactionChoice, RunAway));
+    	node.add(new Edge(interactionChoice, RunAway));
 	}
 }
