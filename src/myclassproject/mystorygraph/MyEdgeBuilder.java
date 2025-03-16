@@ -34,6 +34,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		root.add(new Edge(choice, nextNode));
 	}
 
+	@BuilderMethod
 	public void BeginningSceneEdges(){
 		var node = get(MyNodeLabels.BeginningScene.toString());
 		var choice1 = new DialogChoice("I accept your offer.");
@@ -45,6 +46,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice2, nextNode2));
 	}
 
+	@BuilderMethod
 	public void ConsequenceEdges(){
 		var node = get(MyNodeLabels.Consequence.toString());
 		var choice = new PlayerInteraction(ChoiceLabels.Exit.toString(), edmona, Icons.exit,
@@ -53,6 +55,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice, nextNode));
 	}
 	//Hoang Dieu Linh Nguyen
+	@BuilderMethod
 	public void MagicForestEdges(){
 		var node = get(MyNodeLabels.MagicForest.toString());
 		var choice1 = new DialogChoice("I will embrace the darkness and follow you, Quentin.");
@@ -67,10 +70,34 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 
 	// Tri Huynh
+	@BuilderMethod
 	public void AcceptRunEdge(){ 
 		var node = get(MyNodeLabels.AcceptToGo.toString());
 		var interactionChoice = new PlayerInteraction(MyChoiceLabels.TalkToGarry.toString(), garry, Icons.talk, "Ask Garry to finalize the deal."
     );
     	node.add(new Edge(interactionChoice, RunAway));
+	}
+
+	@BuilderMethod
+	public void runAwayEdges() {
+		var node = get(MyNodeLabels.RunAway.toString());
+		var nextNode = get(MyNodeLabels.DelphineTalk.toString());
+
+		var meetDelphine = new PlayerInteraction(
+			MyChoiceLabels.TalkToDelphin.toString(),
+			delphine,
+			Icons.talk,
+			"Talk to the strange woman."
+		);
+
+		node.add(new Edge(meetDelphine, nextNode));
+	}
+
+	@BuilderMethod
+	public void delphineTalkEdge() {
+		var node = get(MyNodeLabels.DelphineTalk.toString());
+		var studentNode = get(MyNodeLabels.DelphineStudent.toString());
+		var acceptHelp = new DialogChoice("Please, teach me. I need your help!");
+		node.add(new Edge(acceptHelp, studentNode));
 	}
 }

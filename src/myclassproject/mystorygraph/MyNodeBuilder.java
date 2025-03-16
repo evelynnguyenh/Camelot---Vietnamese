@@ -123,10 +123,11 @@ public class MyNodeBuilder extends NodeBuilder {
 	}
 
 	@BuilderMethod
-	public void RunAwayActions() { // Tri Huynh
+	public void RunAwayActions() {
 		var node = get(MyNodeLabels.RunAway.toString());
 		node.add(SetPosition(edmona, camp))
 			.add(SetPosition(garry, camp))
+			.add(SetPosition(delphine, camp))
 			.add(new DialogSequence(garry, edmona,
 				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA")
 				List.of("I will take a nap, then I will bring you to Grimspire Castle to become a servant!")))
@@ -134,4 +135,40 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new NarrationSequence("I have to run!"))
 			.add(new EnableInput());
 	}
+
+	@BuilderMethod
+	public void DelphineTalkActions() {
+		var node = get(MyNodeLabels.DelphineTalk.toString());
+		
+		node.add(
+			new DisableInput(),
+			new DialogSequence(
+				delphine,
+				edmona,
+				List.of(
+					"Oh you poor thing, I've been watching you from afar! I can help you, my name is Delphine.",
+					"I practice the magic of light. If you become my student, I will teach you in my discipline."
+				),
+				List.of("Please, teach me. I need your help!")
+			),
+			new EnableInput()
+		);
+}
+
+	@BuilderMethod
+	public void DelphineStudent() {
+		var node = get(MyNodeLabels.DelphineStudent.toString());
+		node.add(new NarrationSequence("Edmona has officially become Delphine's student."))
+			.add(new SetPosition(delphine, lightforest))
+			.add(new SetPosition(edmona, lightforest))
+			.add(new NarrationSequence("Soft sunlight filters through towering trees, and the forest hums with gentle magic. Delphine stands beside Edmona."))
+			.add(new DialogSequence(quentin, edmona,
+				List.of(
+					"Welcome to this sacred glade. Your compassion will guide your magic here.",
+					"Are you ready to learn for the good of all?"
+				),
+				List.of("Yes, Master Quentin, I am ready.")
+			));
+	}
+
 }
