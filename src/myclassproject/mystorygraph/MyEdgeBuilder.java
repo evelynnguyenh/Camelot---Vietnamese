@@ -6,6 +6,7 @@ import com.storygraph.BuilderMethod;
 import com.storygraph.Node;
 import com.storygraph.NodeBuilder;
 
+import myclassproject.questexample.ChoiceLabels;
 import myclassproject.questexample.NodeLabels;
 
 public class MyEdgeBuilder extends NodeBuilder {
@@ -27,29 +28,25 @@ public class MyEdgeBuilder extends NodeBuilder {
 	public void rootEdges(){
 		var root = get(NodeLabels.root.toString());
 		var choice = new MenuChoice(MenuChoice.Options.Start);
-		var nextNode = get(NodeLabels.BeginningScene.toString());
+		var nextNode = get(ChoiceLabels.BeginningScene.toString());
 		root.add(new Edge(choice, nextNode));
 	}
 
 	public void BeginningSceneEdges(){
 		var node = get(MyNodeLabels.BeginningScene.toString());
 		var choice1 = new DialogChoice("I accept your offer.");
-		var nextNode1 = get(NodeLabels.AcceptToGo.toString());
+		var nextNode1 = get(ChoiceLabels.AcceptToGo.toString());
 		node.add(new Edge(choice1, nextNode1));
 
 		var choice2 = new DialogChoice("I cannot leave my family.");
-		var nextNode2 = get(NodeLabels.Consequence.toString());
+		var nextNode2 = get(ChoiceLabels.Consequence.toString());
 		node.add(new Edge(choice2, nextNode2));
 	}
 
 	public void Consequence(){
 		var node = get(MyNodeLabels.Consequence.toString());
-		var choice1 = new DialogChoice("I am ready to learn light magic.");
-		var nextNode1 = get(NodeLabels.AcceptToGo.toString());
-		node.add(new Edge(choice1, nextNode1));
-
-		var choice2 = new DialogChoice("I cannot leave my family.");
-		var nextNode2 = get(NodeLabels.Consequence.toString());
-		node.add(new Edge(choice2, nextNode2));
+		var choice = new PlayerInteraction(ChoiceLabels.TalkToBandit.toString(), edmona, Icons.exit,
+				"Talk to the questgiver.");
+		node.add(new Edge(choice, nextNode));
 	}
 }

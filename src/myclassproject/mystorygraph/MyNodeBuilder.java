@@ -29,7 +29,7 @@ public class MyNodeBuilder extends NodeBuilder {
 
     public void rootActions() {
         var root = get(MyNodeLabels.root.toString());
-        root.add(new CreateAll(List.of(bedroom1, bedroom2, camp, town, lightforest, darkforest, ruins, library, hallway, sword, cottageDoor, table, chair, cityDoor, cityExit)))
+        root.add(new CreateAll(List.of(bedroom1, bedroom2, camp, town, lightforest, darkforest, ruins, library, hallway, sword, cottageDoor, table, chair, cityDoor, cityExit, forestEnd)))
 		// initiating each character
         .add(new CreateCharacterSequence(edmona))
         .add(new CreateCharacterSequence(garry))
