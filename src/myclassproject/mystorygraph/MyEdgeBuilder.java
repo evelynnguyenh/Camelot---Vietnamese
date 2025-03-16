@@ -44,6 +44,6 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 	public void Consequence(){
 		var node = get(MyNodeLabels.Consequence.toString());
-		
+
 	}
 }
