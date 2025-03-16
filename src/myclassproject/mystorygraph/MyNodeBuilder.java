@@ -10,6 +10,7 @@ import static myclassproject.questexample.QuestStoryEntities.table;
 import java.util.List;
 
 import com.storygraph.*;
+import javax.smartcardio.CardPermission;
 
 public class MyNodeBuilder extends NodeBuilder {
 	public MyNodeBuilder(List<Node> list) {
@@ -66,26 +67,6 @@ public class MyNodeBuilder extends NodeBuilder {
 				List.of("I will save your family and pay off the debt... if you agree to become my wife and come with me."), 
 				List.of("I accept your offer.", "I cannot leave my family.")));
 	}
-	// Tri Huynh
-	@BuilderMethod
-	public void AcceptToGoActions() {
-		var node = get(MyNodeLabels.AcceptToGo.toString());
-		node.add(new SetPosition(edmona, hallway))
-			.add(new SetPosition(Garry, hallway))
-			.add(new DialogSequence(father, edmona,
-				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")
-				List.of("It's time you go with Garry, talk to him darling.")));
-	}
-
-	@BuilderMethod
-	public void RunAwayActions() { // Tri Huynh
-		var node = get(MyNodeLabels.RunAway.toString());
-		node.add(SetPosition(edmona, camp))
-			.add(SetPosition(garry, camp))
-			.add(new DialogSequence(garry, edmona,
-			List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA")
-			List.of("I will take a nap, then I will bring you to Grimspire Castle to become a servant!")));
-	}
 
     @BuilderMethod
     public void ConsequenceActions() {
@@ -129,4 +110,28 @@ public class MyNodeBuilder extends NodeBuilder {
                     "Are you ready to embrace the darkness?"),
             List.of("I am ready, Master Quentin.")))
     }
+
+	// Tri Huynh
+	@BuilderMethod
+	public void AcceptToGoActions() {
+		var node = get(MyNodeLabels.AcceptToGo.toString());
+		node.add(new SetPosition(edmona, hallway))
+			.add(new SetPosition(Garry, hallway))
+			.add(new DialogSequence(father, edmona,
+				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")
+				List.of("It's time you go with Garry, talk to him darling.")));
+	}
+
+	@BuilderMethod
+	public void RunAwayActions() { // Tri Huynh
+		var node = get(MyNodeLabels.RunAway.toString());
+		node.add(SetPosition(edmona, camp))
+			.add(SetPosition(garry, camp))
+			.add(new DialogSequence(garry, edmona,
+				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA")
+				List.of("I will take a nap, then I will bring you to Grimspire Castle to become a servant!")))
+			.add(Sleep(garry, camp.Log))
+			.add(new NarrationSequence("I have to run!"))
+			.add(new EnableInput());
+	}
 }
