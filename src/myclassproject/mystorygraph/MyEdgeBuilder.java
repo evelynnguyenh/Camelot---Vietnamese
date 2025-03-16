@@ -26,27 +26,28 @@ public class MyEdgeBuilder extends NodeBuilder {
 	 */
 	@BuilderMethod
 	public void rootEdges(){
-		var root = get(NodeLabels.root.toString());
+		var root = get(MyNodeLabels.root.toString());
 		var choice = new MenuChoice(MenuChoice.Options.Start);
-		var nextNode = get(ChoiceLabels.BeginningScene.toString());
+		var nextNode = get(MyNodeLabels.BeginningScene.toString());
 		root.add(new Edge(choice, nextNode));
 	}
 
 	public void BeginningSceneEdges(){
 		var node = get(MyNodeLabels.BeginningScene.toString());
 		var choice1 = new DialogChoice("I accept your offer.");
-		var nextNode1 = get(ChoiceLabels.AcceptToGo.toString());
+		var nextNode1 = get(MyNodeLabels.AcceptToGo.toString());
 		node.add(new Edge(choice1, nextNode1));
 
 		var choice2 = new DialogChoice("I cannot leave my family.");
-		var nextNode2 = get(ChoiceLabels.Consequence.toString());
+		var nextNode2 = get(MyNodeLabels.Consequence.toString());
 		node.add(new Edge(choice2, nextNode2));
 	}
 
 	public void Consequence(){
 		var node = get(MyNodeLabels.Consequence.toString());
-		var choice = new Exit(edmona, forestEnd, true);
-		var nextNode = get(ChoiceLabels.MagicForest.toString());
+		var choice = new PlayerInteraction(ChoiceLabels.Exit.toString(), edmona, Icons.exit,
+				forestEnd);
+		var nextNode = get(MyNodeLabels.MagicForest.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 }
