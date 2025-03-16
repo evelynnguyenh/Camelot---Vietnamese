@@ -83,9 +83,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new SetPosition(edmona, hallway))
 			.add(new SetPosition(Garry, hallway))
 			.add(new DialogSequence(father, edmona,
-<<<<<<< HEAD
 				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")));
->>>>>>> d17e00990eedafa7f65d2d7529ca179ba74a2c97
 	}
 	
 	@BuilderMethod

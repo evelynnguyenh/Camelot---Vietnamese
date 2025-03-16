@@ -68,8 +68,6 @@ public class MyEdgeBuilder extends NodeBuilder {
 	}
 
 
-
-	public void AcceptRunEdge(){ // Tri Huynh
 	// Tri Huynh
 	public void AcceptRunEdge(){ 
 		var node = get(MyNodeLabels.AcceptToGo.toString());
