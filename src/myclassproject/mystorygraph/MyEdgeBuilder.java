@@ -28,7 +28,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	//Kiet Huynh
 	@BuilderMethod
 	public void rootEdges(){
-		var root = get(NodeLabels.root.toString());
+		var node = get(NodeLabels.root.toString());
 		var choice = new MenuChoice(MenuChoice.Options.Start);
 		var nextNode = get(ChoiceLabels.BeginningScene.toString());
 		root.add(new Edge(choice, nextNode));
@@ -64,4 +64,11 @@ public class MyEdgeBuilder extends NodeBuilder {
 	}
 
 
+
+	public void AcceptRunEdge(){ // Tri Huynh
+		var node = get(MyNodeLabels.AcceptToGo.toString());
+		var interactionChoice = new PlayerInteraction(MyChoiceLabels.TalkToGarry.toString(), garry, Icons.talk, "Ask Garry to finalize the deal."
+    );
+    	node.add(new Edge(interactionChoice, RunAway));
+	}
 }
