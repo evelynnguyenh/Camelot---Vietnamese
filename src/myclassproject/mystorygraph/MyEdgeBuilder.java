@@ -44,12 +44,6 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 	public void Consequence(){
 		var node = get(MyNodeLabels.Consequence.toString());
-		var choice1 = new DialogChoice("I am ready to learn light magic.");
-		var nextNode1 = get(NodeLabels.AcceptToGo.toString());
-		node.add(new Edge(choice1, nextNode1));
-
-		var choice2 = new DialogChoice("I cannot leave my family.");
-		var nextNode2 = get(NodeLabels.Consequence.toString());
-		node.add(new Edge(choice2, nextNode2));
+		
 	}
 }
