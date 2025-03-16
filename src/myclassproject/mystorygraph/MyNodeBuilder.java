@@ -108,13 +108,7 @@ public class MyNodeBuilder extends NodeBuilder {
         .add(new NarrationSequence("She wakes up in a strange forest the next morning."))
 		.add(new EnableInput());
 	}
-
-        .add(new DialogSequence(delphine, quentin, edmona, 
-            List.of("You have great potential. Let me teach you."), 
-			List.of("Come with me and you shall have the greatest power in the world."),
-            List.of("I am ready to learn light magic.", "I am ready to learn dark magic.")));
-	
-}
+    
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
         node.add(.add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."))
