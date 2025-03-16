@@ -69,36 +69,22 @@ public class MyNodeBuilder extends NodeBuilder {
 	// Tri Huynh
 	@BuilderMethod
 	public void AcceptToGoActions() {
-	public void AcceptToGoActions() { // Tri Huynh
 		var node = get(MyNodeLabels.AcceptToGo.toString());
-		node.add(new NarrationSequence("Garry paid the debt and saved Edmona's family."))
-			.add(new EnableInput())
-			.add(new DialogSequence(edmona, father, 
-				List.of("Father, I must leave with Garry to fulfill our agreement."), 
-				List.of("Take care, my daughter.")))
-			.add(new SetPosition(edmona, camp))
-			.add(new SetPosition(garry, camp))
-			.add(new NarrationSequence("Edmona travels with Garry, feeling a storm of emotions."))
-			.add(new DreamSequence(List.of("Figures warn her: 'Do not trust this man. Run away!'")));
 		node.add(new SetPosition(edmona, hallway))
 			.add(new SetPosition(Garry, hallway))
 			.add(new DialogSequence(father, edmona,
-				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")));
+				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")
+				List.of("It's time you go with Garry, talk to him darling.")));
 	}
-	
+
 	@BuilderMethod
-	public void RunAwayActions() {
+	public void RunAwayActions() { // Tri Huynh
 		var node = get(MyNodeLabels.RunAway.toString());
-		node.add(new NarrationSequence("Garry betrayed Edmona, selling her as a servant."))
-			.add(new DialogSequence(edmona, garry, 
-				List.of("You lied to me! I will not live this way."), 
-				List.of("Don't you run away!")))
-			.add(new SetPosition(edmona, lightforest))
-			.add(new NarrationSequence("Edmona ran for days, hiding in the forest."))
-			.add(new DialogSequence(delphine, edmona, 
-				List.of("I am Delphine, a master of light magic. I will take you as my student."), 
-				List.of("I accept your guidance.")))
-			.add(new NarrationSequence("Edmona begins her training with Delphine."));
+		node.add(SetPosition(edmona, camp))
+			.add(SetPosition(garry, camp))
+			.add(new DialogSequence(garry, edmona,
+			List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA")
+			List.of("I will take a nap, then I will bring you to Grimspire Castle to become a servant!")));
 	}
 
     @BuilderMethod
