@@ -117,5 +117,16 @@ public class MyNodeBuilder extends NodeBuilder {
 }
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
+        node.add(.add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."))
+        .add(new SetCameraMode(quentin))
+        .add(new NarrationSequence("Quentin, a master of dark magic, promises to help her take revenge and revive her beloved brother and father within a blink of an eye."))
+        .add(new SetCameraMode(delphine))
+        .add(new NarrationSequence("Delphine, a kindhearted witch who only employs light magic, promises to give her the power to change the rotten society she was born into.")))
         
+        
+        .add(new DialogSequence(delphine, quentin,edmona,
+            List.of("I can give you power beyond imagination.", "You have potential, but the choice is yours."), 
+			List.of("Come with me, and I will teach you the greatest power in the world."),
+            List.of("I am ready to learn light magic.", "I am ready to learn dark magic.")));
+
     }
