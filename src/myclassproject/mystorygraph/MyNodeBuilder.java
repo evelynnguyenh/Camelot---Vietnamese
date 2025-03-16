@@ -115,3 +115,7 @@ public class MyNodeBuilder extends NodeBuilder {
             List.of("I am ready to learn light magic.", "I am ready to learn dark magic.")));
 	
 }
+    public void MagicForestActions() {
+        var node = get(MyNodeLabels.MagicForest.toString());
+        
+    }
