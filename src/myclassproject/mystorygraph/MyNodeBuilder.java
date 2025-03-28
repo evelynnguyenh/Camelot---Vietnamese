@@ -1,15 +1,16 @@
 package myclassproject.mystorygraph;
 
-import static myclassproject.questexample.QuestStoryEntities.chair;
-import static myclassproject.questexample.QuestStoryEntities.cityDoor;
-import static myclassproject.questexample.QuestStoryEntities.cityExit;
-import static myclassproject.questexample.QuestStoryEntities.cottageDoor;
-import static myclassproject.questexample.QuestStoryEntities.sword;
-import static myclassproject.questexample.QuestStoryEntities.table;
+import myclassproject.mystorygraph.MyChoiceLabels;
+import myclassproject.mystorygraph.MyNodeLabels;
+
+import static myclassproject.mystorygraph.MyStoryEntities.*;
 
 import java.util.List;
 
+import com.actions.*;
+import com.sequences.*;
 import com.storygraph.*;
+
 import javax.smartcardio.CardPermission;
 
 public class MyNodeBuilder extends NodeBuilder {
@@ -71,7 +72,7 @@ public class MyNodeBuilder extends NodeBuilder {
     @BuilderMethod
     public void ConsequenceActions() {
         var node = get(MyNodeLabels.Consequence.toString());
-		node.add(new NarrationSequence("Unable to repay the debt, Edmona's brother and father are executed."))
+		node.add(new HideDialog()).add(new NarrationSequence("Unable to repay the debt, Edmona's brother and father are executed."))
         .add(new NarrationSequence("Royal guards storm the castle, trying to capture Edmona."))
         .add(new DialogSequence(edmona, null, 
             List.of("I must escape now!"), 
@@ -84,7 +85,7 @@ public class MyNodeBuilder extends NodeBuilder {
     @BuilderMethod
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
-        node.add(.add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."))
+        node.add(new HideDialog()).add(.add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."))
         .add(new SetCameraMode(quentin))
         .add(new NarrationSequence("Quentin, a master of dark magic, promises to help her take revenge and revive her beloved brother and father within a blink of an eye."))
         .add(new SetCameraMode(delphine))
@@ -101,7 +102,7 @@ public class MyNodeBuilder extends NodeBuilder {
     @BuilderMethod
     public void QuentinStudentActions() {
     var node = get(MyNodeLabels.QuentinStudent.toString());
-    node.add(new NarrationSequence("Edmona has officially become Quentin's apprentice."))
+    node.add(new HideDialog()).add(new NarrationSequence("Edmona has officially become Quentin's apprentice."))
         .add(new SetPosition(quentin, darkforest))
         .add(new SetPosition(edmona, darkforest))
         .add(new NarrationSequence("The air around her feels heavier, charged with dark energy as she takes her first step into the path of forbidden magic."))
@@ -115,7 +116,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void AcceptToGoActions() {
 		var node = get(MyNodeLabels.AcceptToGo.toString());
-		node.add(new SetPosition(edmona, hallway))
+		node.add(new HideDialog()).add(new SetPosition(edmona, hallway))
 			.add(new SetPosition(Garry, hallway))
 			.add(new DialogSequence(father, edmona,
 				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")
@@ -125,7 +126,8 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void RunAwayActions() {
 		var node = get(MyNodeLabels.RunAway.toString());
-		node.add(SetPosition(edmona, camp))
+		node.add(new HideDialog())
+			.add(SetPosition(edmona, camp))
 			.add(SetPosition(garry, camp))
 			.add(SetPosition(delphine, camp))
 			.add(new DialogSequence(garry, edmona,
@@ -133,6 +135,7 @@ public class MyNodeBuilder extends NodeBuilder {
 				List.of("I will take a nap, then I will bring you to Grimspire Castle to become a servant!")))
 			.add(Sleep(garry, camp.Log))
 			.add(new NarrationSequence("I have to run!"))
+			.add(new HideDialog())
 			.add(new EnableInput());
 	}
 
@@ -158,7 +161,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void DelphineStudent() {
 		var node = get(MyNodeLabels.DelphineStudent.toString());
-		node.add(new NarrationSequence("Edmona has officially become Delphine's student."))
+		node.add(new HideDialog()).add(new NarrationSequence("Edmona has officially become Delphine's student."))
 			.add(new SetPosition(delphine, lightforest))
 			.add(new SetPosition(edmona, lightforest))
 			.add(new NarrationSequence("Soft sunlight filters through towering trees, and the forest hums with gentle magic. Delphine stands beside Edmona."))

@@ -1,13 +1,18 @@
 package myclassproject.mystorygraph;
 
+import myclassproject.mystorygraph.MyChoiceLabels;
+import myclassproject.mystorygraph.MyNodeLabels;
+
+import static myclassproject.mystorygraph.MyStoryEntities.*;
+
 import java.util.List;
 
+import com.playerInput.*;
+import com.playerInput.PlayerInteraction.Icons;
 import com.storygraph.BuilderMethod;
-import com.storygraph.Node;
+import com.storygraph.Edge;
 import com.storygraph.NodeBuilder;
-
-import myclassproject.questexample.ChoiceLabels;
-import myclassproject.questexample.NodeLabels;
+import com.storygraph.Node;
 
 public class MyEdgeBuilder extends NodeBuilder {
 	/**
