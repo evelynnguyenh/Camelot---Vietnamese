@@ -127,7 +127,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void RunAwayActions() {
 		var node = get(MyNodeLabels.RunAway.toString());
 		node.add(new HideDialog())
-			.add(SetPosition(edmona, camp))
+			.add(SetPosition(edmona, camp, "LeftLog"))
 			.add(SetPosition(garry, camp))
 			.add(SetPosition(delphine, camp))
 			.add(new DialogSequence(garry, edmona,
