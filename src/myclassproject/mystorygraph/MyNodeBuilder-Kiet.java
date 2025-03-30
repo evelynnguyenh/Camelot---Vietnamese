@@ -69,3 +69,25 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new EnableInput());
 	}
 	
+	@BuilderMethod
+	public void ascensionAndRestorationActions() {
+		var node = get(MyNodeLabels.AscensionAndRestoration.toString());
+	
+		node.add(new SetPosition(edmona, hallway)) 
+			.add(new NarrationSequence("Edmona ascends the throne of Magna Vietia, her journey of struggle and sacrifice culminating in the crown."))
+			.add(new NarrationSequence("As Queen, she works tirelessly to rebuild the fractured kingdom, blending wisdom and grace into her rule."))
+			.add(new NarrationSequence("Her reign is marked by fairness and compassion, striving to heal the wounds left by House Grimpshire."))
+			.add(new NarrationSequence("Edmona begins to restore hope to her people, rebuilding the kingdom with determination."))
+			.add(new EnableInput())
+			.add(new SetPosition(edmona, town))
+			.add(new Face(edmona, noble1))
+			.add(new DialogSequence(edmona, noble1, 
+            	List.of("We need to restore our economy and trade routes. Your expertise will be vital."), 
+            	List.of("I will help, Your Majesty. The kingdom’s prosperity must come first."))
+        	)
+			.add(new NarrationSequence("Edmona works closely with her trusted nobles, putting plans into action to restore the kingdom."))
+			.add(new DanceTogether(edmona, noble1))
+			.add(new DanceTogether(noble2, noble3))
+			.add(new DanceTogether(noble4, noble5));
+	}
+	
