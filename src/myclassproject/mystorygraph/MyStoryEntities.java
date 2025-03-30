@@ -1,5 +1,7 @@
 package myclassproject.mystorygraph;
 
+import javax.xml.stream.events.Characters;
+
 //Added by Kiet Huynh
 //Consulted by Tri Huynh, and Hoang Dieu Linh Nguyen
 public final class MyStoryEntities {
@@ -10,6 +12,11 @@ public final class MyStoryEntities {
 	public static final Characters grimspire = new Characters("Grimspire", BodyTypes.B, Clothing.King, HairStyle.Musketeer_Full, Colors.Black, 5);
 	public static final Characters brother = new Characters("Brother", BodyTypes.D, Clothing.Noble, HairStyle.Long, Colors.Black, 5);
 	public static final Characters father = new Characters("Father", BodyTypes.F, Clothing.Noble, HairStyle.Mage_Full, Colors.Black, 5);
+	public static final Characters noble1 = new Characters("Noble Man 1", BodyTypes.D, Clothing.Noble, HairStyle.Long, Colors.Black, 6);
+	public static final Characters noble2 = new Characters("Noble Man 2", BodyTypes.E, Clothing.Noble, HairStyle.Long, Colors.Black, 4);
+	public static final Characters noble3 = new Characters("Noble Man 3", BodyTypes.F, Clothing.Noble, HairStyle.Spiky, Colors.Black, 3);
+	public static final Characters noble4 = new Characters("Noble Man 4", BodyTypes.G, Clothing.Noble, HairStyle.Spiky, Colors.Black, 7);
+	public static final Characters noble5 = new Characters("Noble Man 5", BodyTypes.H, Clothing.Noble, HairStyle.Short, Colors.Black, 3);
 	public static final Place bedroom1 = new Place("Edmona's Bedroom", PlaceTypes.CastleBedroom); // where edmona gets abducted
 	public static final Place bedroom2 = new Place("Grimspire's Bedroom", PlaceTypes.CastleBedroom); // where grimspire is
 	public static final Place camp = new Place("Home", PlaceTypes.Camp); // edmona runs away when garry is sleeping
@@ -19,6 +26,7 @@ public final class MyStoryEntities {
 	public static final Place ruins = new Place("Ruins", PlaceTypes.Ruins); // edmona learns dark magic
 	public static final Place library = new Place("Library", PlaceTypes.Library); // edmona learns dark magic
 	public static final Place hallway = new Place("Hallway", PlaceTypes.Hallway); // garry's initial spot
+	public static final Place greathall = new Place("Throne", PlaceTypes.GreatHall);
 	public static final Item sword = new Item("Sword", ItemTypes.Sword);
 	public static final Furniture cottageDoor = new Furniture(hallway, FurnitureTypes.Door);
 	public static final Furniture table = new Furniture(hallway, FurnitureTypes.Table);
@@ -26,4 +34,7 @@ public final class MyStoryEntities {
 	public static final Furniture cityDoor = new Furniture(town, FurnitureTypes.RedHouseDoor);
 	public static final Furniture cityExit = new Furniture(town, FurnitureTypes.NorthEnd);
 	public static final Furniture forestEnd = new Furniture(lightforest, FurnitureTypes.WestEnd);
+	public static final Furniture throne = new Furniture(greathall, FurnitureTypes.Throne);
+	public static final Furniture leftthrone = new Furniture(greathall, FurnitureTypes.LeftThrone);
+	public static final Furniture rightthrone = new Furniture(greathall, FurnitureTypes.RightThrone);
 }
