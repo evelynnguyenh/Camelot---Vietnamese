@@ -26,4 +26,3 @@ public class MyNodeBuilder extends NodeBuilder {
 	 */
 	//Hoang Dieu Linh Nguyen
 	@BuilderMethod
-
