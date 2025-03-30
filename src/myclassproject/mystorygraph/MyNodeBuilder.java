@@ -110,6 +110,7 @@ public class MyNodeBuilder extends NodeBuilder {
             List.of("Now, you belong to the shadows. Your past pain will be your greatest weapon.", 
                     "Are you ready to embrace the darkness?"),
             List.of("I am ready, Master Quentin.")))
+            List.of("I am ready, Master Quentin.")));
     }
 
 	// Tri Huynh
