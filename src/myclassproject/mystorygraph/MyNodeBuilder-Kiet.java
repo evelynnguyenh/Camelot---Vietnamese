@@ -26,4 +26,46 @@ public class MyNodeBuilder extends NodeBuilder {
 	 */
 
 	@BuilderMethod
+	public void KillActions() {
+		var node = get(MyNodeLabels.Kill.toString());
+		node.add(new HideDialog())
+			.add(new NarrationSequence("With the man dead, Edmona casts the spell to bring back her brother and father."))
+			.add(new Cast(edmona, brother, red))
+			.add(new Cast(edmona, father, red))
+			.add(new Revive(brother))
+			.add(new Revive(father))
+			.add(new SetPosition(brother, darkforest))
+			.add(new SetPosition(father, darkforest))
+			.add(new NarrationSequence("Slowly, figures emerge from the light – her brother and father, returned to life."))
+			.add(new Face(edmona, brother))
+			.add(new DialogSequence(brother, edmona, 
+				List.of("Sister… Is this real? Are we truly back?"), 
+				List.of("Yes, I did it. I brought you back.")))
+			.add(new Revive(father))
+			.add(new DialogSequence(father, edmona, 
+				List.of("My child… What have you done?"), 
+				List.of("I saved you. No matter the cost.")))
+			.add(new EnableInput());
+	}
 
+	@BuilderMethod
+	public void CorruptionEndingActions() {
+		var node = get(MyNodeLabels.CorruptionEnding.toString());
+		node.add(new HideDialog())
+			.add(new NarrationSequence("Edmona sees the shapes of her brother and father slowly forming from the blood of their nemesis."))
+			.add(new NarrationSequence("However, as the ritual completes, she feels something unnatural happening within her."))
+			.add(new NarrationSequence("A searing pain courses through her veins. Her eyes turn red, her hair turning gray, her body twisting into something unrecognizable."))
+			.add(new SetEyeColor(edmona, red))
+			.add(new SetHairColor(edmona, gray))
+			.add(new SetClothing(edmona, Witch))
+			.add(new NarrationSequence("She kneels down, her once human form now decayed, Edmona turning a sickly witch."))
+			.add(new Kneel(edmona))
+			.add(new DialogSequence(brother, father, 
+				List.of("What… What have you become?"), 
+				List.of("This isn’t the sister we knew… Stay away!")))
+			.add(new WalkTo(edmona, father))
+			.add(new MoveAway(edmona))
+			.add(new NarrationSequence("Edmona, now feared by the ones she loved most, realizes she has lost everything."))
+			.add(new EnableInput());
+	}
+	
