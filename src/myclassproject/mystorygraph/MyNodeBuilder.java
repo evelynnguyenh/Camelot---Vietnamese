@@ -40,6 +40,11 @@ public class MyNodeBuilder extends NodeBuilder {
         .add(new CreateCharacterSequence(grimspire))
         .add(new CreateCharacterSequence(brother))
         .add(new CreateCharacterSequence(father))
+		.add(new CreateCharacterSequence(noble1))
+		.add(new CreateCharacterSequence(noble2))
+		.add(new CreateCharacterSequence(noble3))
+		.add(new CreateCharacterSequence(noble4))
+		.add(new CreateCharacterSequence(noble5))
 
         // position each character
         .add(new SetPosition(edmona, bedroom1))
@@ -49,6 +54,11 @@ public class MyNodeBuilder extends NodeBuilder {
         .add(new SetPosition(grimspire, bedroom2))
         .add(new SetPosition(brother, hallway))
         .add(new SetPosition(father, hallway))
+		.add(new SetPosition(noble1, town))
+		.add(new SetPosition(noble2, town))
+		.add(new SetPosition(noble3, town))
+		.add(new SetPosition(noble4, town))
+		.add(new SetPosition(noble5, town))
 
         // focus camera on Edmona and show menu
         .add(new SetCameraFocus(edmona))
