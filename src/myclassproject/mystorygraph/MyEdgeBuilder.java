@@ -54,8 +54,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void ConsequenceEdges(){
 		var node = get(MyNodeLabels.Consequence.toString());
-		var choice = new PlayerInteraction(ChoiceLabels.Exit.toString(), edmona, Icons.exit,
-				forestEnd);
+		var choice = new PlayerInteraction(ChoiceLabels.Exit.toString(), edmona, Icons.exit, forestEnd);
 		var nextNode = get(MyNodeLabels.MagicForest.toString());
 		node.add(new Edge(choice, nextNode));
 	}

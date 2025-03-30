@@ -157,7 +157,7 @@ public class MyNodeBuilder extends NodeBuilder {
 			 .add(new HideDialog())
 			 .add(new Wave(edmona))
 			 .add(new SetExpression(edmona, neutral))
-			 .add(new SetPosition(edmona, hallway))
+			 .add(new SetPosition(edmona, bedroom1))
 			 .add(new EnableInput());
 	 }
 
@@ -165,8 +165,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	 public void PopulistRuleEndingActions() {
 		 var node = get(MyNodeLabels.PopulistRuleEnding.toString());
 	 
-		 node.add(new SetPosition(edmona, bedroom1))
-			 .add(new SetPosition(noble1, greathall.throne))
+		 node.add(new SetPosition(noble1, greathall.throne))
 			 .add(new SetPosition(noble2, greathall.leftthrone))
 			 .add(new SetPosition(noble3, greathall.rightthrone))
 			 .add(new SetPosition(noble4, greathall))

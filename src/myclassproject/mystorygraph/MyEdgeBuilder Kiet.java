@@ -32,5 +32,18 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 	//Kiet Huynh
 	@BuilderMethod
+	public void KillEdges(){
+		var node = get(MyNodeLabels.Kill.toString());
+		var choice = new PlayerInteraction(ChoiceLabels.Face.toString(), edmona, father);
+		var nextNode = get(MyNodeLabels.CorruptionEnding.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	public void RileUpTheCrowdEdges(){
+		var node = get(MyNodeLabels.RileUpTheCrowd.toString());
+		var choice = new PlayerInteraction(ChoiceLabels.Sit.toString(), edmona, bedroom1.bed);
+		var nextNode = get(MyNodeLabels.BecomeQueenEnding.toString());
+		node.add(new Edge(choice, nextNode));
+	}
 	
 }
