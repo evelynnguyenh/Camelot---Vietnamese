@@ -70,8 +70,8 @@ public class MyNodeBuilder extends NodeBuilder {
 	}
 	
 	@BuilderMethod
-	public void ascensionAndRestorationActions() {
-		var node = get(MyNodeLabels.AscensionAndRestoration.toString());
+	public void BecomeQueenEndingActions() {
+		var node = get(MyNodeLabels.BecomeQueenEnding.toString());
 	
 		node.add(new SetPosition(edmona, hallway)) 
 			.add(new NarrationSequence("Edmona ascends the throne of Magna Vietia, her journey of struggle and sacrifice culminating in the crown."))
