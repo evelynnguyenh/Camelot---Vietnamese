@@ -129,8 +129,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	 public void RileUpTheCrowdActions() {
 		 var node = get(MyNodeLabels.RileUpTheCrowd.toString());
 	 
-		 node.add(new SetPosition(edmona, town)) 
-			 .add(new ShowNarration())
+		 node.add(new ShowNarration())
 			 .add(new NarrationSequence("Edmona stands before the gathered masses, her voice rising above the din of the market square."))
 			 .add(new NarrationSequence("She speaks of freedom, justice, and a kingdom where they no longer live under the boot of House Grimpshire."))
 			 .add(new HideNarration())

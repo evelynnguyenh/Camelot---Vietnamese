@@ -30,7 +30,40 @@ public class MyEdgeBuilder extends NodeBuilder {
 	 * These methods must have a BuilderMethod annotation.
 	 */
 
-	//Kiet Huynh
+	//Hoang Dieu Linh Nguyen
 	@BuilderMethod
+	public void LearnLightMagicEdges(){
+		var node = get(MyNodeLabels.LearnLightMagic.toString());
+		var choice = new PlayerInteraction(MyChoiceLabels.TalkToDelphin.toString(), delphine, Icons.talk, "learn lightmagic grom Delphine");
+		var nextNode = get(MyNodeLabels.LearnFireMagic.toString());
+		node.add(new Edge(choice, nextNode));
+	}
 	
+	@BuilderMethod
+	public void LearnFireMagicEdges(){
+		var node = get(MyNodeLabels.LearnFireMagic.toString());
+		var choice = new PlayerInteraction(MyChoiceLabels.Exit.toString(), edmona, Icons.exit, "left forest and come to town");
+		var nextNode = get(MyNodeLabels.Rally.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void RallyEdges(){
+		var node = get(MyNodeLabels.Rally.toString());
+		var choice = new PlayerInteraction(MyChoiceLabels.TalkToNoble1.toString(), noble1, Icons.talk, "edmona convinces nobles to follow her");
+		var nextNode = get(MyNodeLabels.PopulistFaction.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void PopulistFactionEdges(){
+		var node = get(MyNodeLabels.PopulistFaction.toString());
+		var choice1 = new DialogChoice("Become an indispensable supporter");
+		var nextNode1 = get(MyChoiceLabels.PromisePopulistPower.toString());
+		node.add(new Edge(choice1, nextNode1));
+
+		var choice2 = new DialogChoice("Become the leader of the army");
+		var nextNode2 = get(MyChoiceLabels.RileUpTheCrowd.toString());
+		node.add(new Edge(choice2, nextNode2));
+	}
 }
