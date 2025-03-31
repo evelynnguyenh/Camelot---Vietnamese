@@ -86,7 +86,7 @@ public class MyNodeBuilder extends NodeBuilder {
         .add(new NarrationSequence("Royal guards storm the castle, trying to capture Edmona."))
         .add(new DialogSequence(edmona, null, 
             List.of("I must escape now!"), 
-            List.of()))
+            List.of("Let's find a way...")))
         .add(new SetPosition(edmona, lightforest))
         .add(new NarrationSequence("She wakes up in a strange forest the next morning."))
 		.add(new EnableInput());
@@ -154,8 +154,8 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.DelphineTalk.toString());
 		
 		node.add(
-			new DisableInput(),
-			new DialogSequence(
+			new DisableInput())
+			.add(new DialogSequence(
 				delphine,
 				edmona,
 				List.of(
@@ -163,9 +163,8 @@ public class MyNodeBuilder extends NodeBuilder {
 					"I practice the magic of light. If you become my student, I will teach you in my discipline."
 				),
 				List.of("Please, teach me. I need your help!")
-			),
-			new EnableInput()
-		);
+			)),
+			.add(new EnableInput());
 }
 
 	@BuilderMethod

@@ -32,5 +32,49 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 	//Kiet Huynh
 	@BuilderMethod
+	public void quentinStudentEdges() {
+		var node = get(MyNodeLabels.QuentinStudent.toString());
+		var choice = new DialogChoice("I am ready, Master Quentin.");
+		var nextNode = get(MyNodeLabels.LearnDarkMagic.toString());
+		node.add(new Edge(choice, nextNode));
+	}
 	
+	@BuilderMethod
+	public void learnDarkMagicEdges() {
+		var node = get(MyNodeLabels.LearnDarkMagic.toString());
+		var choice = new DialogChoice("Visit The Forbidden Library");
+		var nextNode = get(MyNodeLabels.ForbiddenLibrary.toString());
+		node.add(new Edge(libraryChoice, libraryNode));
+	}
+
+	@BuilderMethod
+	public void forbiddenLibraryEdges() {
+		var node = get(MyNodeLabels.ForbiddenLibrary.toString());
+		
+		var readSpellbookChoice = new PlayerInteraction(
+			MyChoiceLabels.Read.toString(), 
+			spellbook,
+			PlayerInteraction.Icons.research,
+			"Inspect the necromantic tome"
+		);
+
+		var nextNode = get(MyNodeLabels.ReadTome.toString());
+		node.add(new Edge(readSpellbookChoice, nextNode));
+	}
+
+	public void LeaveLibrary() {
+		var node = get(MyNodeLabels.ReadTome.toString());
+		
+		var readSpellbookChoice = new PlayerInteraction(
+			MyChoiceLabels.Read.toString(), 
+			spellbook,
+			PlayerInteraction.Icons.research,
+			"Inspect the necromantic tome"
+		);
+
+		var nextNode = get(MyNodeLabels.ReadTome.toString());
+		node.add(new Edge(readSpellbookChoice, nextNode));
+	}
+
+
 }
