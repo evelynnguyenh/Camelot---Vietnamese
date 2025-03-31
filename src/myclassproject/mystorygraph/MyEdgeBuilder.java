@@ -63,11 +63,11 @@ public class MyEdgeBuilder extends NodeBuilder {
 	public void MagicForestEdges(){
 		var node = get(MyNodeLabels.MagicForest.toString());
 		var choice1 = new DialogChoice("I will embrace the darkness and follow you, Quentin.");
-		var nextNode1 = get(ChoiceLabels.QuentinStudent.toString());
+		var nextNode1 = get(MyChoiceLabels.QuentinStudent.toString());
 		node.add(new Edge(choice1, nextNode1));
 
 		var choice2 = new DialogChoice("I cannot abandon my morals. Delphine, teach me the way of light.");
-		var nextNode2 = get(ChoiceLabels.DelphineStudent.toString());
+		var nextNode2 = get(MyChoiceLabels.DelphineStudent.toString());
 		node.add(new Edge(choice2, nextNode2));
 	}
 	

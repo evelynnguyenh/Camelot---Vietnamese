@@ -5,5 +5,5 @@ public enum MyNodeLabels{
 	// Added by Tri Huynh
 	root, BeginningScene, AcceptToGo, Consequence, RunAway, DelphineTalk, MagicForest, DelphineStudent, LearnLightMagic, LearnHealingMagic, 
 	LearnFireMagic, QuentinStudent, LearnDarkMagic, SoulbindingTrial, Library, TakeRevenge, Kill, CorruptionEnding, BecomeQueenEnding,
-	RileUpTheCrowd, PopulistRuleEnding
+	RileUpTheCrowd, PopulistRuleEnding, PopulistFaction, PromisePopulistPower, Rally
 }

@@ -62,6 +62,7 @@ public class MyNodeBuilder extends NodeBuilder {
 				"Use it wisely."
             ),
             List.of(" am very grateful, and I will do my best.")
+            List.of("I am very grateful, and I will do my best.")
         ))
 		.add(new Give(delphine, SpellBook, edmona))
         .add(new NarrationSequence("Edmona stands ready, flames at her fingertips, a fierce determination in her heart."))
