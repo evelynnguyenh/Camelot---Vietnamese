@@ -11,8 +11,7 @@ public class MainClass {
 		//Create an object of your story class.
 		var story = new Story();
 		//Simply call run.
-		story.Run(new QuestGraph());
-		//i love cmps 1600 01 huuuuuuuuu
+		story.Run(new MyGraph());
 	}
 
 }

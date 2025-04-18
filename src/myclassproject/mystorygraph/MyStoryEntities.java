@@ -1,6 +1,7 @@
 package myclassproject.mystorygraph;
 
-import javax.xml.stream.events.Characters;
+import com.entities.*;
+import com.enums.*;
 
 //Added by Kiet Huynh
 //Consulted by Tri Huynh, and Hoang Dieu Linh Nguyen

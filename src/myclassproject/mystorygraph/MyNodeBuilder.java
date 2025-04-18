@@ -260,13 +260,10 @@ public class MyNodeBuilder extends NodeBuilder {
     @BuilderMethod
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
-        node.add(new HideDialog()).add(.add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."))
+        node.add(new HideDialog()).add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."))
         .add(new SetCameraMode(quentin))
         .add(new NarrationSequence("Quentin, a master of dark magic, promises to help her take revenge and revive her beloved brother and father within a blink of an eye."))
         .add(new SetCameraMode(delphine))
-        .add(new NarrationSequence("Delphine, a kindhearted witch who only employs light magic, promises to give her the power to change the rotten society she was born into.")))
-        
-        
         .add(new DialogSequence(delphine, quentin,edmona,
             List.of("I can give you power beyond imagination. You have potential, but the choice is yours."), 
 			List.of("Come with me, and I will teach you the greatest power in the world."),
@@ -418,7 +415,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new SetPosition(noble4, bedroom2))
 		.add(new DialogSequence(grimspire, noble1, edmona,
             List.of("Who are you? How dare you come here?"),
-            List.of("We have lived under your rule long enough. We will fight.")
+            List.of("We have lived under your rule long enough. We will fight."),
 			List.of("Let our revolution begin."))
 		)
 		.add(new HideDialog())
@@ -439,7 +436,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideDialog()).add(new SetPosition(edmona, hallway))
 			.add(new SetPosition(Garry, hallway))
 			.add(new DialogSequence(father, edmona,
-				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice.")
+				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice."),
 				List.of("It's time you go with Garry, talk to him darling.")));
 	}
 
@@ -451,7 +448,7 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(SetPosition(garry, camp))
 			.add(SetPosition(delphine, camp))
 			.add(new DialogSequence(garry, edmona,
-				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA")
+				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA"),
 				List.of("I will take a nap, then I will bring you to Grimspire Castle to become a servant!")))
 			.add(Sleep(garry, camp.Log))
 			.add(new NarrationSequence("I have to run!"))
@@ -473,7 +470,7 @@ public class MyNodeBuilder extends NodeBuilder {
 					"I practice the magic of light. If you become my student, I will teach you in my discipline."
 				),
 				List.of("Please, teach me. I need your help!")
-			)),
+			))
 			.add(new EnableInput());
 }
 
@@ -530,23 +527,24 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new SetPosition(edmona, darkforest))
 			.add(new NarrationSequence(
 				"All of the magical power in this forest shall be mine!"
-			)).add(new HideNarration)
+			)).add(new HideNarration())
 			.add(new EnableEffect(edmona, Aura))
-			.add(new Cast(edmona, edmona, purple));
+			.add(new Cast(edmona, edmona, purple))
 			.add(new NarrationSequence(
 				"Finally...although the forest is dead, I'm born anew! I shall head out of the forest and seek my revenge."
-			)).add(new HideNarration)
+			)).add(new HideNarration())
 			.add(new DisableEffect(edmona))
 			.add(new EnableInput());
 	}
-
+	
+	@BuilderMethod
 	public void ForbiddenLibrary() {
 		var node = get(MyNodeLabels.ForbiddenLibrary.toString());
 		node.add(new HideDialog())
 			.add(new SetPosition(edmona, library, door))
 			.add(new NarrationSequence(
 				"I must find the tome!"
-			)).add(new HideNarration)
+			)).add(new HideNarration())
 			.add(new EnableInput());
 	}
 
@@ -574,7 +572,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.Spare.toString());
 		node.add(new HideDialog())
 			.add(new DialogSequence(grimspire, edmona,
-			List.of("What are you saying? HAHAHA! You are the pathetic one. I am the King!")
+			List.of("What are you saying? HAHAHA! You are the pathetic one. I am the King!"),
 			List.of("Not for much longer!")))
 			.add(new HideDialog())
 			.add(new Cast(edmona, grimspire, red))
