@@ -4,5 +4,5 @@ package myclassproject.mystorygraph;
 public enum MyNodeLabels{
 	// Added by Tri Huynh
 	root, BeginningScene, AcceptToGo, Consequence, RunAway, DelphineTalk, MagicForest, DelphineStudent, LearnLightMagic, LearnHealingMagic, 
-	LearnFireMagic, QuentinStudent, LearnDarkMagic, SoulbindingTrial, ForbiddenLibrary, ReadTome, TakeRevenge, Kill, CorruptionEnding, BecomeQueenEnding, RileUpTheCrowd, PopulistRuleEnding, PopulistFaction, PromisePopulistPower, Rally
+	LearnFireMagic, QuentinStudent, LearnDarkMagic, SoulbindingTrial, ForbiddenLibrary, ReadTome, TakeRevenge, Kill, CorruptionEnding, Spare BecomeQueenEnding, RileUpTheCrowd, PopulistRuleEnding, PopulistFaction, PromisePopulistPower, Rally
 }

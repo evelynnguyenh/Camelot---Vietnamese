@@ -43,4 +43,5 @@ public final class MyStoryEntities {
 	public static final Furniture throne = new Furniture(greathall, FurnitureTypes.Throne);
 	public static final Furniture leftthrone = new Furniture(greathall, FurnitureTypes.LeftThrone);
 	public static final Furniture rightthrone = new Furniture(greathall, FurnitureTypes.RightThrone);
+	public static final Furniture forestexit = new Furniture(darkforest, FurnitureTypes.EastEnd);
 }
