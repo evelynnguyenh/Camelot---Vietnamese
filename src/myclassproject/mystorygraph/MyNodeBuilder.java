@@ -5,14 +5,19 @@ import myclassproject.mystorygraph.MyNodeLabels;
 
 import static myclassproject.mystorygraph.MyStoryEntities.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.actions.*;
+import com.actions.Cast.Spell;
+import com.actions.SetExpression.Expression;
+import com.actions.utility.ShowCredits;
+import com.actions.utility.ShowDialog;
+import com.actions.utility.ShowNarration;
 import com.sequences.*;
 import com.storygraph.*;
-import java.awt.Dialog;
+import com.enums.*;
 
-import javax.smartcardio.CardPermission;
 
 public class MyNodeBuilder extends NodeBuilder {
 	public MyNodeBuilder(List<Node> list) {
@@ -32,7 +37,7 @@ public class MyNodeBuilder extends NodeBuilder {
 
     public void rootActions() {
         var root = get(MyNodeLabels.root.toString());
-        root.add(new CreateAll(List.of(bedroom1, bedroom2, camp, town, lightforest, darkforest, ruins, library, hallway, sword, cottageDoor, table, chair, cityDoor, cityExit, forestEnd)))
+        root.add(new CreateAll(List.of(bedroom1, bedroom2, camp, town, lightforest, darkforest, ruins, library, hallway, sword, spellbook, littorch)))
 		// initiating each character
         .add(new CreateCharacterSequence(edmona))
         .add(new CreateCharacterSequence(garry))
@@ -97,12 +102,12 @@ public class MyNodeBuilder extends NodeBuilder {
 	 public void KillActions() {
 		 var node = get(MyNodeLabels.Kill.toString());
 		 node.add(new HideDialog())
-			 .add(new SetExpression(edmona, sad))
+			 .add(new SetExpression(edmona, Expression.Sad))
 			 .add(new ShowNarration())
 			 .add(new NarrationSequence("With the man dead, Edmona casts the spell to bring back her brother and father."))
 			 .add(new HideNarration())
-			 .add(new Cast(edmona, brother, red))
-			 .add(new Cast(edmona, father, red))
+			 .add(new Cast(edmona, brother, Spell.red))
+			 .add(new Cast(edmona, father, Spell.red))
 			 .add(new Revive(brother))
 			 .add(new Revive(father))
 			 .add(new SetPosition(brother, bedroom2))
@@ -111,21 +116,21 @@ public class MyNodeBuilder extends NodeBuilder {
 			 .add(new NarrationSequence("Slowly, figures emerge from the light – her brother and father, returned to life."))
 			 .add(new HideNarration())
 			 .add(new Face(edmona, brother))
-			 .add(new SetExpression(brother, surprised))
+			 .add(new SetExpression(brother, Expression.Surprised))
 			 .add(new ShowDialog())
 			 .add(new DialogSequence(brother, edmona, 
 					List.of("Sister… Is this real? Are we truly back?"), 
 					List.of("Yes, I did it. I brought you back.")))
 			 .add(new HideDialog())
-			 .add(new SetExpression(father, surprised))
+			 .add(new SetExpression(father, Expression.Surprised))
 			 .add(new ShowDialog())
 			 .add(new DialogSequence(father, edmona, 
 			 		List.of("My child… What have you done?"), 
 					List.of("I saved you. No matter the cost.")))
 			 .add(new HideDialog())
-			 .add(new SetExpression(edmona, neutral))
-			 .add(new SetExpression(brother, neutral))
-			 .add(new SetExpression(father, neutral))
+			 .add(new SetExpression(edmona, Expression.Neutral))
+			 .add(new SetExpression(brother, Expression.Neutral))
+			 .add(new SetExpression(father, Expression.Neutral))
 			 .add(new EnableInput());
 	}
 
@@ -133,34 +138,32 @@ public class MyNodeBuilder extends NodeBuilder {
 	 public void CorruptionEndingActions() {
 		 var node = get(MyNodeLabels.CorruptionEnding.toString());
 		 node.add(new HideDialog())
-			 .add(new SetExpression(edmona, scared))
+			 .add(new SetExpression(edmona, Expression.Scared))
 			 .add(new ShowNarration())
 			 .add(new NarrationSequence("Edmona sees the shapes of her brother and father slowly forming from the blood of their nemesis."))
 			 .add(new NarrationSequence("However, as the ritual completes, she feels something unnatural happening within her."))
 			 .add(new NarrationSequence("A searing pain courses through her veins. Her eyes turn red, her hair turning gray, her body twisting into something unrecognizable."))
 			 .add(new HideNarration())
-			 .add(new SetEyeColor(edmona, red))
-			 .add(new SetHairColor(edmona, gray))
-			 .add(new SetClothing(edmona, Witch))
+			 .add(new SetHairColor(edmona, Colors.Gray))
+			 .add(new SetClothing(edmona, Clothing.Witch))
 			 .add(new ShowNarration())
 			 .add(new NarrationSequence("She kneels down, her once human form now decayed, Edmona turning a sickly witch."))
 			 .add(new HideNarration())
 			 .add(new Kneel(edmona))
-			 .add(new SetExpression(brother, scared))
-			 .add(new SetExpression(father, scared))
+			 .add(new SetExpression(brother, Expression.Scared))
+			 .add(new SetExpression(father, Expression.Scared))
 			 .add(new ShowDialog())
 			 .add(new DialogSequence(brother, father, 
 			 		List.of("What… What have you become?"), 
 					List.of("This isn’t the sister we knew… Stay away!")))
 			 .add(new HideDialog())
 			 .add(new WalkTo(edmona, father))
-			 .add(new MoveAway(edmona))
 			 .add(new ShowNarration())
 			 .add(new NarrationSequence("Edmona, now feared by the ones she loved most, realizes she has lost everything."))
 			 .add(new HideNarration())
-			 .add(new SetExpression(edmona, neutral))
-			 .add(new SetExpression(brother, neutral))
-			 .add(new SetExpression(father, neutral))
+			 .add(new SetExpression(edmona, Expression.Neutral))
+			 .add(new SetExpression(brother, Expression.Neutral))
+			 .add(new SetExpression(father,  Expression.Neutral))
 			 .add(new ShowCredits());
 	 }
 	
@@ -168,7 +171,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	 public void BecomeQueenEndingActions() {
 		 var node = get(MyNodeLabels.BecomeQueenEnding.toString());
 	 
-		 node.add(new SetPosition(edmona, greathall.throne)) 
+		 node.add(new SetPosition(edmona, greathall)) 
 			 .add(new ShowNarration())
 			 .add(new NarrationSequence("Edmona ascends the throne of Magna Vietia, her journey of struggle and sacrifice culminating in the crown."))
 			 .add(new NarrationSequence("As Queen, she works tirelessly to rebuild the fractured kingdom, blending wisdom and grace into her rule."))
@@ -186,11 +189,11 @@ public class MyNodeBuilder extends NodeBuilder {
 			 .add(new ShowNarration())
 			 .add(new NarrationSequence("Edmona works closely with her trusted nobles, putting plans into action to restore the kingdom."))
 			 .add(new HideNarration())
-			 .add(new SetExpression(edmona, happy))
-			 .add(new DanceTogether(edmona, noble1))
-			 .add(new DanceTogether(noble2, noble3))
-			 .add(new DanceTogether(noble4, noble5))
-			 .add(new SetExpression(edmona, neutral))
+			 .add(new SetExpression(edmona, Expression.Happy))
+			 .add(new Dance(edmona, noble1))
+			 .add(new Dance(noble2, noble3))
+			 .add(new Dance(noble4, noble5))
+			 .add(new SetExpression(edmona, Expression.Neutral))
 			 .add(new ShowCredits());
 	 }
 
@@ -224,7 +227,7 @@ public class MyNodeBuilder extends NodeBuilder {
 				 List.of("Long live Queen Edmona!")))
 			 .add(new HideDialog())
 			 .add(new Wave(edmona))
-			 .add(new SetExpression(edmona, neutral))
+			 .add(new SetExpression(edmona, Expression.Neutral))
 			 .add(new SetPosition(edmona, bedroom1))
 			 .add(new EnableInput());
 	 }
@@ -233,9 +236,9 @@ public class MyNodeBuilder extends NodeBuilder {
 	 public void PopulistRuleEndingActions() {
 		 var node = get(MyNodeLabels.PopulistRuleEnding.toString());
 	 
-		 node.add(new SetPosition(noble1, greathall.throne))
-			 .add(new SetPosition(noble2, greathall.leftthrone))
-			 .add(new SetPosition(noble3, greathall.rightthrone))
+		 node.add(new SetPosition(noble1, greathall))
+			 .add(new SetPosition(noble2, greathall))
+			 .add(new SetPosition(noble3, greathall))
 			 .add(new SetPosition(noble4, greathall))
 			 .add(new SetPosition(noble5, greathall))
 			 .add(new SetCameraFocus(noble1))
@@ -261,13 +264,13 @@ public class MyNodeBuilder extends NodeBuilder {
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
         node.add(new HideDialog()).add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."))
-        .add(new SetCameraMode(quentin))
         .add(new NarrationSequence("Quentin, a master of dark magic, promises to help her take revenge and revive her beloved brother and father within a blink of an eye."))
-        .add(new SetCameraMode(delphine))
-        .add(new DialogSequence(delphine, quentin,edmona,
-            List.of("I can give you power beyond imagination. You have potential, but the choice is yours."), 
-			List.of("Come with me, and I will teach you the greatest power in the world."),
-            List.of("I am ready to learn light magic.", "I am ready to learn dark magic.")));
+        .add(new DialogSequence(delphine, quentin,
+            List.of("I can give you power beyond imagination. You have potential, but the choice is yours."),
+			List.of("Come with me, and I will teach you the greatest power in the world."))
+        .add(new DialogSequence(edmona, null,
+        	List.of("I am ready to learn light magic.", "I am ready to learn dark magic."),
+        	new ArrayList<String>())));
 
     }
 
