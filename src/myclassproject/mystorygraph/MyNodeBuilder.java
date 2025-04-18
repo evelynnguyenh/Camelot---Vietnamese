@@ -295,7 +295,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new ShowNarration())
 		.add(new NarrationSequence("As the training commences, a flame suddenly ignites in Delphine's presence, dancing with a controlled intensity that fills the air with its heat."))
 		.add(new HideNarration())
-		.add(new CreateEffect(delphine, Spiralflame))
+		.add(new CreateEffect(delphine, Effects.Spiralflame))
 		.add(new ShowDialog())
 		.add(new DialogSequence(delphine, edmona, 
             List.of("I will teach you the ancient art of fire magic, a force both pure and powerful, to conquer evil",
@@ -327,7 +327,7 @@ public class MyNodeBuilder extends NodeBuilder {
             List.of("I will control it, Master Delphine. I will not be consumed.")
         ))
 		.add(new HideDialog())
-		.add(new CreateEffect(edmona, Wildfire))
+		.add(new CreateEffect(edmona, Effects.Wildfire))
 		.add(new ShowNarration())
         .add(new NarrationSequence("A sphere of flame forms in Edmona’s palm, growing hotter with her resolve."))
 		.add(new HideNarration())
@@ -416,19 +416,20 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new SetPosition(noble2, bedroom2))
 		.add(new SetPosition(noble3, bedroom2))
 		.add(new SetPosition(noble4, bedroom2))
-		.add(new DialogSequence(grimspire, noble1, edmona,
+		.add(new DialogSequence(grimspire, noble1,
             List.of("Who are you? How dare you come here?"),
-            List.of("We have lived under your rule long enough. We will fight."),
-			List.of("Let our revolution begin."))
-		)
+            List.of("We have lived under your rule long enough. We will fight."))
+		.add(new DialogSequence(edmona, null,
+			List.of("Let our revolution begin."),
+			List.of())))
 		.add(new HideDialog())
 		.add(new Attack(noble1, grimspire))
 		.add(new Attack(noble2, grimspire))
 		.add(new Attack(noble3, grimspire))
 		.add(new Attack(noble4, grimspire))
 		.add(new Cast(edmona, grimspire))
-		.add(new CreateEffect(edmona, Aura))
-		.add(new CreateEffect(grimspire, Death))
+		.add(new CreateEffect(edmona, Effects.Aura))
+		.add(new CreateEffect(grimspire, Effects.Death))
 		.add(new EnableInput());
 	}
 
@@ -437,7 +438,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void AcceptToGoActions() {
 		var node = get(MyNodeLabels.AcceptToGo.toString());
 		node.add(new HideDialog()).add(new SetPosition(edmona, hallway))
-			.add(new SetPosition(Garry, hallway))
+			.add(new SetPosition(garry, hallway))
 			.add(new DialogSequence(father, edmona,
 				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice."),
 				List.of("It's time you go with Garry, talk to him darling.")));
@@ -447,13 +448,12 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void RunAwayActions() {
 		var node = get(MyNodeLabels.RunAway.toString());
 		node.add(new HideDialog())
-			.add(SetPosition(edmona, camp, "LeftLog"))
-			.add(SetPosition(garry, camp))
-			.add(SetPosition(delphine, camp))
+			.add(new SetPosition(edmona, camp))
+			.add(new SetPosition(garry, camp))
+			.add(new SetPosition(delphine, camp))
 			.add(new DialogSequence(garry, edmona,
 				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA"),
 				List.of("I will take a nap, then I will bring you to Grimspire Castle to become a servant!")))
-			.add(Sleep(garry, camp.Log))
 			.add(new NarrationSequence("I have to run!"))
 			.add(new HideDialog())
 			.add(new EnableInput());
@@ -531,8 +531,8 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new NarrationSequence(
 				"All of the magical power in this forest shall be mine!"
 			)).add(new HideNarration())
-			.add(new EnableEffect(edmona, Aura))
-			.add(new Cast(edmona, edmona, purple))
+			.add(new EnableEffect(edmona, Effects.Aura))
+			.add(new Cast(edmona, edmona, Spell.purple))
 			.add(new NarrationSequence(
 				"Finally...although the forest is dead, I'm born anew! I shall head out of the forest and seek my revenge."
 			)).add(new HideNarration())
@@ -544,7 +544,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void ForbiddenLibrary() {
 		var node = get(MyNodeLabels.ForbiddenLibrary.toString());
 		node.add(new HideDialog())
-			.add(new SetPosition(edmona, library, door))
+			.add(new SetPosition(edmona, library))
 			.add(new NarrationSequence(
 				"I must find the tome!"
 			)).add(new HideNarration())
@@ -578,7 +578,7 @@ public class MyNodeBuilder extends NodeBuilder {
 			List.of("What are you saying? HAHAHA! You are the pathetic one. I am the King!"),
 			List.of("Not for much longer!")))
 			.add(new HideDialog())
-			.add(new Cast(edmona, grimspire, red))
+			.add(new Cast(edmona, grimspire, Spell.red))
 			.add(new Die(grimspire))
 			.add(new NarrationSequence("I've taken him out. I cannot use dark magic, I need to accept that my family is truly gone...There's only one thing I need to do now. I shall crown myself Queen!"))
 			.add(new EnableInput());
