@@ -28,6 +28,9 @@ public final class MyStoryEntities {
 	public static final Place hallway = new Place("Hallway", PlaceTypes.Hallway); // garry's initial spot
 	public static final Place greathall = new Place("Throne", PlaceTypes.GreatHall);
 	public static final Item sword = new Item("Sword", ItemTypes.Sword);
+	public static final Furniture stand = new Furniture(library, FurnitureTypes.Stand);
+	public static final Furniture libraryspellbook = new Furniture(library, FurnitureTypes.SpellBook);
+	public static final Furniture door = new Furniture(library, FurnitureTypes.Door);
 	public static final Item spellbook = new Item("SpellBook", ItemTypes.SpellBook);
 	public static final Item littorch = new Item("LitTorch", ItemTypes.LitTorch);
 	public static final Furniture cottageDoor = new Furniture(hallway, FurnitureTypes.Door);

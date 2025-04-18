@@ -104,4 +104,5 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var acceptHelp = new DialogChoice("Please, teach me. I need your help!");
 		node.add(new Edge(acceptHelp, studentNode));
 	}
+
 }
