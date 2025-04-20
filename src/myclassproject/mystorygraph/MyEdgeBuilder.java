@@ -42,6 +42,23 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void BeginningSceneEdges(){
 		var node = get(MyNodeLabels.BeginningScene.toString());
+		
+		var choice = new DialogChoice("This can't be true! We will find a way to repay the debt.");
+		var nextNode = get(MyNodeLabels.BeginningScene1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	public void BeginningSceneEdges1() {
+		var node = get(MyNodeLabels.BeginningScene1.toString());
+		
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.BeginningScene2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	public void BeginningSceneEdges2() {
+		var node = get(MyNodeLabels.BeginningScene2.toString());
+		
 		var choice1 = new DialogChoice("I accept your offer.");
 		var nextNode1 = get(MyNodeLabels.AcceptToGo.toString());
 		node.add(new Edge(choice1, nextNode1));

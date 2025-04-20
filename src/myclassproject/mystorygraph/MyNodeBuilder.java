@@ -78,9 +78,18 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new EnableInput())
 			.add(new DialogSequence(grimspire, edmona, 
 				List.of("Your brother and father have been accused of embezzlement. They will be executed unless the stolen amount is repaid."), 
-				List.of("This can't be true! We will find a way to repay the debt.")))
-			.add(new NarrationSequence("The amount is too grand for Edmona's family to repay."))
-			.add(new DialogSequence(garry, edmona, 
+				List.of("This can't be true! We will find a way to repay the debt.", null)));
+	}
+	
+	public void BeginningSceneActions1() {
+		var node = get(MyNodeLabels.BeginningScene1.toString());
+		node.add(new HideDialog())
+			.add(new NarrationSequence("The amount is too grand for Edmona's family to repay."));
+	}
+	
+	public void BeginningSceneActions2() {
+		var node = get(MyNodeLabels.BeginningScene2.toString());
+		node.add(new DialogSequence(garry, edmona, 
 				List.of("I will save your family and pay off the debt... if you agree to become my wife and come with me."), 
 				List.of("I accept your offer.", "I cannot leave my family.")));
 	}
