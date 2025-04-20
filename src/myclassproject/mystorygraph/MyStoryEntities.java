@@ -6,13 +6,13 @@ import com.enums.*;
 //Added by Kiet Huynh
 //Consulted by Tri Huynh, and Hoang Dieu Linh Nguyen
 public final class MyStoryEntities {
-	public static final Characters edmona = new Characters("other", BodyTypes.D, Clothing.Noble, HairStyle.Long, Colors.Black, 5);
-	public static final Characters father = new Characters("FathEdmona", BodyTypes.A, Clothing.Merchant, HairStyle.Long, Colors.Red, 1);
+	public static final Characters edmona = new Characters("Edmona", BodyTypes.A, Clothing.Merchant, HairStyle.Long, Colors.Red, 1);
 	public static final Characters garry = new Characters("Garry", BodyTypes.F, Clothing.Noble, HairStyle.Spiky, Colors.Black, 4);
 	public static final Characters delphine = new Characters("Delphine", BodyTypes.E, Clothing.Priest, HairStyle.Ponytail, Colors.Black, 3);
 	public static final Characters quentin = new Characters("Quentin", BodyTypes.H, Clothing.Warlock, HairStyle.Bald, Colors.Black, 7);
 	public static final Characters grimspire = new Characters("Grimspire", BodyTypes.B, Clothing.King, HairStyle.Musketeer_Full, Colors.Black, 5);
-	public static final Characters brother = new Characters("Brer", BodyTypes.F, Clothing.Noble, HairStyle.Mage_Full, Colors.Black, 5);
+	public static final Characters brother = new Characters("Brother", BodyTypes.D, Clothing.Noble, HairStyle.Long, Colors.Black, 5);
+	public static final Characters father = new Characters("Father", BodyTypes.F, Clothing.Noble, HairStyle.Mage_Full, Colors.Black, 5);
 	public static final Characters noble1 = new Characters("Noble Man 1", BodyTypes.D, Clothing.Noble, HairStyle.Long, Colors.Black, 6);
 	public static final Characters noble2 = new Characters("Noble Man 2", BodyTypes.E, Clothing.Noble, HairStyle.Long, Colors.Black, 4);
 	public static final Characters noble3 = new Characters("Noble Man 3", BodyTypes.F, Clothing.Noble, HairStyle.Spiky, Colors.Black, 3);
