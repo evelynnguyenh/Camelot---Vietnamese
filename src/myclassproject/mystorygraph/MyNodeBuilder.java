@@ -459,6 +459,12 @@ public class MyNodeBuilder extends NodeBuilder {
 	}
 
 	@BuilderMethod
+	public void AcceptToGoMove() {
+		var node = get(MyNodeLabels.AcceptToGo1.toString());
+		node.add(new HideDialog());
+	}
+
+	@BuilderMethod
 	public void RunAwayActions() {
 		var node = get(MyNodeLabels.RunAway.toString());
 		node.add(new HideDialog())

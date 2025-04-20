@@ -146,10 +146,17 @@ public class MyEdgeBuilder extends NodeBuilder {
 
 
 	// Tri Huynh
+	@BuilderMethod
+	public void FinishDealEdge() {
+		var node = get(MyNodeLabels.AcceptToGo.toString());
+		var choice = new DialogChoice("It's time you go with Garry, talk to him darling.");
+		var nextNode = get(MyNodeLabels.AcceptToGo1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
 
 	@BuilderMethod
 	public void AcceptRunEdge(){ 
-		var node = get(MyNodeLabels.AcceptToGo.toString());
+		var node = get(MyNodeLabels.AcceptToGo1.toString());
 		var interactionChoice = new PlayerInteraction(MyChoiceLabels.TalkToGarry.toString(), garry, Icons.talk, "Ask Garry to finalize the deal."
     );
 		var nextNode = get(MyNodeLabels.RunAway.toString());
