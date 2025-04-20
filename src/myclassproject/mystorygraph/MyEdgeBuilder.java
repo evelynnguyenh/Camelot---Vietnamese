@@ -49,6 +49,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice, nextNode));
 	}
 	
+	@BuilderMethod
 	public void BeginningSceneEdges1() {
 		var node = get(MyNodeLabels.BeginningScene1.toString());
 		
@@ -57,6 +58,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice, nextNode));
 	}
 	
+	@BuilderMethod
 	public void BeginningSceneEdges2() {
 		var node = get(MyNodeLabels.BeginningScene2.toString());
 		

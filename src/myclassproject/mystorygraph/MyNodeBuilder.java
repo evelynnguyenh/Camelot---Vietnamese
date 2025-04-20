@@ -81,15 +81,19 @@ public class MyNodeBuilder extends NodeBuilder {
 				List.of("This can't be true! We will find a way to repay the debt.")));
 	}
 	
+	@BuilderMethod
 	public void BeginningSceneActions1() {
 		var node = get(MyNodeLabels.BeginningScene1.toString());
-		node.add(new HideDialog())
+		node.add(new EnableInput())
+			.add(new HideDialog())
 			.add(new NarrationSequence("The amount is too grand for Edmona's family to repay."));
 	}
 	
+	@BuilderMethod
 	public void BeginningSceneActions2() {
 		var node = get(MyNodeLabels.BeginningScene2.toString());
-		node.add(new DialogSequence(garry, edmona, 
+		node.add(new HideNarration())
+			.add(new DialogSequence(garry, edmona, 
 				List.of("I will save your family and pay off the debt... if you agree to become my wife and come with me."), 
 				List.of("I accept your offer.", "I cannot leave my family.")));
 	}
