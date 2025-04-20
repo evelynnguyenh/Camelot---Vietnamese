@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.playerInput.*;
 import com.playerInput.PlayerInteraction.Icons;
+import com.playerInput.DialogChoice;
 import com.storygraph.BuilderMethod;
 import com.storygraph.Edge;
 import com.storygraph.NodeBuilder;
