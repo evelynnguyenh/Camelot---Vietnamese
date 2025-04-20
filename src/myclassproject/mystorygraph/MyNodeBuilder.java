@@ -105,8 +105,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new NarrationSequence("Unable to repay the debt, Edmona's brother and father are executed."))
         .add(new NarrationSequence("Royal guards storm the castle, trying to capture Edmona."))
         .add(new DialogSequence(edmona, null, 
-            List.of("I must escape now!"), 
-            List.of("Let's find a way...")))
+            List.of("I must escape now! Let's find a way...")))
         .add(new SetPosition(edmona, lightforest))
         .add(new NarrationSequence("She wakes up in a strange forest the next morning."))
 		.add(new EnableInput());
