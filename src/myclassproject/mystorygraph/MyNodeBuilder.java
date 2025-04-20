@@ -472,11 +472,21 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new SetPosition(garry, camp))
 			.add(new SetPosition(delphine, camp))
 			.add(new DialogSequence(garry, edmona,
-				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA"),
-				List.of("I will take a nap, then I will bring you to Grimspire Castle to become a servant!")))
-			.add(new NarrationSequence("I have to run!"))
-			.add(new HideDialog())
-			.add(new EnableInput());
+				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA! I will take a nap, then I will bring you to Grimspire Castle to become a servant!"),
+				List.of("Oh no! I have to escape!")));
+	}
+			
+	@BuilderMethod
+	public void RunAwayActions1() {
+		var node = get(MyNodeLabels.RunAway1.toString());
+		node.add(new HideDialog())
+			.add(new NarrationSequence("I have to run!"));
+	}
+
+	@BuilderMethod
+	public void RunAwayActions2() {
+		var node = get(MyNodeLabels.RunAway2.toString());
+		node.add(new EnableInput());
 	}
 
 	@BuilderMethod

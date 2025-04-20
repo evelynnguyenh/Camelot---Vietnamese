@@ -166,15 +166,28 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void runAwayEdges() {
 		var node = get(MyNodeLabels.RunAway.toString());
-		var nextNode = get(MyNodeLabels.DelphineTalk.toString());
-
+		var choice = new DialogChoice("Oh no! I have to escape!");
+		var nextNode = get(MyNodeLabels.RunAway1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void runAway1Edges() {
+		var node = get(MyNodeLabels.RunAway1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.RunAway2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	public void runAway2Edges() {
+		var node = get(MyNodeLabels.RunAway2.toString());
 		var meetDelphine = new PlayerInteraction(
 			MyChoiceLabels.TalkToDelphin.toString(),
 			delphine,
 			Icons.talk,
 			"Talk to the strange woman."
 		);
-
+		var nextNode = get(MyNodeLabels.DelphineTalk.toString());
 		node.add(new Edge(meetDelphine, nextNode));
 	}
 
