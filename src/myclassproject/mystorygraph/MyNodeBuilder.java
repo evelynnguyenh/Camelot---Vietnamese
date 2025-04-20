@@ -454,8 +454,8 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideDialog()).add(new SetPosition(edmona, hallway))
 			.add(new SetPosition(garry, hallway))
 			.add(new DialogSequence(father, edmona,
-				List.of("Edmona, I'm really sorry that things had to be like this. Thank you for your sacrifice."),
-				List.of("It's time you go with Garry, talk to him darling.")));
+				List.of("Edmona. I'm really sorry that things had to be like this. It's time you go with Garry. Talk to him darling."),
+				List.of("Yes daddy...")));
 	}
 
 	@BuilderMethod
@@ -472,7 +472,7 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new SetPosition(garry, camp))
 			.add(new SetPosition(delphine, camp))
 			.add(new DialogSequence(garry, edmona,
-				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA! I will take a nap, then I will bring you to Grimspire Castle to become a servant!"),
+				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA! I will take a nap and then I will bring you to Grimspire Castle to become a servant!"),
 				List.of("Oh no! I have to escape!")));
 	}
 			
@@ -480,29 +480,21 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void RunAwayActions1() {
 		var node = get(MyNodeLabels.RunAway1.toString());
 		node.add(new HideDialog())
-			.add(new NarrationSequence("I have to run!"));
-	}
-
-	@BuilderMethod
-	public void RunAwayActions2() {
-		var node = get(MyNodeLabels.RunAway2.toString());
-		node.add(new EnableInput());
+			.add(new EnableInput());
 	}
 
 	@BuilderMethod
 	public void DelphineTalkActions() {
 		var node = get(MyNodeLabels.DelphineTalk.toString());
 		
-		node.add(
-			new DisableInput())
+		node.add(new DisableInput())
 			.add(new DialogSequence(
 				delphine,
 				edmona,
 				List.of(
-					"Oh you poor thing, I've been watching you from afar! I can help you, my name is Delphine.",
-					"I practice the magic of light. If you become my student, I will teach you in my discipline."
+					"Oh you poor thing! I've been watching you from afar! I can help you. My name is Delphine. I practice the magic of light. I will teach you in my discipline."
 				),
-				List.of("Please, teach me. I need your help!")
+				List.of("Please teach me I need your help!")
 			))
 			.add(new EnableInput());
 }

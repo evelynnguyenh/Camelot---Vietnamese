@@ -149,7 +149,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void FinishDealEdge() {
 		var node = get(MyNodeLabels.AcceptToGo.toString());
-		var choice = new DialogChoice("It's time you go with Garry, talk to him darling.");
+		var choice = new DialogChoice("Yes daddy...");
 		var nextNode = get(MyNodeLabels.AcceptToGo1.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -174,19 +174,12 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void runAway1Edges() {
 		var node = get(MyNodeLabels.RunAway1.toString());
-		var choice = new CloseNarrationChoice();
-		var nextNode = get(MyNodeLabels.RunAway2.toString());
-		node.add(new Edge(choice, nextNode));
-	}
-	
-	public void runAway2Edges() {
-		var node = get(MyNodeLabels.RunAway2.toString());
 		var meetDelphine = new PlayerInteraction(
-			MyChoiceLabels.TalkToDelphin.toString(),
-			delphine,
-			Icons.talk,
-			"Talk to the strange woman."
-		);
+				MyChoiceLabels.TalkToDelphin.toString(),
+				delphine,
+				Icons.talk,
+				"Talk to the strange woman."
+			);
 		var nextNode = get(MyNodeLabels.DelphineTalk.toString());
 		node.add(new Edge(meetDelphine, nextNode));
 	}
