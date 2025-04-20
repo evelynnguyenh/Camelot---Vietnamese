@@ -105,7 +105,8 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new NarrationSequence("Unable to repay the debt, Edmona's brother and father are executed."))
         .add(new NarrationSequence("Royal guards storm the castle, trying to capture Edmona."))
         .add(new DialogSequence(edmona, null, 
-            List.of("I must escape now! Let's find a way...")))
+            List.of("I must escape now! Let's find a way..."),
+            List.of("Let's go!")))
         .add(new SetPosition(edmona, lightforest))
         .add(new NarrationSequence("She wakes up in a strange forest the next morning."))
 		.add(new EnableInput());
@@ -507,7 +508,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		
 	@BuilderMethod	
 	public void DelphineStudent1(){
-		var node = get(MyNodeLables.DelphineStudent1.toString());
+		var node = get(MyNodeLabels.DelphineStudent1.toString());
 		node.add(new SetPosition(delphine, lightforest))
 			.add(new SetPosition(edmona, lightforest))
 			.add(new NarrationSequence("Soft sunlight filters through towering trees, and the forest hums with gentle magic. Delphine stands beside Edmona."));
