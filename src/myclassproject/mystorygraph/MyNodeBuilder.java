@@ -509,7 +509,8 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod	
 	public void DelphineStudent1(){
 		var node = get(MyNodeLabels.DelphineStudent1.toString());
-		node.add(new SetPosition(delphine, lightforest))
+		node.add(new HideNarration())
+			.add(new SetPosition(delphine, lightforest))
 			.add(new SetPosition(edmona, lightforest))
 			.add(new NarrationSequence("Soft sunlight filters through towering trees, and the forest hums with gentle magic. Delphine stands beside Edmona."));
 	}
@@ -517,7 +518,8 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void DelphineStudent2() {
 		var node = get(MyNodeLabels.DelphineStudent2.toString());
-		node.add(new DialogSequence(delphine, edmona,
+		node.add(new HideNarration())
+			.add(new DialogSequence(delphine, edmona,
 				List.of("Welcome to this sacred glade. Your compassion will guide your magic here. Are you ready to learn for the good of all?"),
 				List.of("Yes Master Delphine. I am ready.")
 			));
