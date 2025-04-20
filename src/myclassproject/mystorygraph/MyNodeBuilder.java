@@ -54,12 +54,12 @@ public class MyNodeBuilder extends NodeBuilder {
 
         // position each character
         .add(new SetPosition(edmona, bedroom1))
-        .add(new SetPosition(garry, bedroom1))
+        .add(new SetPosition(garry, bedroom1, "Door"))
         .add(new SetPosition(delphine, lightforest))
         .add(new SetPosition(quentin, lightforest))
         .add(new SetPosition(grimspire, bedroom2))
-        .add(new SetPosition(brother, hallway))
-        .add(new SetPosition(father, hallway))
+        .add(new SetPosition(brother, hallway, "Stairs"))
+        .add(new SetPosition(father, hallway, "Door"))
 		.add(new SetPosition(noble1, town))
 		.add(new SetPosition(noble2, town))
 		.add(new SetPosition(noble3, town))
@@ -452,7 +452,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void AcceptToGoActions() {
 		var node = get(MyNodeLabels.AcceptToGo.toString());
 		node.add(new HideDialog()).add(new SetPosition(edmona, hallway))
-			.add(new SetPosition(garry, hallway))
+			.add(new SetPosition(garry, hallway, "BackDoor"))
 			.add(new DialogSequence(father, edmona,
 				List.of("Edmona. I'm really sorry that things had to be like this. It's time you go with Garry. Talk to him darling."),
 				List.of("Yes daddy...")));
@@ -502,15 +502,18 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void DelphineStudent() {
 		var node = get(MyNodeLabels.DelphineStudent.toString());
-		node.add(new HideDialog()).add(new NarrationSequence("Edmona has officially become Delphine's student."))
-			.add(new SetPosition(delphine, lightforest))
+		node.add(new HideDialog())
+		.add(new NarrationSequence("Edmona has officially become Delphine's student."));
+	}
+		
+	@BuilderMethod	
+	public void DelphineStudent1(){
+		var node = get(MyNodeLables.DelphineStudent1.toString());
+		node.add(new SetPosition(delphine, lightforest))
 			.add(new SetPosition(edmona, lightforest))
 			.add(new NarrationSequence("Soft sunlight filters through towering trees, and the forest hums with gentle magic. Delphine stands beside Edmona."))
-			.add(new DialogSequence(quentin, edmona,
-				List.of(
-					"Welcome to this sacred glade. Your compassion will guide your magic here.",
-					"Are you ready to learn for the good of all?"
-				),
+			.add(new DialogSequence(delphine, edmona,
+				List.of("Welcome to this sacred glade. Your compassion will guide your magic here. Are you ready to learn for the good of all?"),
 				List.of("Yes, Master Delphine, I am ready.")
 			));
 	}
