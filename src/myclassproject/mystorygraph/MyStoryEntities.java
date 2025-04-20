@@ -7,7 +7,7 @@ import com.enums.*;
 //Consulted by Tri Huynh, and Hoang Dieu Linh Nguyen
 public final class MyStoryEntities {
 	public static final Characters edmona = new Characters("Edmona", BodyTypes.A, Clothing.Merchant, HairStyle.Long, Colors.Red, 1);
-	public static final Characters garry = new Characters("Garry", BodyTypes.F, Clothing.Noble, HairStyle.Sticky, Colors.Black, 4);
+	public static final Characters garry = new Characters("Garry", BodyTypes.F, Clothing.Noble, HairStyle.Spiky, Colors.Black, 4);
 	public static final Characters delphine = new Characters("Delphine", BodyTypes.E, Clothing.Priest, HairStyle.Ponytail, Colors.Black, 3);
 	public static final Characters quentin = new Characters("Quentin", BodyTypes.H, Clothing.Warlock, HairStyle.Bald, Colors.Black, 7);
 	public static final Characters grimspire = new Characters("Grimspire", BodyTypes.B, Clothing.King, HairStyle.Musketeer_Full, Colors.Black, 5);

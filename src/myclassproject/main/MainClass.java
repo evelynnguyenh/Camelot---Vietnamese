@@ -2,7 +2,7 @@ package myclassproject.main;
 
 import com.storygraph.Story;
 
-import myclassproject.questexample.QuestGraph;
+import myclassproject.mystorygraph.MyGraph;
 import myclassproject.testgraph.TestGraph;
 public class MainClass {
 

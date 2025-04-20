@@ -13,7 +13,6 @@ import com.storygraph.BuilderMethod;
 import com.storygraph.Edge;
 import com.storygraph.NodeBuilder;
 import com.storygraph.Node;
-import java.lang.classfile.components.ClassPrinter;
 
 public class MyEdgeBuilder extends NodeBuilder {
 	/**
@@ -55,15 +54,15 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void ConsequenceEdges(){
 		var node = get(MyNodeLabels.Consequence.toString());
-		var choice = new PlayerInteraction(ChoiceLabels.Exit.toString(), edmona, Icons.exit, forestEnd);
+		var choice = new PlayerInteraction(MyChoiceLabels.Exit.toString(), forestEnd, Icons.exit, "Leave The Forest");
 		var nextNode = get(MyNodeLabels.MagicForest.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 
-		@BuilderMethod
+	@BuilderMethod
 	public void KillEdges() {
 		var node = get(MyNodeLabels.Kill.toString());
-		var choice = new PlayerInteraction(ChoiceLabels.Face.toString(), edmona, father);
+		var choice = new PlayerInteraction(edmona, MyChoiceLabels.Face.toString(), father);
 		var nextNode = get(MyNodeLabels.CorruptionEnding.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -71,7 +70,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void RileUpTheCrowdEdges() {
 		var node = get(MyNodeLabels.RileUpTheCrowd.toString());
-		var choice = new PlayerInteraction(ChoiceLabels.Sit.toString(), edmona, bedroom1.bed);
+		var choice = new PlayerInteraction(edmona, MyChoiceLabels.Sit.toString(), bed);
 		var nextNode = get(MyNodeLabels.BecomeQueenEnding.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -81,11 +80,11 @@ public class MyEdgeBuilder extends NodeBuilder {
 	public void MagicForestEdges(){
 		var node = get(MyNodeLabels.MagicForest.toString());
 		var choice1 = new DialogChoice("I will embrace the darkness and follow you, Quentin.");
-		var nextNode1 = get(MyChoiceLabels.QuentinStudent.toString());
+		var nextNode1 = get(MyNodeLabels.QuentinStudent.toString());
 		node.add(new Edge(choice1, nextNode1));
 
 		var choice2 = new DialogChoice("I cannot abandon my morals. Delphine, teach me the way of light.");
-		var nextNode2 = get(MyChoiceLabels.DelphineStudent.toString());
+		var nextNode2 = get(MyNodeLabels.DelphineStudent.toString());
 		node.add(new Edge(choice2, nextNode2));
 	}
 	
@@ -117,11 +116,11 @@ public class MyEdgeBuilder extends NodeBuilder {
 	public void PopulistFactionEdges(){
 		var node = get(MyNodeLabels.PopulistFaction.toString());
 		var choice1 = new DialogChoice("Become an indispensable supporter");
-		var nextNode1 = get(MyChoiceLabels.PromisePopulistPower.toString());
+		var nextNode1 = get(MyNodeLabels.PromisePopulistPower.toString());
 		node.add(new Edge(choice1, nextNode1));
 
 		var choice2 = new DialogChoice("Become the leader of the army");
-		var nextNode2 = get(MyChoiceLabels.RileUpTheCrowd.toString());
+		var nextNode2 = get(MyNodeLabels.RileUpTheCrowd.toString());
 		node.add(new Edge(choice2, nextNode2));
 	}
 
@@ -133,7 +132,8 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.AcceptToGo.toString());
 		var interactionChoice = new PlayerInteraction(MyChoiceLabels.TalkToGarry.toString(), garry, Icons.talk, "Ask Garry to finalize the deal."
     );
-    	node.add(new Edge(interactionChoice, RunAway));
+		var nextNode = get(MyNodeLabels.RunAway.toString());
+    	node.add(new Edge(interactionChoice, nextNode));
 	}
 
 	@BuilderMethod
@@ -226,11 +226,11 @@ public class MyEdgeBuilder extends NodeBuilder {
 	public void GrimspireFate() {
 		var node = get(MyNodeLabels.TakeRevenge.toString());
 		var choice1 = new DialogChoice("Your life ends here!");
-		var nextNode1 = get(MyChoiceLabels.Kill.toString());
+		var nextNode1 = get(MyNodeLabels.Kill.toString());
 		node.add(new Edge(choice1, nextNode1));
 
 		var choice2 = new DialogChoice("You are so pathetic...");
-		var nextNode2 = get(MyChoiceLabels.Spare.toString());
+		var nextNode2 = get(MyNodeLabels.Spare.toString());
 		node.add(new Edge(choice2, nextNode2));
 	}
 
