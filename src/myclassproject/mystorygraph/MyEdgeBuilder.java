@@ -203,6 +203,22 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void delphineStudentEdges() {
 		var node = get(MyNodeLabels.DelphineStudent.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.DelphineStudent1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void delphineStudentEdges1() {
+		var node = get(MyNodeLabels.DelphineStudent1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.DelphineStudent2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void delphineStudentEdges2() {
+		var node = get(MyNodeLables.DelphineStudent2.toString());
 		var choice = new DialogChoice("Yes, Master Delphine, I am ready.");
 		var nextNode = get(MyNodeLabels.LearnLightMagic.toString());
 		node.add(new Edge(choice, nextNode));

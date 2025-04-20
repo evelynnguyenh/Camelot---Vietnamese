@@ -502,7 +502,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void DelphineStudent() {
 		var node = get(MyNodeLabels.DelphineStudent.toString());
 		node.add(new HideDialog())
-		.add(new NarrationSequence("Edmona has officially become Delphine's student."));
+			.add(new NarrationSequence("Edmona has officially become Delphine's student."));
 	}
 		
 	@BuilderMethod	
@@ -510,14 +510,19 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLables.DelphineStudent1.toString());
 		node.add(new SetPosition(delphine, lightforest))
 			.add(new SetPosition(edmona, lightforest))
-			.add(new NarrationSequence("Soft sunlight filters through towering trees, and the forest hums with gentle magic. Delphine stands beside Edmona."))
-			.add(new DialogSequence(delphine, edmona,
+			.add(new NarrationSequence("Soft sunlight filters through towering trees, and the forest hums with gentle magic. Delphine stands beside Edmona."));
+	}
+
+	@BuilderMethod
+	public void DelphineStudent2() {
+		var node = get(MyNodeLabels.DelphineStudent2.toString());
+		node.add(new DialogSequence(delphine, edmona,
 				List.of("Welcome to this sacred glade. Your compassion will guide your magic here. Are you ready to learn for the good of all?"),
-				List.of("Yes, Master Delphine, I am ready.")
+				List.of("Yes Master Delphine. I am ready.")
 			));
 	}
 
-		@BuilderMethod
+	@BuilderMethod
 	public void learnDarkMagicActions() {
 		var node = get(MyNodeLabels.LearnDarkMagic.toString());
 		node.add(new HideDialog())
