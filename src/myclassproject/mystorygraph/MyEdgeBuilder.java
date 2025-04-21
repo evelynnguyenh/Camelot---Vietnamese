@@ -74,6 +74,38 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void ConsequenceEdges(){
 		var node = get(MyNodeLabels.Consequence.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.Consequence1.toString());
+		node.add(new Edge(choice, nextNode));
+	}	
+	
+	@BuilderMethod
+	public void Consequence1Edges() {
+		var node = get(MyNodeLabels.Consequence1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.Consequence2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Consequence2Edges() {
+		var node = get(MyNodeLabels.Consequence2.toString());
+		var choice = new DialogChoice("Let's go!");
+		var nextNode = get(MyNodeLabels.Consequence3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Consequence3Edges() {
+		var node = get(MyNodeLabels.Consequence3.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.Consequence4.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Consequence4Edges() {
+		var node = get(MyNodeLabels.Consequence4.toString());
 		var choice = new PlayerInteraction(MyChoiceLabels.Exit.toString(), forestEnd, Icons.exit, "Leave The Forest");
 		var nextNode = get(MyNodeLabels.MagicForest.toString());
 		node.add(new Edge(choice, nextNode));
@@ -82,19 +114,251 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void KillEdges() {
 		var node = get(MyNodeLabels.Kill.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.Kill1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Kill1Edges() {
+		var node = get(MyNodeLabels.Kill1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.Kill2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Kill2Edges() {
+		var node = get(MyNodeLabels.Kill2.toString());
+		var choice = new DialogChoice("Yes, I did it. I brought you back.");
+		var nextNode = get(MyNodeLabels.Kill3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Kill3Edges() {
+		var node = get(MyNodeLabels.Kill3.toString());
+		var choice = new DialogChoice("I saved you. No matter the cost.");
+		var nextNode = get(MyNodeLabels.Kill4.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Kill4Edges() {
+		var node = get(MyNodeLabels.Kill4.toString());
 		var choice = new PlayerInteraction(edmona, MyChoiceLabels.Face.toString(), father);
 		var nextNode = get(MyNodeLabels.CorruptionEnding.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 
 	@BuilderMethod
+	public void CorruptionEndingEdges() {
+		var node = get(MyNodeLabels.CorruptionEnding.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.CorruptionEnding1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void CorruptionEnding1Edges() {
+		var node = get(MyNodeLabels.CorruptionEnding1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.CorruptionEnding2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void CorruptionEnding2Edges() {
+		var node = get(MyNodeLabels.CorruptionEnding2.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.CorruptionEnding3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void CorruptionEnding3Edges() {
+		var node = get(MyNodeLabels.CorruptionEnding3.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.CorruptionEnding4.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void CorruptionEnding4Edges() {
+		var node = get(MyNodeLabels.CorruptionEnding3.toString());
+		var choice = new DialogChoice("This isn’t the sister we knew… Stay away!");
+		var nextNode = get(MyNodeLabels.CorruptionEnding5.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void CorruptionEnding5Edges() {
+		var node = get(MyNodeLabels.CorruptionEnding5.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.CorruptionEnding6.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void BecomeQueenEndingEdges() {
+		var node = get(MyNodeLabels.BecomeQueenEnding.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.BecomeQueenEnding1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void BecomeQueenEnding1Edges() {
+		var node = get(MyNodeLabels.BecomeQueenEnding1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.BecomeQueenEnding2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void BecomeQueenEnding2Edges() {
+		var node = get(MyNodeLabels.BecomeQueenEnding2.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.BecomeQueenEnding3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void BecomeQueenEnding3Edges() {
+		var node = get(MyNodeLabels.BecomeQueenEnding3.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.BecomeQueenEnding4.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void BecomeQueenEnding4Edges() {
+		var node = get(MyNodeLabels.BecomeQueenEnding4.toString());
+		var choice = new DialogChoice("I will help Your Majesty. The kingdom’s prosperity must come first.");
+		var nextNode = get(MyNodeLabels.BecomeQueenEnding5.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void BecomeQueenEnding5Edges() {
+		var node = get(MyNodeLabels.BecomeQueenEnding5.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.BecomeQueenEnding6.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
 	public void RileUpTheCrowdEdges() {
 		var node = get(MyNodeLabels.RileUpTheCrowd.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.RileUpTheCrowd1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void RileUpTheCrowdEdges1() {
+		var node = get(MyNodeLabels.RileUpTheCrowd1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.RileUpTheCrowd2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void RileUpTheCrowdEdges2() {
+		var node = get(MyNodeLabels.RileUpTheCrowd2.toString());
+		var choice = new DialogChoice("For freedom! For justice!");
+		var nextNode = get(MyNodeLabels.RileUpTheCrowd3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void RileUpTheCrowdEdges3() {
+		var node = get(MyNodeLabels.RileUpTheCrowd3.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.RileUpTheCrowd4.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void RileUpTheCrowdEdges4() {
+		var node = get(MyNodeLabels.RileUpTheCrowd4.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.RileUpTheCrowd5.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void RileUpTheCrowdEdges5() {
+		var node = get(MyNodeLabels.RileUpTheCrowd5.toString());
+		var choice = new DialogChoice("Long live Queen Edmona!");
+		var nextNode = get(MyNodeLabels.RileUpTheCrowd2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+		
+	@BuilderMethod
+	public void RileUpTheCrowdEdges6() {
+		var node = get(MyNodeLabels.RileUpTheCrowd6.toString());
 		var choice = new PlayerInteraction(edmona, MyChoiceLabels.Sit.toString(), bed);
 		var nextNode = get(MyNodeLabels.BecomeQueenEnding.toString());
 		node.add(new Edge(choice, nextNode));
 	}
-
+	
+	@BuilderMethod
+	public void PopulistRuleEndingEdges() {
+		var node = get(MyNodeLabels.PopulistRuleEnding.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.PopulistRuleEnding1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PopulistRuleEndingEdges1() {
+		var node = get(MyNodeLabels.PopulistRuleEnding1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.PopulistRuleEnding2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PopulistRuleEndingEdges2() {
+		var node = get(MyNodeLabels.PopulistRuleEnding2.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.PopulistRuleEnding3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PopulistRuleEndingEdges3() {
+		var node = get(MyNodeLabels.PopulistRuleEnding3.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.PopulistRuleEnding4.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PopulistRuleEndingEdges4() {
+		var node = get(MyNodeLabels.PopulistRuleEnding4.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.PopulistRuleEnding5.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PopulistRuleEndingEdges5() {
+		var node = get(MyNodeLabels.PopulistRuleEnding5.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.PopulistRuleEnding6.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PopulistRuleEndingEdges6() {
+		var node = get(MyNodeLabels.PopulistRuleEnding6.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.PopulistRuleEnding7.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
 	//Hoang Dieu Linh Nguyen
 	@BuilderMethod
 	public void MagicForestEdges(){
