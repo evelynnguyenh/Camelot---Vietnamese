@@ -512,7 +512,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.LearnFireMagic.toString());
 		node.add(new HideDialog())
 		.add(new ShowNarration())
-        .add(new NarrationSequence("Edmona focuses, feeling the energy stir within her. The air shimmers as sparks flicker at her fingertips."))
+        .add(new NarrationSequence("Edmona focuses, feeling the energy stir within her. The air shimmers as sparks flicker at her fingertips."));
 	}
 
 	@BuilderMethod
@@ -550,7 +550,7 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new ShowDialog())
 			.add(new DialogSequence(delphine, edmona, 
             List.of("I have taught you all that I can but there are still many spells that require you to practice on your own. Use this wisely."),
-            List.of("I am very grateful, and I will do my best.")));
+            List.of("I am very grateful. I will do my best.")));
 	}
 
 	@BuilderMethod
@@ -558,8 +558,10 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.LearnFireMagic5.toString());
 		node.add(new HideDialog())
 			.add(new Give(delphine, spellbook, edmona))
-			.add(new NarrationSequence("Edmona stands ready, flames at her fingertips, determined to fight back."))
+			.add(new NarrationSequence("Edmona stands ready and determined to fight back."))
 	}
+
+	// This is where I stop
 
 	@BuilderMethod
 	public void RallyActions() {

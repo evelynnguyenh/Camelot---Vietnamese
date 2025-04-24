@@ -427,8 +427,42 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void LearnFireMagicEdges(){
 		var node = get(MyNodeLabels.LearnFireMagic.toString());
-		var choice = new PlayerInteraction(MyChoiceLabels.Exit.toString(), edmona, Icons.exit, "Come to town");
-		var nextNode = get(MyNodeLabels.Rally.toString());
+		// var choice = new PlayerInteraction(MyChoiceLabels.Exit.toString(), edmona, Icons.exit, "Come to town");
+		// var nextNode = get(MyNodeLabels.Rally.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.LearnFireMagic1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicEdges1(){
+		var node = get(MyNodeLabels.LearnFireMagic1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.LearnFireMagic2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicEdges2(){
+		var node = get(MyNodeLabels.LearnFireMagic2.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.LearnFireMagic3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicEdges3(){
+		var node = get(MyNodeLabels.LearnFireMagic3.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.LearnFireMagic4.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicEdges3(){
+		var node = get(MyNodeLabels.LearnFireMagic4.toString());
+		var choice = new DialogChoice("I am very grateful. I will do my best.");
+		var nextNode = get(MyNodeLabels.LearnFireMagic5.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 
