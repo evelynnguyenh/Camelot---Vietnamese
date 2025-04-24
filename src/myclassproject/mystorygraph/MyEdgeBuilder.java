@@ -363,19 +363,63 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void MagicForestEdges(){
 		var node = get(MyNodeLabels.MagicForest.toString());
-		var choice1 = new DialogChoice("I will embrace the darkness and follow you, Quentin.");
-		var nextNode1 = get(MyNodeLabels.QuentinStudent.toString());
-		node.add(new Edge(choice1, nextNode1));
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.MagicForest1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
 
-		var choice2 = new DialogChoice("I cannot abandon my morals. Delphine, teach me the way of light.");
-		var nextNode2 = get(MyNodeLabels.DelphineStudent.toString());
-		node.add(new Edge(choice2, nextNode2));
+	@BuilderMethod
+	public void MagicForestEdges1(){
+		var node = get(MyNodeLabels.MagicForest1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.MagicForest2.toString());
+		node.add(new Edge(choice, nextNode));
+
+	}
+
+	@BuilderMethod
+	public void MagicForestEdges2(){
+		var node = get(MyNodeLabels.MagicForest2.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.MagicForest3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void MagicForestEdges3(){
+		var node = get(MyNodeLabels.MagicForest3.toString());
+		var choice = new DialogChoice("This is a choice I cannot make lightly.");
+		var nextNode = get(MyNodeLabels.MagicForest4.toString());
+		node.add(new Edge(choice, nextNode));
 	}
 	
-		@BuilderMethod
+	@BuilderMethod
+	public void MagicForestEdges4() {
+		var node = get(MyNodeLabels.MagicForest4.toString());
+		var choice1 = new PlayerInteraction(MyChoiceLabels.chooseDelphine.toString(), delphine, Icons.kneel, "Learn light magic from Delphine");
+		var nextNode1 = get(MyNodeLabels.DelphineStudent.toString());
+		node.add(new Edge(choice1, nextNode1));
+
+		var choice2 = new PlayerInteraction(MyChoiceLabels.chooseQuentin.toString(), quentin, Icons.kneel, "Learn dark magic from Quentin");
+		var nextNode2 = get(MyNodeLabels.QuentinStudent.toString());
+		node.add(new Edge(choice2, nextNode2));
+	}
+
+	@BuilderMethod
 	public void LearnLightMagicEdges(){
 		var node = get(MyNodeLabels.LearnLightMagic.toString());
-		var choice = new PlayerInteraction(MyChoiceLabels.TalkToDelphin.toString(), delphine, Icons.talk, "Learn light magic from Delphine");
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.LearnLightMagic1.toString());
+		node.add(new Edge(choice, nextNode));
+		// var choice = new PlayerInteraction(MyChoiceLabels.TalkToDelphin.toString(), delphine, Icons.talk, "Proceed with the training");
+		// var nextNode = get(MyNodeLabels.LearnFireMagic.toString());
+		// node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void LearnLightMagicEdges1(){
+		var node = get(MyNodeLabels.LearnLightMagic1.toString());
+		var choice = new DialogChoice("Yes Master Delphine. I am ready.");
 		var nextNode = get(MyNodeLabels.LearnFireMagic.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -459,7 +503,26 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void quentinStudentEdges() {
 		var node = get(MyNodeLabels.QuentinStudent.toString());
-		var choice = new DialogChoice("I am ready, Master Quentin.");
+		var choice = CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.QuentinStudent1.toString());
+		node.add(new Edge(choice, nextNode));
+		// var choice = new DialogChoice("I am ready, Master Quentin.");
+		// var nextNode = get(MyNodeLabels.LearnDarkMagic.toString());
+		// node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void quentinStudentEdges1() {
+		var node = get(MyNodeLabels.QuentinStudent1.toString());
+		var choice = CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.QuentinStudent2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void quentinStudentEdges2() {
+		var node = get(MyNodeLabels.QuentinStudent2.toString());
+		var choice = new DialogChoice("I am ready Master Quentin.");
 		var nextNode = get(MyNodeLabels.LearnDarkMagic.toString());
 		node.add(new Edge(choice, nextNode));
 	}

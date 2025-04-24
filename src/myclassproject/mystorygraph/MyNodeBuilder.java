@@ -116,7 +116,7 @@ public class MyNodeBuilder extends NodeBuilder {
     public void ConsequenceActions2() {
     	var node = get(MyNodeLabels.Consequence2.toString());
     	node.add(new HideNarration())
-        	.add(new DialogSequence(edmona, null, 
+        	.add(new DialogSequence(edmona, garry, // Error?
             List.of("I must escape now! Let's find a way..."),
             List.of("Let's go!")));
     }
@@ -435,47 +435,76 @@ public class MyNodeBuilder extends NodeBuilder {
     @BuilderMethod
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
-        node.add(new HideDialog()).add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."))
-        .add(new NarrationSequence("Quentin, a master of dark magic, promises to help her take revenge and revive her beloved brother and father within a blink of an eye."))
-        .add(new DialogSequence(delphine, quentin,
-            List.of("I can give you power beyond imagination. You have potential, but the choice is yours."),
-			List.of("Come with me, and I will teach you the greatest power in the world."))
-        .add(new DialogSequence(edmona, null,
-        	List.of("I am ready to learn light magic.", "I am ready to learn dark magic."),
-        	new ArrayList<String>())));
-
+        node.add(new HideDialog()).add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."));
     }
+
+	@BuilderMethod
+	public void MagicForestActions1() {
+		var node = get(MyNodeLabels.MagicForest1.toString());
+		node.add(new HideNarration())
+			.add(new NarrationSequence("Quentin, a master of dark magic, promises to help her take revenge and revive her beloved brother and father within a blink of an eye."));
+	}
+
+	@BuilderMethod
+	public void MagicForestActions2() {
+		var node = get(MyNodeLabels.MagicForest2.toString());
+		node.add(new HideNarration())
+			.add(new NarrationSequence("Delphine, the sorceress of light magic, promising to teach her the one true power to make the world a better place."));
+	}
+
+	public void MagicForestActions3() {
+		var node = get(MyNodeLabels.MagicForest3.toString());
+		node.add(new HideNarration())
+			.add(new DialogSequence(delphine, quentin,
+				List.of("So who will you choose?"),
+				List.of("This is a choice I cannot make lightly.")));
+	}
+
+	public void MagicForestActions4() {
+		var node = get(MyNodeLabels.MagicForest4.toString());
+		node.add(new HideDialog())
+			.add(new EnableInput());
+	}
 
     @BuilderMethod
     public void QuentinStudentActions() {
-    var node = get(MyNodeLabels.QuentinStudent.toString());
-    node.add(new HideDialog()).add(new NarrationSequence("Edmona has officially become Quentin's apprentice."))
-        .add(new SetPosition(quentin, darkforest))
-        .add(new SetPosition(edmona, darkforest))
-        .add(new NarrationSequence("The air around her feels heavier, charged with dark energy as she takes her first step into the path of forbidden magic."))
-        .add(new DialogSequence(quentin, edmona, 
-            List.of("Now, you belong to the shadows. Your past pain will be your greatest weapon.", 
-                    "Are you ready to embrace the darkness?"),
-            List.of("I am ready, Master Quentin.")));
+    	var node = get(MyNodeLabels.QuentinStudent.toString());
+    	node.add(new NarrationSequence("Edmona has officially become Quentin's apprentice."))
+			.add(new SetPosition(quentin, darkforest))
+			.add(new SetPosition(edmona, darkforest));
     }
 
+	@BuilderMethod
+	public void QuentinStudentActions1() {
+		var node = get(MyNodeLabels.QuentinStudent1.toString());
+		node.add(new HideNarration())
+			.add(new NarrationSequence("The air around her feels heavier, charged with dark energy as she takes her first step into the path of forbidden magic."));
+	}
+
+	@BuilderMethod
+	public void QuentinStudentActions2() {
+		var node = get(MyNodeLabels.QuentinStudent2.toString());
+		node.add(new DialogSequence(quentin, edmona, 
+        List.of("Now, you belong to the shadows. Your past pain will be your greatest weapon. Are you ready to embrace the darkness?"),
+        List.of("I am ready Master Quentin.")));
+	}
 
 	@BuilderMethod
 	public void LearnLightMagicActions() {
 		var node = get(MyNodeLabels.LearnLightMagic.toString());
 		node.add(new HideDialog())
-		.add(new ShowNarration())
-		.add(new NarrationSequence("As the training commences, a flame suddenly ignites in Delphine's presence, dancing with a controlled intensity that fills the air with its heat."))
-		.add(new HideNarration())
-		.add(new CreateEffect(delphine, Effects.Spiralflame))
-		.add(new ShowDialog())
-		.add(new DialogSequence(delphine, edmona, 
-            List.of("I will teach you the ancient art of fire magic, a force both pure and powerful, to conquer evil",
-					"But remember, fire is not merely destruction; it is warmth, light, and rebirth. Mastering it requires discipline, for its power can either heal or consume. Are you prepared to harness its potential?"
+		.add(new NarrationSequence("As the training commences, a flame suddenly ignites in Delphine's presence, dancing with a controlled intensity that fills the air with its heat."));
+	}
+
+	@BuilderMethod
+	public void LearnLightMagicActions1() {
+		var node = get(MyNodeLabels.LearnLightMagic1.toString());
+		node.add(new HideNarration())
+			.add(new CreateEffect(delphine, Effects.Spiralflame))
+			.add(new DialogSequence(delphine, edmona, 
+            List.of("I will teach you the ancient art of fire magic. Mastering it requires discipline, for its power can either heal or consume. Are you prepared to harness its potential?"
 			),
-            List.of("Yes, Master Delphine, I am ready.")))
-		.add(new HideDialog())
-		.add(new EnableInput());
+            List.of("Yes Master Delphine. I am ready.")));
 	}
 
 	@BuilderMethod
@@ -484,40 +513,52 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideDialog())
 		.add(new ShowNarration())
         .add(new NarrationSequence("Edmona focuses, feeling the energy stir within her. The air shimmers as sparks flicker at her fingertips."))
-		.add(new HideNarration())
-		.add(new Cast(edmona))
-		.add(new ShowNarration())
-		.add(new NarrationSequence("The flames she conjures are wild, fueled by the pain of her past. With each passing lesson, her power intensifies."))
-		.add(new HideNarration())
-		.add(new Clap(delphine))
-		.add(new ShowDialog())
-		.add(new DialogSequence(delphine, edmona, 
-            List.of(
-                "You did really well. The flame is your tool, but be careful. Anger can consume even the strongest hearts.",
-                "Harness its power, but do not let it control you, or you may lose yourself."
-            ),
-            List.of("I will control it, Master Delphine. I will not be consumed.")
-        ))
-		.add(new HideDialog())
-		.add(new CreateEffect(edmona, Effects.Wildfire))
-		.add(new ShowNarration())
-        .add(new NarrationSequence("A sphere of flame forms in Edmona’s palm, growing hotter with her resolve."))
-		.add(new HideNarration())
-		.add(new ShowDialog())
-		.add(new DialogSequence(delphine, edmona, 
-            List.of(
-                "I have taught you all that I can, but there are still many spells that require you to practice on your own.",
-                "This is the book of inheritance, containing many powerful spells.",
-				"Use it wisely."
-            ),
-            List.of("I am very grateful, and I will do my best.")
-        ))
-		.add(new HideDialog())
-		.add(new Give(delphine, spellbook, edmona))
-		.add(new ShowNarration())
-        .add(new NarrationSequence("Edmona stands ready, flames at her fingertips, a fierce determination in her heart."))
-		.add(new HideNarration())
-		.add(new EnableInput());
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicActions1() {
+		var node = get(MyNodeLabels.LearnFireMagic1.toString());
+		node.add(new HideNarration())
+			.add(new Cast(edmona))
+			.add(new NarrationSequence("The flames she conjures are wild, fueled by the pain of her past. With each passing lesson, her power intensifies."));
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicActions2() {
+		var node = get(MyNodeLabels.LearnFireMagic2.toString());
+		node.add(new HideNarration())
+			.add(new Clap(delphine))
+			.add(new DialogSequence(delphine, edmona, 
+				List.of(
+					"You did really well. The flame is your tool, but be careful. Anger can consume even the strongest hearts."
+				),
+				List.of("I will control it, Master Delphine. I will not be consumed.")));
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicActions3() {
+		var node = get(MyNodeLabels.LearnFireMagic3.toString());
+		node.add(new HideDialog())
+			.add(new CreateEffect(edmona, Effects.Wildfire))
+			.add(new NarrationSequence("A sphere of flame forms in Edmona’s palm, growing hotter with her resolve."));
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicActions4() {
+		var node = get(MyNodeLabels.LearnFireMagic4.toString());
+		node.add(new HideNarration())
+			.add(new ShowDialog())
+			.add(new DialogSequence(delphine, edmona, 
+            List.of("I have taught you all that I can but there are still many spells that require you to practice on your own. Use this wisely."),
+            List.of("I am very grateful, and I will do my best.")));
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicActions5() {
+		var node = get(MyNodeLabels.LearnFireMagic5.toString());
+		node.add(new HideDialog())
+			.add(new Give(delphine, spellbook, edmona))
+			.add(new NarrationSequence("Edmona stands ready, flames at her fingertips, determined to fight back."))
 	}
 
 	@BuilderMethod
@@ -628,7 +669,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideDialog())
 			.add(new SetPosition(edmona, camp))
 			.add(new SetPosition(garry, camp))
-			.add(new SetPosition(delphine, camp))
+			.add(new SetPosition(delphine, camp, "Horse"))
 			.add(new DialogSequence(garry, edmona,
 				List.of("Do you really think I would take you as a wife? You are so stupid! HAHAHAHA! I will take a nap and then I will bring you to Grimspire Castle to become a servant!"),
 				List.of("Oh no! I have to escape!")));
