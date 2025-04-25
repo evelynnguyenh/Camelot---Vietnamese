@@ -536,27 +536,27 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var nextNode2 = get(MyNodeLabels.PromisePopulistPower.toString());
 		// Noble 1
 		var choice1A = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble1, Icons.swords, "Convince them to fight for you");
-		var choice1B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble1, Icons.kneel, "Promise to give them power")
+		var choice1B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble1, Icons.kneel, "Promise to give them power");
 		node.add(new Edge(choice1A, nextNode1));
 		node.add(new Edge(choice1B, nextNode2));
 		// Noble 2
 		var choice2A = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble2, Icons.swords, "Convince them to fight for you");
-		var choice2B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble2, Icons.kneel, "Promise to give them power")
+		var choice2B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble2, Icons.kneel, "Promise to give them power");
 		node.add(new Edge(choice1A, nextNode1));
 		node.add(new Edge(choice1B, nextNode2));
 		// Noble 3
 		var choice3A = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble3, Icons.swords, "Convince them to fight for you");
-		var choice3B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble3, Icons.kneel, "Promise to give them power")
+		var choice3B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble3, Icons.kneel, "Promise to give them power");
 		node.add(new Edge(choice1A, nextNode1));
 		node.add(new Edge(choice1B, nextNode2));
 		// Noble 4
 		var choice4A = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble4, Icons.swords, "Convince them to fight for you");
-		var choice4B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble4, Icons.kneel, "Promise to give them power")
+		var choice4B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble4, Icons.kneel, "Promise to give them power");
 		node.add(new Edge(choice1A, nextNode1));
 		node.add(new Edge(choice1B, nextNode2));
 		// Noble 5
 		var choice5A = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble5, Icons.swords, "Convince them to fight for you");
-		var choice5B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble5, Icons.kneel, "Promise to give them power")
+		var choice5B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble5, Icons.kneel, "Promise to give them power");
 		node.add(new Edge(choice1A, nextNode1));
 		node.add(new Edge(choice1B, nextNode2));
 	}
