@@ -60,11 +60,11 @@ public class MyNodeBuilder extends NodeBuilder {
         .add(new SetPosition(grimspire, bedroom2))
         .add(new SetPosition(brother, hallway, "Stairs"))
         .add(new SetPosition(father, hallway, "Door"))
-		.add(new SetPosition(noble1, town))
-		.add(new SetPosition(noble2, town))
-		.add(new SetPosition(noble3, town))
-		.add(new SetPosition(noble4, town))
-		.add(new SetPosition(noble5, town))
+		.add(new SetPosition(noble1, town, "BrownHouseDoor"))
+		.add(new SetPosition(noble2, town, "Barrel"))
+		.add(new SetPosition(noble3, town, "Plant"))
+		.add(new SetPosition(noble4, town, "Fountain"))
+		.add(new SetPosition(noble5, town, "GreenHouseDoor"))
 
         // focus camera on Edmona and show menu
         .add(new SetCameraFocus(edmona))
@@ -126,6 +126,7 @@ public class MyNodeBuilder extends NodeBuilder {
     	var node = get(MyNodeLabels.Consequence3.toString());
     	node.add(new HideDialog())
         	.add(new SetPosition(edmona, lightforest))
+			.add(new FadeIn())
         	.add(new NarrationSequence("She wakes up in a strange forest the next morning."));
     }
     
@@ -253,6 +254,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	 public void BecomeQueenEndingActions() {
 		 var node = get(MyNodeLabels.BecomeQueenEnding.toString());
 		 node.add(new SetPosition(edmona, greathall)) 
+		 	.add(new FadeIn())
 			 .add(new NarrationSequence("Edmona ascends the throne of Magna Vietia her journey of struggle and sacrifice culminating in the crown."));
 	}
 	
@@ -283,6 +285,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideNarration())
 			.add(new EnableInput())
 			.add(new SetPosition(edmona, town))
+			.add(new FadeIn())
 			.add(new Face(edmona, noble1))
 			.add(new DialogSequence(edmona, noble1, 
 				 List.of("We need to restore our economy and trade routes. Your expertise will be vital."), 
@@ -572,49 +575,15 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void RallyActions() {
 		var node = get(MyNodeLabels.Rally.toString());
-		node.add(new HideDialog())
-		.add(new SetPosition(edmona, town))
-		.add(new LookAt(edmona, noble1))
-		.add(new LookAt(edmona, noble2))
-		.add(new LookAt(edmona, noble3))
-		.add(new LookAt(edmona, noble4))
-		.add(new ShowNarration())
-		.add(new NarrationSequence("She stands before the crowd, filled with hatred for the rule of the Grimpshire family."))
-		.add(new NarrationSequence("She knows she cannot take on the kingdom alone. If her revolution is to succeed, she must gather allies—warriors, outcasts, and those who have suffered under the king's rule."))
-		.add(new HideNarration())
-		.add(new ShowDialog())
-		.add(new DialogSequence(edmona, null, 
-            List.of(
-                "The time has come. But where do I begin?"
-            ),
-            List.of()))
-		.add(new HideDialog())
-		.add(new EnableInput());
+		node.add(new SetPosition(edmona, town))
+			.add(new NarrationSequence("I have to rally people to my cause!"));
 	}
 
 	@BuilderMethod
-	public void PopulistFactionActions() {
-		var node = get(MyNodeLabels.PopulistFaction.toString());
-		node.add(new HideDialog())
-		.add(new ShowNarration())
-		.add(new NarrationSequence("In the heart of the bustling village square, Edmona stands before the leaders of the Populist Faction. Farmers, laborers, and artisans watch with wary yet hopeful eyes."))
-		.add(new HideNarration())
-		.add(new EnableInput())
-		.add(new WalkTo(edmona, noble1))
-		.add(new ShowDialog())
-		.add(new DialogSequence(noble1, edmona, 
-            List.of(
-                "We have tilled these lands, built these homes, and forged the steel that fills the king's armory.",
-                "And yet, we are treated as nothing more than expendable hands.",
-                "If you truly wish to overthrow House Grimpshire, you must prove to us that you fight for the people-not just for your own vengeance."
-            ),
-            List.of("I do not seek vengeance alone. I seek justice for all who suffer under their rule."))
-        )
-		.add(new HideDialog())
-		.add(new ShowNarration())
-		.add(new NarrationSequence("Murmurs spread through the gathered crowd. Some nod in approval, while others cross their arms in doubt. The leader studies Edmona closely."))
-		.add(new HideNarration())
-		.add(new EnableInput());
+	public void RallyActions1(){
+		var node = get(MyNodeLabels.Rally1.toString());
+		node.add(new HideNarration())
+			.add(new EnableInput());
 	}
 
 	@BuilderMethod
@@ -645,6 +614,7 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new SetPosition(noble2, bedroom2, "Door"))
 			.add(new SetPosition(noble3, bedroom2, "Fireplace"))
 			.add(new SetPosition(noble4, bedroom2, "Table"))
+			.add(new SetPosition(noble5, bedroom2, "LeftChair"))
 			.add(new DialogSequence(grimspire, noble1,
 					List.of("Who are you? How dare you come here?"),
 					List.of("We have lived under your rule long enough. We will fight.")));
