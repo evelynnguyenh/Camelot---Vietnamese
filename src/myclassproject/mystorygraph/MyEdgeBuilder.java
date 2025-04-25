@@ -521,15 +521,43 @@ public class MyEdgeBuilder extends NodeBuilder {
 	}
 	
 	@BuilderMethod
-	public void PopulistFactionEdges(){
-		var node = get(MyNodeLabels.PopulistFaction.toString());
-		var choice1 = new DialogChoice("Become an indispensable supporter");
-		var nextNode1 = get(MyNodeLabels.PromisePopulistPower.toString());
-		node.add(new Edge(choice1, nextNode1));
-
-		var choice2 = new DialogChoice("Become the leader of the army");
-		var nextNode2 = get(MyNodeLabels.RileUpTheCrowd.toString());
-		node.add(new Edge(choice2, nextNode2));
+	public void PromisePopulistPowerEdges() {
+		var node = get(MyNodeLabels.PromisePopulistPower.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.PromisePopulistPower1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPower1Edges() {
+		var node = get(MyNodeLabels.PromisePopulistPower1.toString());
+		var choice = new DialogChoice("Then let the banners rise. The time for chains is over!");
+		var nextNode = get(MyNodeLabels.PromisePopulistPower2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPower2Edges() {
+		var node = get(MyNodeLabels.PromisePopulistPower2.toString());
+		var choice = new DialogChoice("We have lived under your rule long enough. We will fight.");
+		var nextNode = get(MyNodeLabels.PromisePopulistPower3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPower3Edges() {
+		var node = get(MyNodeLabels.PromisePopulistPower3.toString());
+		var choice = new DialogChoice("After you!");
+		var nextNode = get(MyNodeLabels.PromisePopulistPower4.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPower4Edges() {
+		var node = get(MyNodeLabels.PromisePopulistPower4.toString());
+		var choice = new PlayerInteraction(MyChoiceLabels.TakeTheCrown.toString(), grimspire, Icons.unlock, "Take the crown!");
+		var nextNode = get(MyNodeLabels.PopulistRuleEnding.toString());
+		node.add(new Edge(choice, nextNode));
 	}
 
 

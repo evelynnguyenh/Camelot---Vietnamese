@@ -589,31 +589,6 @@ public class MyNodeBuilder extends NodeBuilder {
 	}
 
 	@BuilderMethod
-	public void PopulistFactionActions() {
-		var node = get(MyNodeLabels.PopulistFaction.toString());
-		node.add(new HideDialog())
-		.add(new ShowNarration())
-		.add(new NarrationSequence("In the heart of the bustling village square, Edmona stands before the leaders of the Populist Faction. Farmers, laborers, and artisans watch with wary yet hopeful eyes."))
-		.add(new HideNarration())
-		.add(new EnableInput())
-		.add(new WalkTo(edmona, noble1))
-		.add(new ShowDialog())
-		.add(new DialogSequence(noble1, edmona, 
-            List.of(
-                "We have tilled these lands, built these homes, and forged the steel that fills the king's armory.",
-                "And yet, we are treated as nothing more than expendable hands.",
-                "If you truly wish to overthrow House Grimpshire, you must prove to us that you fight for the people-not just for your own vengeance."
-            ),
-            List.of("I do not seek vengeance alone. I seek justice for all who suffer under their rule."))
-        )
-		.add(new HideDialog())
-		.add(new ShowNarration())
-		.add(new NarrationSequence("Murmurs spread through the gathered crowd. Some nod in approval, while others cross their arms in doubt. The leader studies Edmona closely."))
-		.add(new HideNarration())
-		.add(new EnableInput());
-	}
-
-	@BuilderMethod
 	public void PromisePopulistPowerActions() {
 		var node = get(MyNodeLabels.PromisePopulistPower.toString());
 		node.add(new HideDialog())
@@ -651,7 +626,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.PromisePopulistPower3.toString());
 		node.add(new DialogSequence(edmona, noble1,
 			List.of("Let our revolution begin."),
-			List.of("After you Queen")));
+			List.of("After you!")));
 	}
 
 	@BuilderMethod
@@ -670,7 +645,6 @@ public class MyNodeBuilder extends NodeBuilder {
 
 
 /// Different
-
 
 	// Tri Huynh
 	@BuilderMethod
