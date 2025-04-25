@@ -545,7 +545,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.LearnFireMagic3.toString());
 		node.add(new HideDialog())
 			.add(new CreateEffect(edmona, Effects.Wildfire))
-			.add(new NarrationSequence("A sphere of flame forms in Edmona’s palm, growing hotter with her resolve."));
+			.add(new NarrationSequence("A sphere of flame forms in the palm of Edmona, growing hotter with her resolve."));
 	}
 
 	@BuilderMethod
@@ -667,9 +667,6 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new CreateEffect(grimspire, Effects.Death))
 			.add(new EnableInput());
 	}	
-
-
-/// Different
 
 
 	// Tri Huynh
