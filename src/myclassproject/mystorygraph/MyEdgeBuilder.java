@@ -459,7 +459,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void LearnFireMagicEdges4(){
 		var node = get(MyNodeLabels.LearnFireMagic4.toString());
-		var choice = new DialogChoice("I am very grateful. I will do my best.");
+		var choice = new DialogChoice("I am very grateful for your help.");
 		var nextNode = get(MyNodeLabels.LearnFireMagic5.toString());
 		node.add(new Edge(choice, nextNode));
 	}

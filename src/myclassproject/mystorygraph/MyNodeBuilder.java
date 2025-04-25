@@ -550,7 +550,7 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new ShowDialog())
 			.add(new DialogSequence(delphine, edmona, 
             List.of("I have taught you all that I can but there are still many spells that require you to practice on your own. Use this wisely."),
-            List.of("I am very grateful, and I will do my best.")));
+            List.of("I am very grateful for your help.")));
 	}
 
 	@BuilderMethod
