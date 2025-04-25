@@ -531,7 +531,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void PromisePopulistPower1Edges() {
 		var node = get(MyNodeLabels.PromisePopulistPower1.toString());
-		var choice = new DialogChoice("Then let the banners rise. The time for chains is over!");
+		var choice = new DialogChoice("Let the banners rise.");
 		var nextNode = get(MyNodeLabels.PromisePopulistPower2.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -662,7 +662,23 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void learnDarkMagicEdges() {
 		var node = get(MyNodeLabels.LearnDarkMagic.toString());
-		var choice = new DialogChoice("Visit The Forbidden Library");
+		var choice = new DialogChoice("Yes, Master. Tell me what I must do.");
+		var nextNode = get(MyNodeLabels.LearnDarkMagic1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void learnDarkMagic1Edges() {
+		var node = get(MyNodeLabels.LearnDarkMagic1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.LearnDarkMagic2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void learnDarkMagic2Edges() {
+		var node = get(MyNodeLabels.LearnDarkMagic2.toString());
+		var choice = new DialogChoice("I shall go to the library.");
 		var nextNode = get(MyNodeLabels.ForbiddenLibrary.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -670,7 +686,14 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void forbiddenLibraryEdges() {
 		var node = get(MyNodeLabels.ForbiddenLibrary.toString());
-		
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.ForbiddenLibrary1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void forbiddenLibrary1Edges() {
+		var node = get(MyNodeLabels.ForbiddenLibrary1.toString());
 		var readSpellbookChoice = new PlayerInteraction(
 			MyChoiceLabels.Read.toString(), 
 			libraryspellbook,
@@ -682,9 +705,17 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(readSpellbookChoice, nextNode));
 	}
 
+	@BuilderMethod
 	public void LeaveLibrary() {
 		var node = get(MyNodeLabels.ReadTome.toString());
-		
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.ReadTome1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void LeaveLibrary1() {
+		var node = get(MyNodeLabels.ReadTome1.toString());
 		var DoorExit = new PlayerInteraction(
 			MyChoiceLabels.LeaveLibrary.toString(), 
 			door,
@@ -696,8 +727,25 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(DoorExit, nextNode));
 	}
 
+	@BuilderMethod
 	public void LeaveForest() {
 		var node = get(MyNodeLabels.SoulbindingTrial.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.SoulBindingTrial1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void LeaveForest1() {
+		var node = get(MyNodeLabels.SoulBindingTrial1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.SoulBindingTrial2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void LeaveForest2() {
+		var node = get(MyNodeLabels.SoulBindingTrial2.toString());
 		var LeavePath = new PlayerInteraction(
 			edmona,
 			MyChoiceLabels.ToGrimspire.toString(),

@@ -11,5 +11,5 @@ public enum MyNodeLabels{
 	RileUpTheCrowd4, RileUpTheCrowd5, RileUpTheCrowd6, PopulistRuleEnding, PopulistRuleEnding1, PopulistRuleEnding2, PopulistRuleEnding3, 
 	PopulistRuleEnding4, PopulistRuleEnding5, PopulistRuleEnding6, PopulistRuleEnding7, 
 	PromisePopulistPower, Rally, Rally1, Rally2, Rally3, SoulbindingTrial, ForbiddenLibrary, LearnDarkMagic, QuentinStudent, QuentinStudent1, QuentinStudent2,
-	PromisePopulistPower1, PromisePopulistPower2, PromisePopulistPower3, PromisePopulistPower4
+	PromisePopulistPower1, PromisePopulistPower2, PromisePopulistPower3, PromisePopulistPower4, LearnDarkMagic1, SoulBindingTrial1, SoulBindingTrial2, ForbiddenLibrary1, ReadTome1, Spare1, Spare2
 }

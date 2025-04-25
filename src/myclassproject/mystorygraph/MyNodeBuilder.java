@@ -37,7 +37,7 @@ public class MyNodeBuilder extends NodeBuilder {
 
     public void rootActions() {
         var root = get(MyNodeLabels.root.toString());
-        root.add(new CreateAll(List.of(bedroom1, bedroom2, camp, town, lightforest, darkforest, ruins, library, hallway, sword, spellbook, littorch)))
+        root.add(new CreateAll(List.of(bedroom1, bedroom2, camp, town, lightforest, darkforest, ruins, library, hallway, sword, spellbook, littorch, greathall)))
 		// initiating each character
         .add(new CreateCharacterSequence(edmona))
         .add(new CreateCharacterSequence(garry))
@@ -370,13 +370,13 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	 public void PopulistRuleEndingActions() {
 		 var node = get(MyNodeLabels.PopulistRuleEnding.toString());
-		 node.add(new SetPosition(noble1, greathall))
-			 .add(new SetPosition(noble2, greathall))
-			 .add(new SetPosition(noble3, greathall))
-			 .add(new SetPosition(noble4, greathall))
-			 .add(new SetPosition(noble5, greathall))
-			 .add(new SetCameraFocus(noble1))
-			 .add(new NarrationSequence("The Populist Faction keeps their promise dismantling the remnants of House Grimpshire and abolishing the noble republic system."));
+		 node.add(new SetCameraFocus(noble1))
+		 	.add(new SetPosition(noble1, greathall))
+			.add(new SetPosition(noble2, greathall))
+			.add(new SetPosition(noble3, greathall))
+			.add(new SetPosition(noble4, greathall))
+			.add(new SetPosition(noble5, greathall))
+			.add(new NarrationSequence("The Populist Faction keeps their promise dismantling the remnants of House Grimpshire and abolishing the noble republic system."));
 	}
 	
 	@BuilderMethod
@@ -525,6 +525,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.LearnFireMagic1.toString());
 		node.add(new HideNarration())
 			.add(new Cast(edmona))
+			.add(new CreateEffect(edmona, Effects.Wildfire))
 			.add(new NarrationSequence("The flames she conjures are wild, fueled by the pain of her past. With each passing lesson, her power intensifies."));
 	}
 
@@ -592,7 +593,11 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void PromisePopulistPowerActions() {
 		var node = get(MyNodeLabels.PromisePopulistPower.toString());
 		node.add(new HideDialog())
-		.add(new Kneel(edmona))
+			.add(new WalkTo(noble2, edmona))
+			.add(new WalkTo(noble3, edmona))
+			.add(new WalkTo(noble4, edmona))
+			.add(new WalkTo(noble5, edmona))
+		// .add(new Kneel(edmona))
 		.add(new NarrationSequence("Before the roaring crowd, Edmona kneels before the leaders of the Populist Faction, her voice steady."));
 	}
 
@@ -601,8 +606,8 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.PromisePopulistPower1.toString());
 		node.add(new HideNarration())
 			.add(new DialogSequence(edmona, noble1,
-					List.of("I swear to you all—this land shall be ruled by its people, not by a tyrant’s bloodline."),
-					List.of("Then let the banners rise. The time for chains is over!"))
+					List.of("I swear to you all this land shall be ruled by its people!"),
+					List.of("Let the banners rise."))
 					);
 	}
 
@@ -624,7 +629,8 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void PromisePopulistPowerActions3() {	
 		var node = get(MyNodeLabels.PromisePopulistPower3.toString());
-		node.add(new DialogSequence(edmona, noble1,
+		node.add(new HideDialog())
+			.add(new DialogSequence(edmona, noble1,
 			List.of("Let our revolution begin."),
 			List.of("After you!")));
 	}
@@ -637,9 +643,8 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new Attack(noble2, grimspire))
 			.add(new Attack(noble3, grimspire))
 			.add(new Attack(noble4, grimspire))
-			.add(new Cast(edmona, grimspire, Spell.blue))
-			.add(new CreateEffect(edmona, Effects.Aura))
-			.add(new CreateEffect(grimspire, Effects.Death))
+			.add(new Attack(edmona, grimspire))
+			.add(new Die(grimspire))
 			.add(new EnableInput());
 	}	
 
@@ -709,6 +714,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideNarration())
 			.add(new SetPosition(delphine, lightforest))
 			.add(new SetPosition(edmona, lightforest))
+			.add(new LookAt(delphine, edmona))
 			.add(new NarrationSequence("Soft sunlight filters through towering trees, and the forest hums with gentle magic. Delphine stands beside Edmona."));
 	}
 
@@ -730,27 +736,32 @@ public class MyNodeBuilder extends NodeBuilder {
 				quentin, 
 				edmona, 
 				List.of(
-					"Time has blurred, apprentice. You've spent countless days refining the art of darkness.",
-					"Your final challenge awaits. Are you prepared to take the last steps?"
+					"Time has blurred apprentice. You've spent countless days refining the art of darkness. Your final challenge awaits. Are you prepared to take the last steps?"
 				), 
 				List.of("Yes, Master. Tell me what I must do.")
-			))
-			.add(new HideDialog())
+			));
+	}
+
+	@BuilderMethod
+	public void learnDarkMagic1Actions() {
+		var node = get(MyNodeLabels.LearnDarkMagic1.toString());
+		node.add(new HideDialog())
 			.add(new NarrationSequence(
-				"Quentin’s voice echoes with dark power. He explains that you must complete two final tasks:\n"
-				+ "1) Journey to the Forbidden Library to uncover a necromantic tome.\n"
-				+ "2) Drain the forest’s essence, watching it wither as your own strength grows."
-			))
+				"Quentin’s voice echoes with dark power. He explains that you must complete two final tasks: Journey to the Forbidden Library and Drain the forest’s essence."
+			));
+	}
+
+	@BuilderMethod
+	public void learnDarkMagic2Actions() {
+		var node = get(MyNodeLabels.LearnDarkMagic2.toString());
+		node.add(new HideNarration())
 			.add(new DialogSequence(
 				quentin,
 				edmona,
 				List.of("These paths are yours to walk. Which will you pursue first?"),
 				List.of("I shall go to the library.")
-			))
-			.add(new EnableInput());
+			));
 	}
-
-
 
 	@BuilderMethod
 	public void DarkMagicTrial() {
@@ -759,16 +770,28 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new SetPosition(edmona, darkforest))
 			.add(new NarrationSequence(
 				"All of the magical power in this forest shall be mine!"
-			)).add(new HideNarration())
+			));
+	}
+
+	@BuilderMethod
+	public void DarkMagicTrial1() {
+		var node = get(MyNodeLabels.SoulBindingTrial1.toString());
+		node.add(new HideNarration())
 			.add(new EnableEffect(edmona, Effects.Aura))
 			.add(new Cast(edmona, edmona, Spell.purple))
 			.add(new NarrationSequence(
-				"Finally...although the forest is dead, I'm born anew! I shall head out of the forest and seek my revenge."
-			)).add(new HideNarration())
+				"Finally... although the forest is dead I'm born anew! I shall head out of the forest and seek my revenge."
+			));
+	}
+
+	@BuilderMethod
+	public void DarkMagicTrial2() {
+		var node = get(MyNodeLabels.SoulBindingTrial2.toString());
+		node.add(new HideNarration())
 			.add(new DisableEffect(edmona))
 			.add(new EnableInput());
 	}
-	
+
 	@BuilderMethod
 	public void ForbiddenLibrary() {
 		var node = get(MyNodeLabels.ForbiddenLibrary.toString());
@@ -776,7 +799,13 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new SetPosition(edmona, library))
 			.add(new NarrationSequence(
 				"I must find the tome!"
-			)).add(new HideNarration())
+			));
+	}
+
+	@BuilderMethod
+	public void ForbiddenLibrary1() {
+		var node = get(MyNodeLabels.ForbiddenLibrary1.toString());
+		node.add(new HideNarration())
 			.add(new EnableInput());
 	}
 
@@ -786,10 +815,14 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.ReadTome.toString());
 		node.add(new HideDialog())
 			.add(new NarrationSequence(
-				"The ancient pages detail a forbidden ritual: to resurrect the dead, one must sacrifice a living soul.\n" +
-				"The air around you crackles with dark energy as you realize the cost of this power."
-			))
-			.add(new HideNarration())
+				"The ancient pages detail a forbidden ritual: to resurrect the dead, one must sacrifice a living soul. The air around you crackles with dark energy as you realize the cost of this power."
+			));
+	}
+
+	@BuilderMethod
+	public void InteractTome1() {
+		var node = get(MyNodeLabels.ReadTome1.toString());
+		node.add(new HideNarration())
 			.add(new EnableInput());
 	}
 
@@ -809,12 +842,21 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideDialog())
 			.add(new DialogSequence(grimspire, edmona,
 			List.of("What are you saying? HAHAHA! You are the pathetic one. I am the King!"),
-			List.of("Not for much longer!")))
-			.add(new HideDialog())
-			.add(new Cast(edmona, grimspire, Spell.red))
-			.add(new Die(grimspire))
-			.add(new NarrationSequence("I've taken him out. I cannot use dark magic, I need to accept that my family is truly gone...There's only one thing I need to do now. I shall crown myself Queen!"))
-			.add(new EnableInput());
+			List.of("Not for much longer!")));
 	}
 
-}
+	@BuilderMethod
+	public void Spare1() {
+		var node = get(MyNodeLabels.Spare1.toString());
+		node.add(new HideDialog())
+			.add(new Cast(edmona, grimspire, Spell.red))
+			.add(new Die(grimspire))
+			.add(new NarrationSequence("I've taken him out. I cannot use dark magic. I need to accept that my family is truly gone... There's only one thing I need to do now. I shall crown myself Queen!"));
+	}
+
+	@BuilderMethod
+	public void Spare2() {
+		var node = get(MyNodeLabels.Spare2.toString());
+		node.add(new HideNarration())
+			.add(new EnableInput());
+	}
