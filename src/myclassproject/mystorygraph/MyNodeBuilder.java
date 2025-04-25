@@ -218,9 +218,6 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void CorruptionEndingActions3() {
 		var node = get(MyNodeLabels.CorruptionEnding4.toString());
 		node.add(new HideNarration())
-			.add(new Kneel(edmona))
-			.add(new SetExpression(brother, Expression.Scared))
-			.add(new SetExpression(father, Expression.Scared))
 			.add(new DialogSequence(brother, father, 
 			 		List.of("What… What have you become?"), 
 					List.of("This isn’t the sister we knew… Stay away!")));
@@ -230,7 +227,6 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void CorruptionEndingActions4() {
 		var node = get(MyNodeLabels.CorruptionEnding5.toString());
 		node.add(new HideDialog())
-			.add(new WalkTo(edmona, father))
 			.add(new NarrationSequence("Edmona now feared by the ones she loved most realizes she has lost everything."));
 	}
 	
@@ -331,20 +327,21 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new DialogSequence(grimspire, noble1,
 					List.of("Who are you? How dare you come here?"),
 					List.of("We have lived under your rule long enough. We will fight.")))
-			.add(new ShowDialog());
+			.add(new EnableInput());
+		
 	}
 	
 	@BuilderMethod
 	public void RileUpTheCrowdActions2() {
 		var node = get(MyNodeLabels.RileUpTheCrowd2.toString());
 		node.add(new HideDialog())
+			.add(new EnableInput())
 			.add(new Attack(noble1, grimspire))
 			.add(new Attack(noble2, grimspire))
 			.add(new Attack(noble3, grimspire))
 			.add(new Attack(noble4, grimspire))
 			.add(new Attack(edmona, grimspire))
-			.add(new Die(grimspire))
-			.add(new EnableInput());
+			.add(new Die(grimspire));
 	}
 
 	@BuilderMethod
