@@ -4,4 +4,3 @@ package myclassproject.mystorygraph;
 public enum MyChoiceLabels {
 	Exit, TalkToGarry, TalkToDelphin, Face, Sit, TalkToNoble1, Read, LeaveLibrary, ToGrimspire, CrownSelf, BeginStudy, chooseQuentin, chooseDelphine
 }
-

@@ -558,7 +558,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.LearnFireMagic5.toString());
 		node.add(new HideDialog())
 			.add(new Give(delphine, spellbook, edmona))
-			.add(new NarrationSequence("Edmona stands ready and determined to fight back."))
+			.add(new NarrationSequence("Edmona stands ready and determined to fight back."));
 	}
 
 	// public void LearnFireMagicActions6() {
@@ -620,37 +620,55 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.PromisePopulistPower.toString());
 		node.add(new HideDialog())
 		.add(new Kneel(edmona))
-		.add(new ShowNarration())
-		.add(new NarrationSequence("Before the roaring crowd, Edmona kneels before the leaders of the Populist Faction, her voice steady."))
-		.add(new HideNarration())
-		.add(new ShowDialog())
-		.add(new DialogSequence(edmona, noble1,
-            List.of("I swear to you all—this land shall be ruled by its people, not by a tyrant’s bloodline."),
-            List.of("Then let the banners rise. The time for chains is over!"))
-        )
-		.add(new HideDialog())
-		.add(new Pickup(edmona, littorch))
-		.add(new SetPosition(edmona, bedroom2))
-		.add(new SetPosition(noble1, bedroom2))
-		.add(new SetPosition(noble2, bedroom2))
-		.add(new SetPosition(noble3, bedroom2))
-		.add(new SetPosition(noble4, bedroom2))
-		.add(new DialogSequence(grimspire, noble1,
-            List.of("Who are you? How dare you come here?"),
-            List.of("We have lived under your rule long enough. We will fight."))
-		.add(new DialogSequence(edmona, null,
-			List.of("Let our revolution begin."),
-			List.of())))
-		.add(new HideDialog())
-		.add(new Attack(noble1, grimspire))
-		.add(new Attack(noble2, grimspire))
-		.add(new Attack(noble3, grimspire))
-		.add(new Attack(noble4, grimspire))
-		.add(new Cast(edmona, grimspire))
-		.add(new CreateEffect(edmona, Effects.Aura))
-		.add(new CreateEffect(grimspire, Effects.Death))
-		.add(new EnableInput());
+		.add(new NarrationSequence("Before the roaring crowd, Edmona kneels before the leaders of the Populist Faction, her voice steady."));
 	}
+	
+	@BuilderMethod
+	public void PromisePopulistPowerActions1() {
+		var node = get(MyNodeLabels.PromisePopulistPower1.toString());
+		node.add(new HideNarration())
+			.add(new DialogSequence(edmona, noble1,
+					List.of("I swear to you all—this land shall be ruled by its people, not by a tyrant’s bloodline."),
+					List.of("Then let the banners rise. The time for chains is over!"))
+					);
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPowerActions2() {
+		var node = get(MyNodeLabels.PromisePopulistPower2.toString());
+		node.add(new HideDialog())
+			.add(new Pickup(edmona, littorch))
+			.add(new SetPosition(edmona, bedroom2, "Couch"))
+			.add(new SetPosition(noble1, bedroom2, "Chest"))
+			.add(new SetPosition(noble2, bedroom2, "Door"))
+			.add(new SetPosition(noble3, bedroom2, "Fireplace"))
+			.add(new SetPosition(noble4, bedroom2, "Table"))
+			.add(new DialogSequence(grimspire, noble1,
+					List.of("Who are you? How dare you come here?"),
+					List.of("We have lived under your rule long enough. We will fight.")));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPowerActions3() {	
+		var node = get(MyNodeLabels.PromisePopulistPower3.toString());
+		node.add(new DialogSequence(edmona, noble1,
+			List.of("Let our revolution begin."),
+			List.of("After you Queen")));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPowerActions4() {
+		var node = get(MyNodeLabels.PromisePopulistPower4.toString());
+		node.add(new HideDialog())
+			.add(new Attack(noble1, grimspire))
+			.add(new Attack(noble2, grimspire))
+			.add(new Attack(noble3, grimspire))
+			.add(new Attack(noble4, grimspire))
+			.add(new Cast(edmona, grimspire, Spell.blue))
+			.add(new CreateEffect(edmona, Effects.Aura))
+			.add(new CreateEffect(grimspire, Effects.Death))
+			.add(new EnableInput());
+	}	
 
 	// Tri Huynh
 	@BuilderMethod
