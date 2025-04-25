@@ -173,7 +173,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	public void CorruptionEnding2Edges() {
 		var node = get(MyNodeLabels.CorruptionEnding2.toString());
 		var choice = new CloseNarrationChoice();
-		var nextNode = get(MyNodeLabels.CorruptionEnding3.toString());
+		var nextNode = get(MyNodeLabels.CorruptionEnding4.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 	
