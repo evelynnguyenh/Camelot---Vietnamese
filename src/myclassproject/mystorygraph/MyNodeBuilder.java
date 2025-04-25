@@ -557,7 +557,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void LearnFireMagicActions5() {
 		var node = get(MyNodeLabels.LearnFireMagic5.toString());
 		node.add(new HideDialog())
-			.add(new Give(delphine, spellbook, edmona))
+			// .add(new Give(delphine, spellbook, edmona))
 			.add(new NarrationSequence("Edmona stands ready, flames at her fingertips, determined to fight back."));
 	}
 
@@ -794,6 +794,8 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new EnableInput());
 	}
 
+
+	@BuilderMethod
 	public void InteractTome() {
 		var node = get(MyNodeLabels.ReadTome.toString());
 		node.add(new HideDialog())
@@ -805,6 +807,7 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new EnableInput());
 	}
 
+	@BuilderMethod
 	public void TakeRevenge() {
 		var node = get(MyNodeLabels.TakeRevenge.toString());
 		node.add(new SetPosition(edmona, bedroom2));
@@ -814,6 +817,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		));
 	}
 
+	@BuilderMethod
 	public void Spare() {
 		var node = get(MyNodeLabels.Spare.toString());
 		node.add(new HideDialog())
