@@ -459,7 +459,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	}
 
 	@BuilderMethod
-	public void LearnFireMagicEdges3(){
+	public void LearnFireMagicEdges4(){
 		var node = get(MyNodeLabels.LearnFireMagic4.toString());
 		var choice = new DialogChoice("I am very grateful. I will do my best.");
 		var nextNode = get(MyNodeLabels.LearnFireMagic5.toString());
@@ -537,7 +537,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void quentinStudentEdges() {
 		var node = get(MyNodeLabels.QuentinStudent.toString());
-		var choice = CloseNarrationChoice();
+		var choice = new CloseNarrationChoice();
 		var nextNode = get(MyNodeLabels.QuentinStudent1.toString());
 		node.add(new Edge(choice, nextNode));
 		// var choice = new DialogChoice("I am ready, Master Quentin.");
@@ -548,7 +548,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void quentinStudentEdges1() {
 		var node = get(MyNodeLabels.QuentinStudent1.toString());
-		var choice = CloseNarrationChoice();
+		var choice = new CloseNarrationChoice();
 		var nextNode = get(MyNodeLabels.QuentinStudent2.toString());
 		node.add(new Edge(choice, nextNode));
 	}
