@@ -335,10 +335,10 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice, nextNode));
 	}
 	
-	@BuilderMethod
-	public void PromisePopulistPowerEdges4() {
+	// @BuilderMethod
+	// public void PromisePopulistPowerEdges4() {
 		
-	}
+	// }
 	
 	@BuilderMethod
 	public void PopulistRuleEndingEdges() {
