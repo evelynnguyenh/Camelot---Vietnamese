@@ -564,7 +564,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void LearnFireMagicActions6() {
 		var node = get(MyNodeLabels.LearnFireMagic6.toString());
 		node.add(new HideNarration())
-			.add(new EnableInput())
+			.add(new EnableInput());
 	}
 
 	// This is where I stop
@@ -786,13 +786,23 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideDialog())
 			.add(new SetPosition(edmona, darkforest))
 			.add(new NarrationSequence(
-				"All of the magical power in this forest shall be mine!"
-			)).add(new HideNarration())
+				"All of the magical power in this forest shall be mine!"));
+	}
+	
+	@BuilderMethod
+	public void DarkMagicTrial1() {
+		var node = get(MyNodeLabels.SoulbindingTrial1.toString());
+		node.add(new HideNarration())
 			.add(new EnableEffect(edmona, Effects.Aura))
 			.add(new Cast(edmona, edmona, Spell.purple))
 			.add(new NarrationSequence(
-				"Finally...although the forest is dead, I'm born anew! I shall head out of the forest and seek my revenge."
-			)).add(new HideNarration())
+				"Finally...although the forest is dead, I'm born anew! I shall head out of the forest and seek my revenge."));
+	}
+	
+	@BuilderMethod
+	public void DarMagicTrial2() {
+		var node = get(MyNodeLabels.SoulbindingTrial2.toString());
+		node.add(new HideNarration())
 			.add(new DisableEffect(edmona))
 			.add(new EnableInput());
 	}
@@ -803,19 +813,30 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideDialog())
 			.add(new SetPosition(edmona, library))
 			.add(new NarrationSequence(
-				"I must find the tome!"
-			)).add(new HideNarration())
+				"I must find the tome!"));
+	}
+	
+	@BuilderMethod
+	public void ForbiddenLibrary1() {
+		var node = get(MyNodeLabels.ForbiddenLibrary1.toString());
+		node.add(new HideNarration())
 			.add(new EnableInput());
 	}
 
+	@BuilderMethod
 	public void InteractTome() {
 		var node = get(MyNodeLabels.ReadTome.toString());
 		node.add(new HideDialog())
 			.add(new NarrationSequence(
 				"The ancient pages detail a forbidden ritual: to resurrect the dead, one must sacrifice a living soul.\n" +
 				"The air around you crackles with dark energy as you realize the cost of this power."
-			))
-			.add(new HideNarration())
+			));
+	}
+	
+	@BuilderMethod
+	public void InteractTome1() {
+		var node = get(MyNodeLabels.ReadTome1.toString());
+		node.add(new HideNarration())
 			.add(new EnableInput());
 	}
 

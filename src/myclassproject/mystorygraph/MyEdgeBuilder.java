@@ -304,6 +304,43 @@ public class MyEdgeBuilder extends NodeBuilder {
 	}
 	
 	@BuilderMethod
+	public void PromisePopulistPowerEdges() {
+		var node = get(MyNodeLabels.PromisePopulistPower.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.PromisePopulistPower1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPowerEdges1() {
+		var node = get(MyNodeLabels.PromisePopulistPower1.toString());
+		var choice = new DialogChoice("Then let the banners rise. The time for chains is over!");
+		var nextNode = get(MyNodeLabels.PromisePopulistPower2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPowerEdges2() {
+		var node = get(MyNodeLabels.PromisePopulistPower2.toString());
+		var choice = new DialogChoice("We have lived under your rule long enough. We will fight.");
+		var nextNode = get(MyNodeLabels.PromisePopulistPower3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPowerEdges3() {
+		var node = get(MyNodeLabels.PromisePopulistPower3.toString());
+		var choice = new DialogChoice("After you Queen");
+		var nextNode = get(MyNodeLabels.PromisePopulistPower4.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void PromisePopulistPowerEdges4() {
+		
+	}
+	
+	@BuilderMethod
 	public void PopulistRuleEndingEdges() {
 		var node = get(MyNodeLabels.PopulistRuleEnding.toString());
 		var choice = new CloseNarrationChoice();
@@ -501,7 +538,6 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var nextNode2 = get(MyNodeLabels.RileUpTheCrowd.toString());
 		node.add(new Edge(choice2, nextNode2));
 	}
-
 
 	// Tri Huynh
 	@BuilderMethod
