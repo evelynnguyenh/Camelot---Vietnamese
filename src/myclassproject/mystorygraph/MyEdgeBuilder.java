@@ -467,6 +467,22 @@ public class MyEdgeBuilder extends NodeBuilder {
 	}
 
 	@BuilderMethod
+	public void LearnFireMagicEdges5(){
+		var node = get(MyNodeLabels.LearnFireMagic5.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.LearnFireMagic6.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void LearnFireMagicEdges6(){
+		var node = get(MyNodeLabels.LearnFireMagic6.toString());
+		var choice = new PlayerInteraction(edmona, MyChoiceLabels.LeaveForest.toString(), forestexit2);
+		var nextNode = get(MyNodeLabels.Rally.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
 	public void RallyEdges(){
 		var node = get(MyNodeLabels.Rally.toString());
 		var choice = new PlayerInteraction(MyChoiceLabels.TalkToNoble1.toString(), noble1, Icons.talk, "Convince nobles to follow");

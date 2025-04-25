@@ -561,9 +561,11 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new NarrationSequence("Edmona stands ready and determined to fight back."));
 	}
 
-	// public void LearnFireMagicActions6() {
-
-	// }
+	public void LearnFireMagicActions6() {
+		var node = get(MyNodeLabels.LearnFireMagic6.toString());
+		node.add(new HideNarration())
+			.add(new EnableInput())
+	}
 
 	// This is where I stop
 
