@@ -115,14 +115,24 @@ public class MyEdgeBuilder extends NodeBuilder {
 	public void KillEdges() {
 		var node = get(MyNodeLabels.Kill.toString());
 		var choice = new CloseNarrationChoice();
-		var nextNode = get(MyNodeLabels.Kill1.toString());
+		var nextNode = get(MyNodeLabels.CorruptionEnding.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 	
 	@BuilderMethod
 	public void Kill1Edges() {
 		var node = get(MyNodeLabels.Kill1.toString());
-		var choice = new CloseNarrationChoice();
+		// var choice = new DialogChoice("Yes, I did it. I brought you back.");
+		// var nextNode = get(MyNodeLabels.Kill2.toString());
+		var choice = new PlayerInteraction(MyChoiceLabels.BrotherTalk.toString(), brother, Icons.talk, "Talk to brother");
+		var nextNode = get(MyNodeLabels.KillBrother.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
+	public void KillBrotherEdges() {
+		var node = get(MyNodeLabels.KillBrother.toString());
+		var choice = new DialogChoice("Yes, I did it. I brought you back.");
 		var nextNode = get(MyNodeLabels.Kill2.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -130,7 +140,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void Kill2Edges() {
 		var node = get(MyNodeLabels.Kill2.toString());
-		var choice = new DialogChoice("Yes, I did it. I brought you back.");
+		var choice = new DialogChoice("I saved you. No matter the cost.");
 		var nextNode = get(MyNodeLabels.Kill3.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -138,14 +148,6 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void Kill3Edges() {
 		var node = get(MyNodeLabels.Kill3.toString());
-		var choice = new DialogChoice("I saved you. No matter the cost.");
-		var nextNode = get(MyNodeLabels.Kill4.toString());
-		node.add(new Edge(choice, nextNode));
-	}
-	
-	@BuilderMethod
-	public void Kill4Edges() {
-		var node = get(MyNodeLabels.Kill4.toString());
 		var choice = new PlayerInteraction(edmona, MyChoiceLabels.Face.toString(), father);
 		var nextNode = get(MyNodeLabels.CorruptionEnding.toString());
 		node.add(new Edge(choice, nextNode));
@@ -178,24 +180,16 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void CorruptionEnding3Edges() {
 		var node = get(MyNodeLabels.CorruptionEnding3.toString());
-		var choice = new CloseNarrationChoice();
+		var choice = new DialogChoice("This isn’t the sister we knew… Stay away!");
 		var nextNode = get(MyNodeLabels.CorruptionEnding4.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 	
 	@BuilderMethod
 	public void CorruptionEnding4Edges() {
-		var node = get(MyNodeLabels.CorruptionEnding3.toString());
-		var choice = new DialogChoice("This isn’t the sister we knew… Stay away!");
-		var nextNode = get(MyNodeLabels.CorruptionEnding5.toString());
-		node.add(new Edge(choice, nextNode));
-	}
-	
-	@BuilderMethod
-	public void CorruptionEnding5Edges() {
-		var node = get(MyNodeLabels.CorruptionEnding5.toString());
+		var node = get(MyNodeLabels.CorruptionEnding4.toString());
 		var choice = new CloseNarrationChoice();
-		var nextNode = get(MyNodeLabels.CorruptionEnding6.toString());
+		var nextNode = get(MyNodeLabels.CorruptionEnding5.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 	
@@ -234,7 +228,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void BecomeQueenEnding4Edges() {
 		var node = get(MyNodeLabels.BecomeQueenEnding4.toString());
-		var choice = new DialogChoice("I will help Your Majesty. The kingdom’s prosperity must come first.");
+		var choice = new DialogChoice("I will help Your Majesty. The prosperity of the kingdom must come first.");
 		var nextNode = get(MyNodeLabels.BecomeQueenEnding5.toString());
 		node.add(new Edge(choice, nextNode));
 	}
