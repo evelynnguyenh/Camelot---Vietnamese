@@ -116,7 +116,7 @@ public class MyNodeBuilder extends NodeBuilder {
     public void ConsequenceActions2() {
     	var node = get(MyNodeLabels.Consequence2.toString());
     	node.add(new HideNarration())
-        	.add(new DialogSequence(edmona, garry, // Error?
+        	.add(new DialogSequence(edmona, grimspire,
             List.of("I must escape now! Let's find a way..."),
             List.of("Let's go!")));
     }

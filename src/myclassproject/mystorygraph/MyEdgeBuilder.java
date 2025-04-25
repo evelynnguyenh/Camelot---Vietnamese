@@ -524,8 +524,6 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.Rally.toString());
 		var choice = new CloseNarrationChoice();
 		var nextNode = get(MyNodeLabels.Rally1.toString());
-		// var choice = new PlayerInteraction(MyChoiceLabels.TalkToNoble1.toString(), noble1, Icons.talk, "Convince nobles to follow");
-		// var nextNode = get(MyNodeLabels.PopulistFaction.toString());
 		node.add(new Edge(choice, nextNode));
 	}
 
@@ -559,18 +557,6 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var choice5B = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble5, Icons.kneel, "Promise to give them power");
 		node.add(new Edge(choice1A, nextNode1));
 		node.add(new Edge(choice1B, nextNode2));
-	}
-
-	@BuilderMethod
-	public void PopulistFactionEdges(){
-		var node = get(MyNodeLabels.PopulistFaction.toString());
-		var choice1 = new DialogChoice("Become an indispensable supporter");
-		var nextNode1 = get(MyNodeLabels.PromisePopulistPower.toString());
-		node.add(new Edge(choice1, nextNode1));
-
-		var choice2 = new DialogChoice("Become the leader of the army");
-		var nextNode2 = get(MyNodeLabels.RileUpTheCrowd.toString());
-		node.add(new Edge(choice2, nextNode2));
 	}
 
 	// Tri Huynh
