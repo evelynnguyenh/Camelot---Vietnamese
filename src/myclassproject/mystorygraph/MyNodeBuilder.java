@@ -252,7 +252,8 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	 public void BecomeQueenEndingActions() {
 		 var node = get(MyNodeLabels.BecomeQueenEnding.toString());
-		 node.add(new SetPosition(edmona, greathall)) 
+		 node.add(new SetPosition(edmona, greathall))
+		 	 .add(new SetClothing(edmona, Clothing.Queen))
 			 .add(new NarrationSequence("Edmona ascends the throne of Magna Vietia her journey of struggle and sacrifice culminating in the crown."));
 	}
 	
