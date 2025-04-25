@@ -60,11 +60,11 @@ public class MyNodeBuilder extends NodeBuilder {
         .add(new SetPosition(grimspire, bedroom2))
         .add(new SetPosition(brother, hallway, "Stairs"))
         .add(new SetPosition(father, hallway, "Door"))
-		.add(new SetPosition(noble1, town))
-		.add(new SetPosition(noble2, town))
-		.add(new SetPosition(noble3, town))
-		.add(new SetPosition(noble4, town))
-		.add(new SetPosition(noble5, town))
+		.add(new SetPosition(noble1, town, "BrownHouseDoor"))
+		.add(new SetPosition(noble2, town, "Barrel"))
+		.add(new SetPosition(noble3, town, "Plant"))
+		.add(new SetPosition(noble4, town, "Fountain"))
+		.add(new SetPosition(noble5, town, "GreenHouseDoor"))
 
         // focus camera on Edmona and show menu
         .add(new SetCameraFocus(edmona))
@@ -573,39 +573,18 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideNarration())
 			.add(new EnableInput());
 	}
-
+	
 	@BuilderMethod
 	public void RallyActions() {
 		var node = get(MyNodeLabels.Rally.toString());
-		node.add(new HideDialog())
-		.add(new SetPosition(edmona, town))
-		.add(new LookAt(edmona, noble1))
-		.add(new LookAt(edmona, noble2))
-		.add(new LookAt(edmona, noble3))
-		.add(new LookAt(edmona, noble4))
-		.add(new NarrationSequence("She stands before the crowd, filled with hatred for the rule of the Grimpshire family."));
+		node.add(new SetPosition(edmona, town))
+			.add(new NarrationSequence("I have to rally people to my cause!"));
 	}
-	
+
 	@BuilderMethod
 	public void RallyActions1() {
 		var node = get(MyNodeLabels.Rally1.toString());
 		node.add(new HideNarration())
-			.add(new NarrationSequence("She knows she cannot take on the kingdom alone. If her revolution is to succeed, she must gather allies—warriors, outcasts, and those who have suffered under the king's rule."));
-	}
-	
-	@BuilderMethod
-	public void RallyActions2() {
-		var node = get(MyNodeLabels.Rally2.toString());
-		node.add(new HideNarration())
-			.add(new DialogSequence(edmona, noble1, 
-					List.of("The time has come. But where do I begin?"),
-					List.of("Let's go Queen")));
-	}
-	
-	@BuilderMethod
-	public void RallyActions3() {
-		var node = get(MyNodeLabels.Rally3.toString());
-		node.add(new HideDialog())
 			.add(new EnableInput());
 	}
 

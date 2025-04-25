@@ -489,29 +489,37 @@ public class MyEdgeBuilder extends NodeBuilder {
 	}
 	
 	@BuilderMethod
-	public void Rally1Edges() {
+	public void RallyEdges1() {
 		var node = get(MyNodeLabels.Rally1.toString());
-		var choice = new CloseNarrationChoice();
-		var nextNode = get(MyNodeLabels.Rally2.toString());
-		node.add(new Edge(choice, nextNode));
+		var nextNode1 = get(MyNodeLabels.RileUpTheCrowd.toString());
+		var nextNode2 = get(MyNodeLabels.PromisePopulistPower.toString());
+		// Noble 1
+		var choice1A = new PlayerInteraction(MyChoiceLabels.TalkToNoble.toString(), noble1, Icons.swords, "Convince them to fight for you");
+		var choice1B = new PlayerInteraction(MyChoiceLabels.TalkToNoble1.toString(), noble1, Icons.kneel, "Promise to give them power");
+		node.add(new Edge(choice1A, nextNode1));
+		node.add(new Edge(choice1B, nextNode2));
+		// Noble 2
+		var choice2A = new PlayerInteraction(MyChoiceLabels.TalkToNoble2.toString(), noble2, Icons.swords, "Convince them to fight for you");
+		var choice2B = new PlayerInteraction(MyChoiceLabels.TalkToNoble3.toString(), noble2, Icons.kneel, "Promise to give them power");
+		node.add(new Edge(choice1A, nextNode1));
+		node.add(new Edge(choice1B, nextNode2));
+		// Noble 3
+		var choice3A = new PlayerInteraction(MyChoiceLabels.TalkToNoble4.toString(), noble3, Icons.swords, "Convince them to fight for you");
+		var choice3B = new PlayerInteraction(MyChoiceLabels.TalkToNoble5.toString(), noble3, Icons.kneel, "Promise to give them power");
+		node.add(new Edge(choice1A, nextNode1));
+		node.add(new Edge(choice1B, nextNode2));
+		// Noble 4
+		var choice4A = new PlayerInteraction(MyChoiceLabels.TalkToNoble6.toString(), noble4, Icons.swords, "Convince them to fight for you");
+		var choice4B = new PlayerInteraction(MyChoiceLabels.TalkToNoble7.toString(), noble4, Icons.kneel, "Promise to give them power");
+		node.add(new Edge(choice1A, nextNode1));
+		node.add(new Edge(choice1B, nextNode2));
+		// Noble 5
+		var choice5A = new PlayerInteraction(MyChoiceLabels.TalkToNoble8.toString(), noble5, Icons.swords, "Convince them to fight for you");
+		var choice5B = new PlayerInteraction(MyChoiceLabels.TalkToNoble9.toString(), noble5, Icons.kneel, "Promise to give them power");
+		node.add(new Edge(choice1A, nextNode1));
+		node.add(new Edge(choice1B, nextNode2));
 	}
 	
-	@BuilderMethod
-	public void Rally2Edges() {
-		var node = get(MyNodeLabels.Rally2.toString());
-		var choice = new DialogChoice("Let's go Queen");
-		var nextNode = get(MyNodeLabels.Rally3.toString());
-		node.add(new Edge(choice, nextNode));
-	}
-	
-	@BuilderMethod
-	public void Rally3Edges() {
-		var node = get(MyNodeLabels.Rally3.toString());
-		var choice = new PlayerInteraction(MyChoiceLabels.TalkToNoble1.toString(), noble1, Icons.talk, "Convince nobles to follow");
-		var nextNode = get(MyNodeLabels.PopulistFaction.toString());
-		node.add(new Edge(choice, nextNode));
-	}
-
 	@BuilderMethod
 	public void PopulistFactionEdges(){
 		var node = get(MyNodeLabels.PopulistFaction.toString());
