@@ -443,7 +443,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void LearnFireMagicEdges2(){
 		var node = get(MyNodeLabels.LearnFireMagic2.toString());
-		var choice = new CloseNarrationChoice();
+		var choice = new DialogChoice("I will control it! Master Delphine.");
 		var nextNode = get(MyNodeLabels.LearnFireMagic3.toString());
 		node.add(new Edge(choice, nextNode));
 	}

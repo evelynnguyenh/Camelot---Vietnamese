@@ -502,7 +502,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideNarration())
 			.add(new CreateEffect(delphine, Effects.Spiralflame))
 			.add(new DialogSequence(delphine, edmona, 
-            List.of("I will teach you the ancient art of fire magic. Mastering it requires discipline, for its power can either heal or consume. Are you prepared to harness its potential?"
+            List.of("I will teach you the ancient art of fire magic. Mastering it requires discipline!"
 			),
             List.of("Yes Master Delphine. I am ready.")));
 	}
@@ -530,9 +530,9 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new Clap(delphine))
 			.add(new DialogSequence(delphine, edmona, 
 				List.of(
-					"You did really well. The flame is your tool, but be careful. Anger can consume even the strongest hearts."
+					"You did really well. The flame is your tool but be careful. Anger can consume even the strongest hearts."
 				),
-				List.of("I will control it, Master Delphine. I will not be consumed.")));
+				List.of("I will control it! Master Delphine.")));
 	}
 
 	@BuilderMethod
