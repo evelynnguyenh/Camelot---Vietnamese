@@ -311,61 +311,51 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	 public void RileUpTheCrowdActions() {
 		 var node = get(MyNodeLabels.RileUpTheCrowd.toString());
-		 node.add(new NarrationSequence("Edmona stands before the gathered masses her voice rising above the din of the market square."));
+		 node.add(new WalkTo(noble2, edmona))
+			.add(new WalkTo(noble3, edmona))
+			.add(new WalkTo(noble4, edmona))
+			.add(new WalkTo(noble5, edmona))
+			.add(new DialogSequence(edmona, noble1, 
+				List.of("We will no longer bow to House Grimpshire! I will be a good Queen for the kingdom!"), 
+				List.of("For freedom! For justice!")));
 	}
 	
 	@BuilderMethod
 	public void RileUpTheCrowdActions1() {
 		var node = get(MyNodeLabels.RileUpTheCrowd1.toString());
-		node.add(new HideNarration())
-			.add(new NarrationSequence("She speaks of freedom justice and a kingdom where they no longer live under the boot of House Grimpshire."));
+		node.add(new HideDialog())
+			.add(new Pickup(edmona, littorch))
+			.add(new SetPosition(edmona, bedroom2, "Couch"))
+			.add(new SetPosition(noble1, bedroom2, "Chest"))
+			.add(new SetPosition(noble2, bedroom2, "Door"))
+			.add(new SetPosition(noble3, bedroom2, "Fireplace"))
+			.add(new SetPosition(noble4, bedroom2, "Table"))
+			.add(new DialogSequence(grimspire, noble1,
+					List.of("Who are you? How dare you come here?"),
+					List.of("We have lived under your rule long enough. We will fight.")));
 	}
 	
 	@BuilderMethod
 	public void RileUpTheCrowdActions2() {
 		var node = get(MyNodeLabels.RileUpTheCrowd2.toString());
-		node.add(new HideNarration())
-			.add(new DialogSequence(edmona, noble1, 
-				 List.of("We will no longer bow to House Grimpshire! We will fight for our freedom and justice!"), 
-				 List.of("For freedom! For justice!")));
+		node.add(new HideDialog())
+			.add(new Attack(noble1, grimspire))
+			.add(new Attack(noble2, grimspire))
+			.add(new Attack(noble3, grimspire))
+			.add(new Attack(noble4, grimspire))
+			.add(new Attack(edmona, grimspire))
+			.add(new Die(grimspire))
+			.add(new EnableInput());
 	}
-	
+
 	@BuilderMethod
 	public void RileUpTheCrowdActions3() {
 		var node = get(MyNodeLabels.RileUpTheCrowd3.toString());
-		node.add(new HideDialog())
-			.add(new NarrationSequence("The crowd erupts in cheers their anger ignited into action. Armed with crude weapons but unshakable resolve the people storm the gates."));
-	}
-	
-	@BuilderMethod
-	public void RileUpTheCrowdActions4() {
-		var node = get(MyNodeLabels.RileUpTheCrowd4.toString());
-		node.add(new HideNarration())
-			.add(new Clap(noble1))
-			.add(new Clap(noble2))
-			.add(new Clap(noble3))
-			.add(new Clap(noble4))
-			.add(new Clap(noble5))
-			.add(new NarrationSequence("Edmona is crowned Queen hailed as the people's champion who stood with them."));
-	}
-	
-	@BuilderMethod
-	public void RileUpTheCrowdActions5() {
-		var node = get(MyNodeLabels.RileUpTheCrowd5.toString());
 		node.add(new HideNarration())
 			.add(new DialogSequence(edmona, noble1, 
 				 List.of("Today we begin anew. Together we will rebuild Magna Vietia. We will rule with fairness and justice!"), 
 				 List.of("Long live Queen Edmona!")));
 	}
-	
-	@BuilderMethod
-	public void RileUpTheCrowdActions6() {
-		var node = get(MyNodeLabels.RileUpTheCrowd6.toString());
-		node.add(new HideDialog())
-			.add(new Wave(edmona))
-			.add(new SetPosition(edmona, bedroom1))
-			.add(new EnableInput());
-	 }
 
 	@BuilderMethod
 	 public void PopulistRuleEndingActions() {

@@ -250,7 +250,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void RileUpTheCrowdEdges() {
 		var node = get(MyNodeLabels.RileUpTheCrowd.toString());
-		var choice = new CloseNarrationChoice();
+		var choice = new DialogChoice("For freedom! For justice!");
 		var nextNode = get(MyNodeLabels.RileUpTheCrowd1.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -258,7 +258,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void RileUpTheCrowdEdges1() {
 		var node = get(MyNodeLabels.RileUpTheCrowd1.toString());
-		var choice = new CloseNarrationChoice();
+		var choice = new DialogChoice("We have lived under your rule long enough. We will fight.");
 		var nextNode = get(MyNodeLabels.RileUpTheCrowd2.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -266,7 +266,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void RileUpTheCrowdEdges2() {
 		var node = get(MyNodeLabels.RileUpTheCrowd2.toString());
-		var choice = new DialogChoice("For freedom! For justice!");
+		var choice = new PlayerInteraction(MyChoiceLabels.TakeTheCrown.toString(), grimspire, Icons.unlock, "Take the crown!");
 		var nextNode = get(MyNodeLabels.RileUpTheCrowd3.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -274,31 +274,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void RileUpTheCrowdEdges3() {
 		var node = get(MyNodeLabels.RileUpTheCrowd3.toString());
-		var choice = new CloseNarrationChoice();
-		var nextNode = get(MyNodeLabels.RileUpTheCrowd4.toString());
-		node.add(new Edge(choice, nextNode));
-	}
-	
-	@BuilderMethod
-	public void RileUpTheCrowdEdges4() {
-		var node = get(MyNodeLabels.RileUpTheCrowd4.toString());
-		var choice = new CloseNarrationChoice();
-		var nextNode = get(MyNodeLabels.RileUpTheCrowd5.toString());
-		node.add(new Edge(choice, nextNode));
-	}
-	
-	@BuilderMethod
-	public void RileUpTheCrowdEdges5() {
-		var node = get(MyNodeLabels.RileUpTheCrowd5.toString());
 		var choice = new DialogChoice("Long live Queen Edmona!");
-		var nextNode = get(MyNodeLabels.RileUpTheCrowd2.toString());
-		node.add(new Edge(choice, nextNode));
-	}
-		
-	@BuilderMethod
-	public void RileUpTheCrowdEdges6() {
-		var node = get(MyNodeLabels.RileUpTheCrowd6.toString());
-		var choice = new PlayerInteraction(edmona, MyChoiceLabels.Sit.toString(), bed);
 		var nextNode = get(MyNodeLabels.BecomeQueenEnding.toString());
 		node.add(new Edge(choice, nextNode));
 	}
