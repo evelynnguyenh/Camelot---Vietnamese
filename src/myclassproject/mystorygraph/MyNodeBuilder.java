@@ -570,18 +570,30 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new LookAt(edmona, noble2))
 		.add(new LookAt(edmona, noble3))
 		.add(new LookAt(edmona, noble4))
-		.add(new ShowNarration())
-		.add(new NarrationSequence("She stands before the crowd, filled with hatred for the rule of the Grimpshire family."))
-		.add(new NarrationSequence("She knows she cannot take on the kingdom alone. If her revolution is to succeed, she must gather allies—warriors, outcasts, and those who have suffered under the king's rule."))
-		.add(new HideNarration())
-		.add(new ShowDialog())
-		.add(new DialogSequence(edmona, null, 
-            List.of(
-                "The time has come. But where do I begin?"
-            ),
-            List.of()))
-		.add(new HideDialog())
-		.add(new EnableInput());
+		.add(new NarrationSequence("She stands before the crowd, filled with hatred for the rule of the Grimpshire family."));
+	}
+	
+	@BuilderMethod
+	public void RallyActions1() {
+		var node = get(MyNodeLabels.Rally1.toString());
+		node.add(new HideNarration())
+			.add(new NarrationSequence("She knows she cannot take on the kingdom alone. If her revolution is to succeed, she must gather allies—warriors, outcasts, and those who have suffered under the king's rule."));
+	}
+	
+	@BuilderMethod
+	public void RallyActions2() {
+		var node = get(MyNodeLabels.Rally2.toString());
+		node.add(new HideNarration())
+			.add(new DialogSequence(edmona, noble1, 
+					List.of("The time has come. But where do I begin?"),
+					List.of("Let's go Queen")));
+	}
+	
+	@BuilderMethod
+	public void RallyActions3() {
+		var node = get(MyNodeLabels.Rally3.toString());
+		node.add(new HideDialog())
+			.add(new EnableInput());
 	}
 
 	@BuilderMethod

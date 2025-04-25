@@ -435,6 +435,30 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void RallyEdges(){
 		var node = get(MyNodeLabels.Rally.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.Rally1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Rally1Edges() {
+		var node = get(MyNodeLabels.Rally1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.Rally2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Rally2Edges() {
+		var node = get(MyNodeLabels.Rally2.toString());
+		var choice = new DialogChoice("Let's go Queen");
+		var nextNode = get(MyNodeLabels.Rally3.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void Rally3Edges() {
+		var node = get(MyNodeLabels.Rally3.toString());
 		var choice = new PlayerInteraction(MyChoiceLabels.TalkToNoble1.toString(), noble1, Icons.talk, "Convince nobles to follow");
 		var nextNode = get(MyNodeLabels.PopulistFaction.toString());
 		node.add(new Edge(choice, nextNode));
