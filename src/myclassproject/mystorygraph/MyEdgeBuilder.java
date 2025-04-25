@@ -473,6 +473,14 @@ public class MyEdgeBuilder extends NodeBuilder {
 	}
 
 	@BuilderMethod
+	public void LearnFireMagicEdges6(){
+		var node = get(MyNodeLabels.LearnFireMagic6.toString());
+		var choice = new PlayerInteraction(edmona, MyChoiceLabels.LeaveForest.toString(), forestexit2);
+		var nextNode = get(MyNodeLabels.Rally.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+
+	@BuilderMethod
 	public void RallyEdges(){
 		var node = get(MyNodeLabels.Rally.toString());
 		var choice = new CloseNarrationChoice();
@@ -610,7 +618,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void delphineStudentEdges2() {
 		var node = get(MyNodeLabels.DelphineStudent2.toString());
-		var choice = new DialogChoice("Yes, Master Delphine, I am ready.");
+		var choice = new DialogChoice("Yes Master Delphine. I am ready.");
 		var nextNode = get(MyNodeLabels.LearnLightMagic.toString());
 		node.add(new Edge(choice, nextNode));
 	}

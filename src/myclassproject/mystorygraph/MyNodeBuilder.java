@@ -55,8 +55,8 @@ public class MyNodeBuilder extends NodeBuilder {
         // position each character
         .add(new SetPosition(edmona, bedroom1))
         .add(new SetPosition(garry, bedroom1, "Door"))
-        .add(new SetPosition(delphine, lightforest))
-        .add(new SetPosition(quentin, lightforest))
+        // .add(new SetPosition(delphine, lightforest))
+        // .add(new SetPosition(quentin, lightforest))
         .add(new SetPosition(grimspire, bedroom2))
         .add(new SetPosition(brother, hallway, "Stairs"))
         .add(new SetPosition(father, hallway, "Door"))
@@ -435,7 +435,10 @@ public class MyNodeBuilder extends NodeBuilder {
     @BuilderMethod
     public void MagicForestActions() {
         var node = get(MyNodeLabels.MagicForest.toString());
-        node.add(new HideDialog()).add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."));
+        node.add(new SetPosition(edmona, lightforest, "EastEnd"))
+			.add(new SetPosition(delphine, lightforest, "Well"))
+        	.add(new SetPosition(quentin, lightforest, "DirtPile"))
+			.add(new NarrationSequence("During her magical forest exploration, she encounters two omnipower beings: Quentin and Delphine."));
     }
 
 	@BuilderMethod
@@ -452,6 +455,7 @@ public class MyNodeBuilder extends NodeBuilder {
 			.add(new NarrationSequence("Delphine, the sorceress of light magic, promising to teach her the one true power to make the world a better place."));
 	}
 
+	@BuilderMethod
 	public void MagicForestActions3() {
 		var node = get(MyNodeLabels.MagicForest3.toString());
 		node.add(new HideNarration())
@@ -460,6 +464,7 @@ public class MyNodeBuilder extends NodeBuilder {
 				List.of("This is a choice I cannot make lightly.")));
 	}
 
+	@BuilderMethod
 	public void MagicForestActions4() {
 		var node = get(MyNodeLabels.MagicForest4.toString());
 		node.add(new HideDialog())
@@ -470,6 +475,7 @@ public class MyNodeBuilder extends NodeBuilder {
     public void QuentinStudentActions() {
     	var node = get(MyNodeLabels.QuentinStudent.toString());
     	node.add(new NarrationSequence("Edmona has officially become Quentin's apprentice."))
+			.add(new SetPosition(delphine, bedroom1))
 			.add(new SetPosition(quentin, darkforest))
 			.add(new SetPosition(edmona, darkforest));
     }
@@ -511,7 +517,6 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void LearnFireMagicActions() {
 		var node = get(MyNodeLabels.LearnFireMagic.toString());
 		node.add(new HideDialog())
-		.add(new ShowNarration())
         .add(new NarrationSequence("Edmona focuses, feeling the energy stir within her. The air shimmers as sparks flicker at her fingertips."));
 	}
 
@@ -559,6 +564,14 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideDialog())
 			// .add(new Give(delphine, spellbook, edmona))
 			.add(new NarrationSequence("Edmona stands ready, flames at her fingertips, determined to fight back."));
+	}
+
+
+	@BuilderMethod
+	public void LearnFireMagicActions6() {
+		var node = get(MyNodeLabels.LearnFireMagic6.toString());
+		node.add(new HideNarration())
+			.add(new EnableInput());
 	}
 
 	@BuilderMethod
@@ -714,6 +727,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void DelphineStudent() {
 		var node = get(MyNodeLabels.DelphineStudent.toString());
 		node.add(new HideDialog())
+			.add(new SetPosition(quentin, bedroom1))
 			.add(new NarrationSequence("Edmona has officially become Delphine's student."));
 	}
 		
