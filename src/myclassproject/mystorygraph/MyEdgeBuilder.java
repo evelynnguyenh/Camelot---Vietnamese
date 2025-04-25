@@ -531,7 +531,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void PromisePopulistPower1Edges() {
 		var node = get(MyNodeLabels.PromisePopulistPower1.toString());
-		var choice = new DialogChoice("Let the banners rise.");
+		var choice = new DialogChoice("Then let the banners rise. The time for chains is over!");
 		var nextNode = get(MyNodeLabels.PromisePopulistPower2.toString());
 		node.add(new Edge(choice, nextNode));
 	}
@@ -666,7 +666,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var nextNode = get(MyNodeLabels.LearnDarkMagic1.toString());
 		node.add(new Edge(choice, nextNode));
 	}
-
+	
 	@BuilderMethod
 	public void learnDarkMagic1Edges() {
 		var node = get(MyNodeLabels.LearnDarkMagic1.toString());
@@ -674,7 +674,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var nextNode = get(MyNodeLabels.LearnDarkMagic2.toString());
 		node.add(new Edge(choice, nextNode));
 	}
-
+	
 	@BuilderMethod
 	public void learnDarkMagic2Edges() {
 		var node = get(MyNodeLabels.LearnDarkMagic2.toString());
@@ -690,7 +690,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var nextNode = get(MyNodeLabels.ForbiddenLibrary1.toString());
 		node.add(new Edge(choice, nextNode));
 	}
-
+	
 	@BuilderMethod
 	public void forbiddenLibrary1Edges() {
 		var node = get(MyNodeLabels.ForbiddenLibrary1.toString());
@@ -712,7 +712,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var nextNode = get(MyNodeLabels.ReadTome1.toString());
 		node.add(new Edge(choice, nextNode));
 	}
-
+	
 	@BuilderMethod
 	public void LeaveLibrary1() {
 		var node = get(MyNodeLabels.ReadTome1.toString());
@@ -726,7 +726,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var nextNode = get(MyNodeLabels.SoulbindingTrial.toString());
 		node.add(new Edge(DoorExit, nextNode));
 	}
-
+	
 	@BuilderMethod
 	public void LeaveForest() {
 		var node = get(MyNodeLabels.SoulbindingTrial.toString());
@@ -734,7 +734,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var nextNode = get(MyNodeLabels.SoulBindingTrial1.toString());
 		node.add(new Edge(choice, nextNode));
 	}
-
+	
 	@BuilderMethod
 	public void LeaveForest1() {
 		var node = get(MyNodeLabels.SoulBindingTrial1.toString());
@@ -742,7 +742,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		var nextNode = get(MyNodeLabels.SoulBindingTrial2.toString());
 		node.add(new Edge(choice, nextNode));
 	}
-
+	
 	@BuilderMethod
 	public void LeaveForest2() {
 		var node = get(MyNodeLabels.SoulBindingTrial2.toString());
@@ -755,6 +755,7 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(LeavePath, nextNode));
 	}
 
+	@BuilderMethod
 	public void GrimspireFate() {
 		var node = get(MyNodeLabels.TakeRevenge.toString());
 		var choice1 = new DialogChoice("Your life ends here!");
@@ -766,8 +767,25 @@ public class MyEdgeBuilder extends NodeBuilder {
 		node.add(new Edge(choice2, nextNode2));
 	}
 
+	@BuilderMethod
 	public void CrownSelf() {
 		var node = get(MyNodeLabels.Spare.toString());
+		var choice = new DialogChoice("Not for much longer!");
+		var nextNode = get(MyNodeLabels.Spare1.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void CrownSelf1() {
+		var node = get(MyNodeLabels.Spare1.toString());
+		var choice = new CloseNarrationChoice();
+		var nextNode = get(MyNodeLabels.Spare2.toString());
+		node.add(new Edge(choice, nextNode));
+	}
+	
+	@BuilderMethod
+	public void CrownSelf2() {
+		var node = get(MyNodeLabels.Spare2.toString());
 		var CrownDecision = new PlayerInteraction(MyChoiceLabels.CrownSelf.toString(), grimspire, PlayerInteraction.Icons.arrest, "Lock Grimspire and become Queen");
 		var nextNode = get(MyNodeLabels.BecomeQueenEnding.toString());
 		node.add(new Edge(CrownDecision, nextNode));

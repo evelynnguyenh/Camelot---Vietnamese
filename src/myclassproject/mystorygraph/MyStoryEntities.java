@@ -13,11 +13,11 @@ public final class MyStoryEntities {
 	public static final Characters grimspire = new Characters("Grimspire", BodyTypes.B, Clothing.King, HairStyle.Musketeer_Full, Colors.Black, 5);
 	public static final Characters brother = new Characters("Brother", BodyTypes.D, Clothing.Noble, HairStyle.Long, Colors.Black, 5);
 	public static final Characters father = new Characters("Father", BodyTypes.F, Clothing.Noble, HairStyle.Mage_Full, Colors.Black, 5);
-	public static final Characters noble1 = new Characters("The Leader", BodyTypes.D, Clothing.Noble, HairStyle.Long, Colors.Black, 6);
-	public static final Characters noble2 = new Characters("Follower", BodyTypes.E, Clothing.Noble, HairStyle.Long, Colors.Black, 4);
-	public static final Characters noble3 = new Characters("Follower", BodyTypes.F, Clothing.Noble, HairStyle.Spiky, Colors.Black, 3);
-	public static final Characters noble4 = new Characters("Follower", BodyTypes.G, Clothing.Noble, HairStyle.Spiky, Colors.Black, 7);
-	public static final Characters noble5 = new Characters("Follower", BodyTypes.H, Clothing.Noble, HairStyle.Short, Colors.Black, 3);
+	public static final Characters noble1 = new Characters("Noble Man 1", BodyTypes.D, Clothing.Noble, HairStyle.Long, Colors.Black, 6);
+	public static final Characters noble2 = new Characters("Noble Man 2", BodyTypes.E, Clothing.Noble, HairStyle.Long, Colors.Black, 4);
+	public static final Characters noble3 = new Characters("Noble Man 3", BodyTypes.F, Clothing.Noble, HairStyle.Spiky, Colors.Black, 3);
+	public static final Characters noble4 = new Characters("Noble Man 4", BodyTypes.G, Clothing.Noble, HairStyle.Spiky, Colors.Black, 7);
+	public static final Characters noble5 = new Characters("Noble Man 5", BodyTypes.H, Clothing.Noble, HairStyle.Short, Colors.Black, 3);
 	public static final Place bedroom1 = new Place("Edmona's Bedroom", PlaceTypes.CastleBedroom); // where edmona gets abducted
 	public static final Place bedroom2 = new Place("Grimspire's Bedroom", PlaceTypes.CastleBedroom); // where grimspire is
 	public static final Place camp = new Place("Home", PlaceTypes.Camp); // edmona runs away when garry is sleeping
